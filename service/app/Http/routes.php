@@ -17,10 +17,12 @@ $app->get('/', function() use ($app) {
     return 'hello world';
 });
 
-$app->get('{path:.*}', function($path)
-{
-    echo 'You just visited my site dot com slash ' . $path;
+$app->get('user', function(){
+    return 'user';
 });
 
+$app->get('user/{id}', function($id){
+    return 'user'+$id;
+});
 
 $app->get('user/{id}', 'App\Http\Controllers\UserController@showProfile');

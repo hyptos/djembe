@@ -13,7 +13,7 @@ class UserController extends Controller {
      */
     public function showProfile($id)
     {
-        return view('user.profile', ['user' => $id]);
+        return view('user', ['user' => $id]);
     }
 
 }
