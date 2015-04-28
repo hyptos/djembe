@@ -10,4 +10,5 @@
 
 @section('content')
     <p>{{$user}}</p>
+    <p>{{$users}}</p>
 @stop

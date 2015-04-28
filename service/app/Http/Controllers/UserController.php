@@ -1,7 +1,9 @@
-<?php namespace App\Http\Controllers;
+<?php
 
-use App\User;
+namespace App\Http\Controllers;
+
 use App\Http\Controllers\Controller;
+use App\Models\User;
 
 class UserController extends Controller {
 
@@ -13,7 +15,9 @@ class UserController extends Controller {
      */
     public function showProfile($id)
     {
-        return view('user', ['user' => $id]);
+
+        $users = User::all();
+        return view('user', ['user' => $id, 'users' => $users]);
     }
 
 }
