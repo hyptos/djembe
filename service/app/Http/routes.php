@@ -21,8 +21,5 @@ $app->get('user', function(){
     return 'user';
 });
 
-$app->get('user/{id}', function($id){
-    return 'user'+$id;
-});
-
 $app->get('user/{id}', 'App\Http\Controllers\UserController@showProfile');
+$app->get('users', 'App\Http\Controllers\UserController@getAllProfile');

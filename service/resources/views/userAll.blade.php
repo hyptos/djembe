@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('title', 'User')
+@section('title', 'All Users')
 
 @section('content')
-    <p>{{$user}}</p>
+    <p>{{$users}}</p>
 @stop

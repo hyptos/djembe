@@ -15,9 +15,14 @@ class UserController extends Controller {
      */
     public function showProfile($id)
     {
+        $user = User::find($id);
+        return view('user', ['user' => $user]);
+    }
 
+    public function getAllProfile()
+    {
         $users = User::all();
-        return view('user', ['user' => $id, 'users' => $users]);
+        return view('userAll', ['users' => $users]);
     }
 
 }
