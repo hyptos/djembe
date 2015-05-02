@@ -41,13 +41,13 @@ class UserController extends Controller {
     */
     public function showProfileTeachers()
     {
-        //creation d'un User
-        $le = User::find(43);
-        //creation d'un Teacher
-        $te  = Learner::find(43);
+        // //creation d'un User
+        // $le = User::find(43);
+        // //creation d'un Teacher
+        // $te  = Learnerstack::find(43);
 
-        // link them together
-        $te->user()->save($le);
+        // // link them together
+        // $te->user()->save($le);
 
         $teachers = Teacher::all();
         return view('teacherAll', ['teachers' => $teachers]);
