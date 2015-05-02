@@ -4,8 +4,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class User extends Model {
-    protected $table = 'Users';
+    protected $table = 'users';
     public $timestamps = false;
+    protected $type = NULL;
     protected $fillable = [
         'name',
         'username',
@@ -13,6 +14,14 @@ class User extends Model {
         'password'
     ];
     protected $hidden = [ 'password' ];
+
+
+    /*
+     * Relationships
+    */
+    public function userable(){
+        return $this->morphTo();
+    }
 }
 
 
