@@ -13,7 +13,7 @@ class Learner extends User {
 	// Learner __has_one__ Teacher
     public function teacher()
     {
-        return $this->belongsTo('Teacher')->withTimestamps();
+        return $this->hasOne('Teacher')->withTimestamps();
     }
 
     public function user(){

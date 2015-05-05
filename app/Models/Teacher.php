@@ -13,7 +13,7 @@ class Teacher extends User {
 	// Teacher __has_many__ Learner
     public function learners()
     {
-        return $this->belongsToMany('Learner')->withTimestamps();
+        return $this->hasMany('Learner')->withTimestamps();
     }
 
     public function user(){
