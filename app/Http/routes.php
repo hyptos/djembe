@@ -12,7 +12,7 @@
 */
 
 //welcome routes
-$app->get('welcome', 'App\Http\Controllers\WelcomeController@test');
+$app->get('/', 'App\Http\Controllers\WelcomeController@test');
 
 
 //Users routes
