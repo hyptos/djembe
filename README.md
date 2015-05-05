@@ -2,6 +2,6 @@
 
 Antoine Martin
 Antoine Richard
-Elodie Hoareau
+Elodie Hoarau
 Carole Bonfre
 
