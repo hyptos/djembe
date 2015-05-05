@@ -11,13 +11,9 @@
 |
 */
 
-
-
-
-
-
 //welcome routes
 $app->get('welcome', 'App\Http\Controllers\WelcomeController@test');
+
 
 //Users routes
 $app->get('users', 'App\Http\Controllers\UserController@getAllProfile');
