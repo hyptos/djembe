@@ -1,13 +1,14 @@
 <?php namespace App\Providers;
 
 /***************************************************************
-*  
+*
 *      (c) 2011 Wojtek Jarzęcki (lottocad(nospam)@gmail.com)
 *      All rights reserved
 *
 *	   BSD Licence
 *
 ***************************************************************/
+
 error_reporting(5);
 define ("LINFINITY", -1);
 define ("TRIANGLE",	 0);
@@ -15,14 +16,14 @@ define ("RINFINITY", 1);
 define ("TRAPEZOID", 2);
 
 class Member {
-	
+
 	protected
 		$FName,   // Member Name
 		$FMiddle, // Middle Member point
 		$FA,      // Start Member point
 		$FB,	  // End member point
 		$FType;	  // Member type TRIANGLE,LINFINITY,RFINFINITY, TRAPEZOID
-				
+
 	public function __construct($Name=NULL,$start=NULL,$medium=NULL,$stop=NULL,$type=NULL){
 		if($Name == NULL) return;
 		$this->FName 	= $Name;
@@ -33,22 +34,22 @@ class Member {
 	}
 
 	public function __toString(){
-		return "Member\tname: $this->FName, 
+		return "Member\tname: $this->FName,
 		middle: $this->FMiddle,
 		start : $this->FA,
 		fb    : $this->FB,
 		type  : $this->FType";
 	}
-	
+
 
 /**
 * Calculates the ratio of belonging to a set of defined function shape.
 *    $ratio = Fuzzification($pontX);
 * @param   float 	$poinX
-* return   float  
+* return   float
 */
 	public function Fuzzification($P=0.0) {
-	
+
     if (($P<$this->FA) OR ($P>$this->FB)) return 0; //P is out this segment...
 
 	if ($P==$this->FMiddle) return 1;
@@ -57,7 +58,7 @@ class Member {
 	    if ($P<=$this->FMiddle) return 1;
 		if (($P>$this->FMiddle) AND ($P<$this->FB)) return ($this->FB-$P)/($this->FB-$this->FMiddle);
 	 }
-	
+
 	 if ($this->FType==RINFINITY) {
 	    if ($P>=$this->FMiddle) return 1;
 		if (($P<$this->FMiddle) AND ($P>$this->FA)) return ($P-$this->FA)/($this->FMiddle-$this->FA);
@@ -77,13 +78,13 @@ class Member {
 }
 
 } // class Member
-	
+
 class Fuzzify extends Member {
 	
 	protected $FMin = array();
 	protected $FMax = array();
 	protected $members = array();
-	
+
 	public function setMinMax($idx,$A=0,$B=0) {
 		If ($A<=$B) { 
 			$this->FMin[$idx] =	$A;
@@ -93,12 +94,12 @@ class Fuzzify extends Member {
 			$this->FMax[$idx] =	$A;
 		}
 	}
-	
+
 	public function clearMembers() {
 		$this->members = NULL;
 	}
-	
-	public function addMember($idx,$Name='New',$start=0.0,$medium=0.0,$stop=0.0,$type=TRIANGLE) {		
+
+	public function addMember($idx,$Name='New',$start=0.0,$medium=0.0,$stop=0.0,$type=TRIANGLE) {
 		$member = new Member($Name,$start,$medium,$stop,$type);
 
 		if(!array_key_exists($idx, $this->FMin))
@@ -115,30 +116,30 @@ class Fuzzify extends Member {
 
 		$this->members[$idx][] = $member;
 	}
-	
+
 	public function setMembers($idx,$m = array()) {
 		$this->members[$idx] = $m;
 	}
-	
+
 	public function getMembers($idx,$id = NULL) {
 		if ($id) return $this->members[$idx][$id];
 		else return $this->members[$idx];
 	}
-	
+
 	public function getMembersIndex($idx,$value = NULL) {
-		foreach ($this->members[$idx] as $idx => $member)	
+		foreach ($this->members[$idx] as $idx => $member)
 			if ($value==$member->FName) return $idx;
 		return FALSE;
 	}
-	
+
 	public function getMemberByName($idx,$name = NULL) {
-		foreach ($this->members[$idx] as $idx => $member)	
+		foreach ($this->members[$idx] as $idx => $member)
 			if ($name==$member->FName) return $member;
 		return FALSE;
 	}
 	
 } // end class fuzzify
-	
+
 class Rules extends Fuzzify{
 
 	public	$FXValues 		= 	array();
@@ -149,15 +150,15 @@ class Rules extends Fuzzify{
 	private $InputNames = NULL;
 	private $OutputNames = NULL;
 	private $rules = NULL;
-	
+
 /**
 * Set private properties $this->InputNames
 * example :
 *    $fuzzy->setInputNames(array('Name1','Name2'));
 * @param   array of string
-* return   none  
+* return   none
 **/
-	
+
 	public function setInputNames($val) {
 		$this->InputNames = $val;
 	}
@@ -167,9 +168,9 @@ class Rules extends Fuzzify{
 * example :
 *    $fuzzy->setOutputNames(array('Name1','Name2'));
 * @param   array of string
-* return   none  
+* return   none
 **/
-	
+
 	public function setOutputNames($val) {
 		$this->OutputNames = $val;
 	}
@@ -179,21 +180,21 @@ class Rules extends Fuzzify{
 * example :
 *    $names = $fuzzy->getInputNames();
 * @param   none
-* return   array of string  
+* return   array of string
 **/
-	
+
 	public function getInputNames() {
 		return $this->InputNames;
 	}
-	
+
 /**
 * Return private properties $this->OutputNames
 * example :
 *    $names = $fuzzy->getOututNames();
 * @param   none
-* return   array of string  
+* return   array of string
 **/
-	
+
 	public function getOutputNames() {
 		return $this->OutputNames;
 	}
@@ -203,83 +204,83 @@ class Rules extends Fuzzify{
 * example :
 *    $names = $fuzzy->getInputNames($idx);
 * @param   none
-* return   string  
+* return   string
 **/
-	
+
 	public function getInputName($idx) {
 		return $this->InputNames[$idx];
 	}
-	
+
 /**
 * Return private properties $this->OutputNames[$idx]
 * example :
 *    $names = $fuzzy->getOutputNames($idx);
 * @param   none
-* return   string  
+* return   string
 **/
-	
+
 	public function getOutputName($idx=0) {
 		return $this->OutputNames[$idx];
 	}
-	
+
 /**
 * Clear all rules
 * example :
 *    $fuzzy->clearRules();
 * @param   none
-* return   none  
+* return   none
 **/
-	
+
 	public function clearRules() {
 		$this->rules = NULL;
 	}
-	
+
 /**
 * Return array as Rules
 * example :
 *    $fuzzy->getRules();
 * @param   none
-* return   array of string  
+* return   array of string
 **/
-	
+
 	public function getRules() {
 		return $this->rules;
 	}
-	
+
 /**
 * Return Rule as String
 * example :
 *    $fuzzy->getRule($id);
 * @param   integer $id (key)
-* return   string  
+* return   string
 **/
-	
+
 	public function getRule($id) {
 		return $this->rules[$id];
 	}
 
 /**
-* Add Rule as String to private properties Rules Array 
+* Add Rule as String to private properties Rules Array
 * example :
 *    $fuzzy->addRule('IF input1.High AND input2.Slow Then Out1.Run');
 * @param   string
-* return   none  
+* return   none
 **/
-	
+
 	public function addRule($val) {
 		$this->rules[] = $val;
 	}
-	
+
 /**
 * Find parenthis fragments of Rule as string
 * example :
 *    $fragment = $this->rSplit('IF input1.High AND (input2.Slow OR input3.Fast) Then Out1.Run');
 * @param   string
-* return   string  'input2.Slow OR input3.Fast' 
+* return   string  'input2.Slow OR input3.Fast'
 **/
-	
+
 	private function rSplit($string) {
-		if (preg_match("/\((([^()]*|(?R))*)\)/",$string,$matches))		
+		if (preg_match("/\((([^()]*|(?R))*)\)/",$string,$matches))
 		return $matches[1];
 	}
 /**
@@ -287,8 +288,8 @@ class Rules extends Fuzzify{
 * example :
 *    $fragment = $this->getLastParent('IF input1.High AND (input2.Slow OR (input3.Fast AND input4.Warm)) Then Out1.Run');
 * @param   string
-* return   string  'input3.Fast AND input4.Warm' 
-**/	
+* return   string  'input3.Fast AND input4.Warm'
+**/
 	private function getLastParent($a) {
 		$a = 0;
 		$ret = 0;
@@ -297,7 +298,7 @@ class Rules extends Fuzzify{
 			if($a) 
 				$ret=$a;
 		} while($a);
-
+		
 		return $ret;
 	}
 
@@ -306,37 +307,37 @@ class Rules extends Fuzzify{
 * example :
 *    $val = $this->_FuzzyOR(array(1,0.5));
 * @param   array float values
-* return   float (max value) = 0.5 
+* return   float (max value) = 0.5
 **/
-	
+
 	private function _FuzzyOR($arr) {
 		return (max($arr));
 	}
-	
+
 /**
 * Fuzzy Logic OR operation on array of values
 * example :
 *    $val = $this->rSplit(array(1,0.5));
 * @param   array float values
-* return   float (min value) = 1 
-**/	
+* return   float (min value) = 1
+**/
 	private function _FuzzyAND($arr) {
 		return (min($arr));
-	} 
+	}
 
 /**
 * Fuzzy Logic NOT operation on array of values
 * example :
 *    $val = $this->rSplit(array(1,0.5));
 * @param   array float values
-* return   float (min value) = 1 
-**/	
+* return   float (min value) = 1
+**/
 	private function _FuzzyNOT($arr) {
 		return 1 - $arr[0];
-	} 
-	
+	}
+
 /**
-* Calculate Rule.Parser And Interpreter for Rule. 
+* Calculate Rule.Parser And Interpreter for Rule.
 * Rule has text line example:
 *    IF input1.High AND input2.Slow Then Out1.Run
 * Where
@@ -358,10 +359,10 @@ class Rules extends Fuzzify{
 *    $val = $fuzzy->processRule('IF input1.High AND input2.Slow Then Out1.Run');
 * @param   string Rule
 * return   float (calculated fuzzy value as Rule cryteria)
-**/	
-	
+**/
+
 	public function processRule($rule) {
-		while ($in_parent = $this->getLastParent($rule)) {	
+		while ($in_parent = $this->getLastParent($rule)) {
 			$pos=strpos($rule,$in_parent);
 			$len=strlen($in_parent);
 			$tmparr=array();
@@ -371,16 +372,16 @@ class Rules extends Fuzzify{
 				$inp=strtolower($item);
 				if (($inp=='or') or ($inp=='and') or ($inp=='not')) $operation=$inp; 	else   {
 					list($inputName,$memberName) = preg_split("/\./",$item);
-					// get value from 
+					// get value from
 					$mem_idx = $this->getMembersIndex($inputName,$memberName);
 					$tmparr[] =$this->FOutputs[$inputName][$mem_idx];
 					}
 			}
-		$value1 = ($operation == 'or') ? $this->_FuzzyOR($tmparr) : 
+		$value1 = ($operation == 'or') ? $this->_FuzzyOR($tmparr) :
 				  ($operation == 'not') ? $this->_FuzzyNOT($tmparr) :$this->_FuzzyAND($tmparr);
-		$rule=substr($rule,0,$pos-1).$value1.substr($rule,$pos+$len+1); 
+		$rule=substr($rule,0,$pos-1).$value1.substr($rule,$pos+$len+1);
 		}
-		
+
 		$items=preg_split("/\s+/",$rule);
 		$operation='and';
 		$firstop = array_shift($items);
@@ -388,26 +389,26 @@ class Rules extends Fuzzify{
 		$tmparr=array();
 		foreach($items as $item) {
 			$inp=strtolower($item);
-			if (($inp=='or') or ($inp=='and') or ($inp=='not')) $operation=$inp; 
+			if (($inp=='or') or ($inp=='and') or ($inp=='not')) $operation=$inp;
 				elseif (($inp=='then') or ($inp=='for'))  continue;
 					else {
 						// split names
 						list($inputName,$memberName) = preg_split("/\./",$item);
-						// get value from FOutputs 
+						// get value from FOutputs
 						$mem_idx = $this->getMembersIndex($inputName,$memberName);
 						$tmparr[] =$this->FOutputs[$inputName][$mem_idx];
 						}
 		}
-		$value1 = ($operation == 'or') ? $this->_FuzzyOR($tmparr) : 
+		$value1 = ($operation == 'or') ? $this->_FuzzyOR($tmparr) :
 				  ($operation == 'not') ? $this->_FuzzyNOT($tmparr) :$this->_FuzzyAND($tmparr);
-				  
+
 		return array($outitem,$value1);
 	}
-	
-} //class Rules	
+
+} //class Rules
 
 class FuzzyLogicProvider extends Rules {
-				
+
 	protected  $FuzzyTable 	=	NULL;
 	public 	$StateOutput    =	array();
 	protected	$AgregatePoints =   100;
@@ -416,13 +417,13 @@ class FuzzyLogicProvider extends Rules {
 * example :
 *    $this->ClearSolution();
 * @param   none
-* return   none 
-*/			
+* return   none
+*/
 	private function ClearSolution() {
 	$this->FXValues			=	array();
 	$this->FYValues			=	array();
 	}
-	
+
 /**
 * Set protected properties FuzzyTable
 * example :
@@ -430,55 +431,55 @@ class FuzzyLogicProvider extends Rules {
 *     //      IF input1   AND input2 Then Output
 *     //      For OR use pair input1 , NULL
 *     //                      NULL   , input 2
-*     //       ------       -------       -------         
+*     //       ------       -------       -------
 *     	array('adequate',	   NULL  ,		'low'),
 *     	array(NULL ,	     'small'  ,		'low'),
 *     	array('marginal',	 'large' ,		'normal'),
 *     	array('inadequate' , NULL ,	    'high'),
 *     ));
 * @param   array
-* return   none 
-**/	
+* return   none
+**/
 
-	
+
 	public function SetFuzzyTable($A = array()) {
 	$this->FuzzyTable = $A;
 	}
-		
+
 /**
-* Set Real Input Value @param2 for Input named @param1 
+* Set Real Input Value @param2 for Input named @param1
 * example :
 *    $fuzzy->SetRealInput('input1',0.23);
-* @param1   string $idx 
+* @param1   string $idx
 * @param2   float  $X
-* return   none 
-**/	
+* return   none
+**/
 
 	public function SetRealInput($idx,$X = 0.0) {
 		$this->FRealInput[$idx]	=	$X;
 		$this->FOutputs[$idx] = array();
 		For ($i=0;$i<count($this->members[$idx]);$i++) {
-			$this->FOutputs[$idx][]	=	$this->members[$idx][$i]->Fuzzification($this->FRealInput[$idx]); 
+			$this->FOutputs[$idx][]	=	$this->members[$idx][$i]->Fuzzification($this->FRealInput[$idx]);
 		}
 	}
 
 /*
-* Agregate All Rules Result for Defuzification 
+* Agregate All Rules Result for Defuzification
 * example :
 *    $fuzzy->FuzzyAgregate($outname,$Member,$AlphaCut=0.0)
-* @param   string $output_name 
+* @param   string $output_name
 * @param   object $member_object
 * @param   float $calculate_rule_value
-* return   none 
-*/	
-	
+* return   none
+*/
+
 	public function FuzzyAgregate($outname,$Member,$AlphaCut=0.0) {
 		foreach($this->FXValues[$outname] as $index=>$pointX) {
 			if ($pointX<$Member->FA) continue;
 			if ($pointX>$Member->FB) break;
 			$ms = $Member->Fuzzification($pointX);
 			$mem_val = min($ms,$AlphaCut);
-			$this->FYValues[$outname][$index] = max($this->FYValues[$outname][$index],$mem_val);	
+			$this->FYValues[$outname][$index] = max($this->FYValues[$outname][$index],$mem_val);
 		}
 	}
 
@@ -486,11 +487,11 @@ class FuzzyLogicProvider extends Rules {
 * Calculate Defuzification Fuzzy Result for method AVG (required set FuzzyTable)
 * example :
 *    $fuzzy->calcFuzzy()
-* @param   none 
+* @param   none
 * return   array of outputs values (no associated keys)
-*/		
-	
-	public function calcFuzzyAlt() {	
+*/
+
+	public function calcFuzzyAlt() {
 		$MaxAverage = 0;
 		$this->ClearSolution();
 		//$count_inputs = count($this->InputNames);
@@ -500,11 +501,11 @@ class FuzzyLogicProvider extends Rules {
 		$cnt = array();
 		// fill output agregate table
 		foreach($this->getOutputNames() as $outname) {
-		$AgregateDeltaX = ($this->FMax[$outname]-$this->FMin[$outname])/$this->AgregatePoints;	 
+		$AgregateDeltaX = ($this->FMax[$outname]-$this->FMin[$outname])/$this->AgregatePoints;
 		$this->FXValues[$outname] = Range($this->FMin[$outname],$this->FMax[$outname],$AgregateDeltaX);
 		$this->FYValues[$outname] = array_fill ( 0 , count($this->FXValues[$outname]), 0.0 );
 		}
-		
+
 		foreach ($this->FuzzyTable as $row_idx => $line_rule) {
 				$sum = 0.0;
 				$cnt = 0.0;
@@ -513,21 +514,21 @@ class FuzzyLogicProvider extends Rules {
 				$out_idx =$col - $count_inputs;
 				$outname = $this->getOutputName($out_idx);
 					if (!is_null($member_name)) {
-					
+
 						if ($col<$count_inputs) { // is input
 							$inp_name = $this->getInputName($col);
 							$mem_idx = $this->getMembersIndex($inp_name,$member_name);
 							$val =$this->FOutputs[$inp_name][$mem_idx]; // get members value
-							if ($val>0) { 
+							if ($val>0) {
 								$sum+=$val; // sum members values
-								$cnt++;	
+								$cnt++;
 								} else {
 								//$sum=0;
 								//$cnt=0;
 								break;
 								}
 						} else { //is output
-	
+
 								$member=$this->getMemberByName($outname,$member_name); // get OUTPUT member
 								if ($cnt == 0) $avg_sum = 0; else $avg_sum = $sum/$cnt;
 								$this->StateOutput[$member_name] = $avg_sum;
@@ -536,49 +537,49 @@ class FuzzyLogicProvider extends Rules {
 								$cnt = 0.0;
 						}
 					} // if $member_name
-				} // foreach rule	
+				} // foreach rule
 			} // foreach rule_row
-	
+
 		$result = array();
-		
+
 		foreach($this->getOutputNames() as $outname) {
 		$suma=0.0;
 		$sumb=0.0;
-		
+
 		foreach($this->FXValues[$outname] as $id=>$x) {
 			$y=$this->FYValues[$outname][$id];
 			if ($y>0) {
 			$suma+=($x*$y);
 			$sumb+=$y;
 			}
-		}	
-		if ($sumb == 0) $result[]= 0; else	$result[] = $suma/$sumb;	
+		}
+		if ($sumb == 0) $result[]= 0; else	$result[] = $suma/$sumb;
 		}
 	return $result;
 }
-	
+
 /*
 * Calculate Defuzification Fuzzy Result for method MIN,MAX (required set Rules)
 * example :
 *    $fuzzy->calcFuzzyAlt()
-* @param   none 
+* @param   none
 * return   array of outputs values (associated keys)
-*/		
-	
-	public function calcFuzzy() {	
+*/
+
+	public function calcFuzzy() {
 		$this->ClearSolution();
-				
+
 		$sum = 0;
 		$tmpx=array();
 		$sum = array();
 		$cnt = array();
 		// fill output agregate table
 		foreach($this->getOutputNames() as $outname) {
-		$AgregateDeltaX = ($this->FMax[$outname]-$this->FMin[$outname])/$this->AgregatePoints;	 
+		$AgregateDeltaX = ($this->FMax[$outname]-$this->FMin[$outname])/$this->AgregatePoints;
 		$this->FXValues[$outname] = Range($this->FMin[$outname],$this->FMax[$outname],$AgregateDeltaX);
 		$this->FYValues[$outname] = array_fill ( 0 , count($this->FXValues[$outname]), 0.0 );
 		}
-		
+
 		$rules=$this->getRules();
 		foreach ($rules as $key=>$rule) {
 			 list($outItem,$value) = $this->processRule($rule);
@@ -587,21 +588,21 @@ class FuzzyLogicProvider extends Rules {
 			 $member=$this->getMemberByName($outputName,$memberName); // get OUTPUT member
 			 if ($value>0)  $this->FuzzyAgregate($outputName,$member,$value);
 			}
-	
+
 		$result = array();
-		
+
 		foreach($this->getOutputNames() as $outname) {
 		$suma=0.0;
 		$sumb=0.0;
-		
+
 		foreach($this->FXValues[$outname] as $id=>$x) {
 			$y=$this->FYValues[$outname][$id];
 			if ($y>0) {
 			$suma+=($x*$y);
 			$sumb+=$y;
 			}
-		}	
-		if ($sumb == 0) $result[$outname]= 0; else	$result[$outname] = $suma/$sumb;	
+		}
+		if ($sumb == 0) $result[$outname]= 0; else	$result[$outname] = $suma/$sumb;
 		}
 	return $result;
 }

@@ -9,7 +9,7 @@ class FuzzyController extends Controller {
 
 	/**
      * Return an evaluation for an exercice
-     * 
+     *
      * @param  int  $nbErrors
      * @param  int 	$nbResponses
      * @param  int  $time
@@ -22,6 +22,7 @@ class FuzzyController extends Controller {
 		$fuzzy = new FuzzyLogicProvider();
 
 		$fuzzy->clearMembers();
+
 
 		/* ---------- définition des inputs : pourcentage de erreurs & la vitessep de l'utilisateur our finir l'exercice ---------*/
 		$fuzzy->setInputNames(array('taux_err','vitesse'));
