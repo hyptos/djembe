@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Providers\FuzzyLogicProvider
+use App\Providers\FuzzyLogicProvider;
 
-class UserController extends Controller {
+class FuzzyController extends Controller {
 
 	/**
      * Return an evaluation for an exercice
-     * 
+     *
      * @param  int  $nbErrors
      * @param  int 	$nbResponses
      * @param  int  $time
@@ -22,6 +22,7 @@ class UserController extends Controller {
 		$fuzzy = new FuzzyLogicProvider();
 
 		$fuzzy->clearMembers();
+
 
 		/* ---------- définition des inputs : pourcentage de erreurs & la vitessep de l'utilisateur our finir l'exercice ---------*/
 		$fuzzy->setInputNames(array('taux_err','vitesse'));

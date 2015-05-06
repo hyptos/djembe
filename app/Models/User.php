@@ -8,12 +8,6 @@ class User extends Model {
     protected $hidden = [ 'password' ];
 
 
-    /*
-     * Relationships
-    */
-    public function userable(){
-        return $this->morphTo();
-    }
 }
 
 

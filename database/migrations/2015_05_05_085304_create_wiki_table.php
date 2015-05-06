@@ -15,6 +15,7 @@ class CreateWikiTable extends Migration {
 		Schema::create('wiki', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->string('name');
 			$table->timestamps();
 		});
 	}
