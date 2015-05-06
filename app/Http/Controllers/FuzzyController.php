@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Providers\FuzzyLogicProvider
+use App\Providers\FuzzyLogicProvider;
 
-class UserController extends Controller {
+class FuzzyController extends Controller {
 
 	/**
      * Return an evaluation for an exercice
@@ -27,15 +27,14 @@ class UserController extends Controller {
 		$fuzzy->setInputNames(array('taux_err','vitesse'));
 
 		/* ----- définition des ensembles de l'input Taux D'erreurs (%) : {'faible', 'moyen', 'élevé'} --------*/
-		$fuzzy->addMember($fuzzy->getInputName(0),'faible', -0.5, 0.0, 0.5, LINFINITY);
-		$fuzzy->addMember($fuzzy->getInputName(0),'moyen', 0.0, 0.5, 1, TRIANGLE);
-		$fuzzy->addMember($fuzzy->getInputName(0),'eleve', 0.5, 1,  1.5, RINFINITY);
+		$fuzzy->addMember($fuzzy->getInputName(0), 'faible', -0.5, 0.0, 0.5, LINFINITY);
+		$fuzzy->addMember($fuzzy->getInputName(0), 'moyen', 0.0, 0.5, 1, TRIANGLE);
+		$fuzzy->addMember($fuzzy->getInputName(0), 'eleve', 0.5, 1,  1.5, RINFINITY);
 
 		/* ----- définition des ensembles de l'input Vitesse (s) : {'rapide', 'normale', 'lente'} --------*/
-		$fuzzy->addMember($fuzzy->getInputName(1),'rapide', 0, $timeAvg/2, $timeAvg, LINFINITY);		///TODO : norme du temps variable
-		$fuzzy->addMember($fuzzy->getInputName(1),'normale', 0, $timeAvg, $timeAvg*2, TRIANGLE);
-		$fuzzy->addMember($fuzzy->getInputName(1),'lente', $timeAvg, $timeAvg*2,  $timeAvg*3, RINFINITY);
-
+		$fuzzy->addMember($fuzzy->getInputName(1), 'rapide', 0, $timeAvg/2, $timeAvg, LINFINITY);		///TODO : norme du temps variable
+		$fuzzy->addMember($fuzzy->getInputName(1), 'normale', 0, $timeAvg, $timeAvg*2, TRIANGLE);
+		$fuzzy->addMember($fuzzy->getInputName(1), 'lente', $timeAvg, $timeAvg*2,  $timeAvg*3, RINFINITY);
 
 		/* ---------- définition de l'output : note ---------*/
 		$fuzzy->setOutputNames(array('note', 'conseil'));

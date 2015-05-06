@@ -23,3 +23,4 @@ $app->get('user/teacherD', 'App\Http\Controllers\UserController@deleteAllUsers')
 $app->get('user/teacher', 'App\Http\Controllers\UserController@showProfileTeachers');
 $app->get('user/{id}', 'App\Http\Controllers\UserController@showProfile');
 $app->get('test', 'App\Http\Controllers\UserController@test');
+$app->get('fuzzy/{nbErr}/{nbResp}/{time}/{timeAvg}', 'App\Http\Controllers\FuzzyController@evaluate');

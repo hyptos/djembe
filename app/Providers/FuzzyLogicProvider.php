@@ -9,10 +9,10 @@
 *
 ***************************************************************/
 error_reporting(5);
-define ("LINFINITY"	,	-1 );
-define ("TRIANGLE" 	,	 0 );
-define ("RINFINITY"	,	 1 );
-define ("TRAPEZOID"	,	 2 );
+define ("LINFINITY", -1);
+define ("TRIANGLE",	 0);
+define ("RINFINITY", 1);
+define ("TRAPEZOID", 2);
 
 class Member {
 	
@@ -34,7 +34,7 @@ class Member {
 
 	public function __toString(){
 		return "Member\tname: $this->FName, 
-		middle: $this->FMiddle, 
+		middle: $this->FMiddle,
 		start : $this->FA,
 		fb    : $this->FB,
 		type  : $this->FType";
@@ -80,17 +80,17 @@ class Member {
 	
 class Fuzzify extends Member {
 	
-	protected  $FMin	=	array();
-	protected  $FMax	=	array();
+	protected $FMin = array();
+	protected $FMax = array();
 	protected $members = array();
 	
 	public function setMinMax($idx,$A=0,$B=0) {
 		If ($A<=$B) { 
-		$this->FMin[$idx] 	=	$A;
-		$this->FMax[$idx] 	= 	$B;
+			$this->FMin[$idx] =	$A;
+			$this->FMax[$idx] =	$B;
 		} else {
-			$this->FMin[$idx]   = 	$B;
-			$this->FMax[$idx]	=	$A;
+			$this->FMin[$idx] =	$B;
+			$this->FMax[$idx] =	$A;
 		}
 	}
 	
@@ -100,9 +100,20 @@ class Fuzzify extends Member {
 	
 	public function addMember($idx,$Name='New',$start=0.0,$medium=0.0,$stop=0.0,$type=TRIANGLE) {		
 		$member = new Member($Name,$start,$medium,$stop,$type);
-		if ($member->FA < (float)$this->FMin[$idx]) $this->setMinMax($idx, $member->FA ,(float)$this->FMax[$idx]);
-		if ($member->FB > (float)$this->FMax[$idx]) $this->setMinMax($idx , (float)$this->FMin[$idx] , $member->FB);
-		$this->members[$idx][] = $member; 
+
+		if(!array_key_exists($idx, $this->FMin))
+			$this->FMin[$idx] = 0.0;
+			
+		if(!array_key_exists($idx, $this->FMax))
+			$this->FMax[$idx] = 0.0;
+
+		if($member->FA < (float)$this->FMin[$idx])
+			$this->setMinMax($idx, $member->FA, (float)$this->FMax[$idx]);
+
+		if($member->FB > (float)$this->FMax[$idx])
+			$this->setMinMax($idx , (float)$this->FMin[$idx] , $member->FB);
+
+		$this->members[$idx][] = $member;
 	}
 	
 	public function setMembers($idx,$m = array()) {
@@ -126,7 +137,7 @@ class Fuzzify extends Member {
 		return FALSE;
 	}
 	
-	} // end class fuzzify
+} // end class fuzzify
 	
 class Rules extends Fuzzify{
 
@@ -279,11 +290,15 @@ class Rules extends Fuzzify{
 * return   string  'input3.Fast AND input4.Warm' 
 **/	
 	private function getLastParent($a) {
-	do {
-	$a = $this->rSplit($a);
-	if ($a) $ret=$a;
-	} while($a);
-	return $ret;
+		$a = 0;
+		$ret = 0;
+		do {
+			$a = $this->rSplit($a);
+			if($a) 
+				$ret=$a;
+		} while($a);
+
+		return $ret;
 	}
 
 /**
