@@ -84,6 +84,31 @@ class FuzzyController extends Controller {
 		$fuzzy->SetRealInput('vitesse', $time);
 
 		/* ------ on lance le calcul en logique floue et récupère les valeurs qui nous interesse ------ */
-		return $fuzzy->calcFuzzy();
+		$res = $fuzzy->calcFuzzy();
+
+		/* ------ on clarifie le retour du conseil ------ */
+		/* --- si le résultat est "très mauvais" --- */
+		if($res['note'] < 12.5)
+			$res['conseil'] = 'reprendre les bases';
+		/* --- si le résultat est "mauvais" --- */
+		else if($res['note'] < 27.5)
+			$res['conseil'] = 'refaire exercice en plus simple';
+		/* --- si le résultat est "moyen" --- */
+		else if($res['note'] < 62.5){
+			/* ---- On regarde le conseil défini dans fuzzy ---- */
+			if($res['conseil'] < 0.25)
+				$res['conseil'] = 'refaire un peu plus vite';
+			else if ($res['conseil'] < 0.75)
+				$res['conseil'] = 'refaire le même exercice';
+			else
+				$res['conseil'] = 'refaire plus lentement';
+		}
+		else if($res['note'] < 77.5)
+			$res['conseil'] = 'continuer le cours';
+		else
+			$res['conseil'] = 'continuer le cours, avec exercices plus complexes';
+		
+
+		return $res;
 	}
 }
