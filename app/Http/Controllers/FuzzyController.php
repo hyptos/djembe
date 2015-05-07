@@ -97,11 +97,11 @@ class FuzzyController extends Controller {
 		else if($res['note'] < 62.5){
 			/* ---- On regarde le conseil défini dans fuzzy ---- */
 			if($res['conseil'] < 0.25)
-				$res['conseil'] = 'refaire un peu plus vite';
+				$res['conseil'] = 'refaire plus lentement';
 			else if ($res['conseil'] < 0.75)
 				$res['conseil'] = 'refaire le même exercice';
 			else
-				$res['conseil'] = 'refaire plus lentement';
+				$res['conseil'] = 'refaire plus vite';
 		}
 		else if($res['note'] < 77.5)
 			$res['conseil'] = 'continuer le cours';
