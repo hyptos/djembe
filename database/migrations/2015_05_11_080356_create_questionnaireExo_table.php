@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateChapitreTable extends Migration {
+class CreateQuestionnaireExoTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,21 +12,19 @@ class CreateChapitreTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('chapitre', function(Blueprint $table)
+		Schema::create('questionnaireExo', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('nbChapitre');
-			$table->string('contenuEditable');
 			$table->integer('questionnaire_id')->unsigned();
-			$table->integer('cours_id')->unsigned();
+			$table->integer('exercice_id')->unsigned();
 			$table->timestamps();
 		});
 
-		// Schema::table('chapitre', function(Blueprint $table)
+		// Schema::table('questionnaireExo', function(Blueprint $table)
 		// {
   //           $table->foreign('questionnaire_id')->references('id')->on('questionnaire');
-  //           $table->foreign('cours_id')->references('id')->on('cours');
-  //       });
+  //           $table->foreign('exercice_id')->references('id')->on('exercice');
+		// });
 	}
 
 	/**
@@ -36,7 +34,7 @@ class CreateChapitreTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('chapitre');
+		Schema::drop('questionnaireExo');
 	}
 
 }

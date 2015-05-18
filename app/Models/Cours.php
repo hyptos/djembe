@@ -16,9 +16,4 @@ class Cours extends Model {
         return $this->hasMany('App\Models\Stats');
     }
 
-    public function users()
-    {
-        return $this->hasMany('App\Models\User');
-    }
-
 }

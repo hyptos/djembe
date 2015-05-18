@@ -1,7 +1,5 @@
-@extends('layouts.master')
-
-@section('title', 'All Users')
+@extends('layouts.json')
 
 @section('content')
-    <p>{{$users}}</p>
+    {{$users}}
 @stop

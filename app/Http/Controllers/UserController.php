@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Models\Teacher;
 use App\Models\Learner;
+use App\Models\Teacher;
 
 class UserController extends Controller {
 
@@ -33,18 +33,6 @@ class UserController extends Controller {
         return view('userAll', ['users' => $users]);
     }
 
-    /**
-     * Show the profile of all teachers.
-     *
-     * @param  none
-     * @return Response
-    */
-    public function showProfileTeachers()
-    {
-
-        $teachers = Teacher::all();
-        return view('teacherAll', ['teachers' => $teachers]);
-    }
 
     /**
      * Delete all the profile of all users.
@@ -72,14 +60,11 @@ class UserController extends Controller {
     */
     public function test()
     {
-        //creation d'un User
-        $le = User::find(43);
 
-        //creation d'un Teacher
-        $te  = Learner::find(43);
+        $learner = User::find(1);
+        $teacher = User::find(3);
 
-        // link them together
-        $te->user()->save($le);
+        $learner->learnFrom()->save($teacher);
         return 'OK';
     }
 }

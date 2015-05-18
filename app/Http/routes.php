@@ -19,7 +19,7 @@ $app->get('/', 'App\Http\Controllers\WelcomeController@test');
 $app->get('users', 'App\Http\Controllers\UserController@getAllProfile');
 $app->get('user/learner', 'App\Http\Controllers\UserController@showProfileLearners');
 // a remplacer avec un $app->delete pour API REST
-$app->get('user/teacherD', 'App\Http\Controllers\UserController@deleteAllUsers');
+$app->delete('user/teacher', 'App\Http\Controllers\UserController@deleteAllUsers');
 $app->get('user/teacher', 'App\Http\Controllers\UserController@showProfileTeachers');
 $app->get('user/{id}', 'App\Http\Controllers\UserController@showProfile');
 $app->get('test', 'App\Http\Controllers\UserController@test');

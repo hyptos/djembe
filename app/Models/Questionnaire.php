@@ -16,4 +16,8 @@ class Questionnaire extends Model {
         return $this->hasMany('App\Models\Exercice');
     }
 
+    public function questionnaireExo(){
+        return $this->hasOne('App\Models\Exercice')
+        	->withPivot('App\Models\QuestionnaireExo','questionnaire_id');
+    }
 }

@@ -19,8 +19,14 @@ class CreateExerciceTable extends Migration {
 			$table->integer('difficulte');
 			$table->string('resultat');
 			$table->string('indice');
+			$table->integer('imageexo_id')->unsigned();
 			$table->timestamps();
 		});
+
+		// Schema::table('exercice', function(Blueprint $table)
+		// {
+  //           $table->foreign('imageexo_id')->references('id')->on('imageExo');
+  //       });
 	}
 
 	/**
