@@ -19,6 +19,7 @@ class CreateEnseigneTable extends Migration {
 			$table->integer('teacher_id')->unsigned();
 			$table->integer('learner_id')->unsigned();
 			$table->timestamps();
+			$table->unique( array('teacher_id', 'learner_id') );
 		});
 
 		// Schema::table('enseigne', function(Blueprint $table)
