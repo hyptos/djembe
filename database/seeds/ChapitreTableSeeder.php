@@ -30,11 +30,16 @@ class ChapitreTableSeeder extends Seeder
 
         Chapitre::create([
             'noChapitre' => '1',
-            'titreChapitre' => 'Les suites de sons',
-            'contenu' => 'Plus que des sons, la musique est composé de suite de sons.
-                          Amusons nous à rejouer des suites de sons',
+            'titreChapitre' => 'Lire les notes',
+            'contenu' => 'En musique les sons s\'appellent des notes.
+                          Comme tu le sais il en existe plusieurs :
+                          Do Ré Mi Fa Sol La Si.
+
+                          Pour les lire et les écrire nous utilisons une portée
+
+                          [img de portée]',
             'cours_id' => 2,
-            'questionnaire_id' => 2,
+            'questionnaire_id' => -1,
         ]);
     }
 }
