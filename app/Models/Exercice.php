@@ -16,4 +16,9 @@ class Exercice extends Model {
         return $this->hasMany('App\Models\ImageExo');
     }
 
+    public function questionnaireExo(){
+        return $this->hasOne('App\Models\Questionnaire')
+        	->withPivot('App\Models\QuestionnaireExo','exercice_id');
+    }
+
 }
