@@ -19,5 +19,7 @@ class DatabaseSeeder extends Seeder {
 		$this->command->info('Stats table seeded!');
 		$this->call('CoursTableSeeder');
 		$this->command->info('Cours table seeded!');
+		$this->call('ChapitreTableSeeder');
+		$this->command->info('Chapitre table seeded!');
 	}
 }

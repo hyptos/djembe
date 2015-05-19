@@ -4,7 +4,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Chapitre extends Model {
-    protected $fillable = ['nbChapitre','contenuEditable'];
+    protected $fillable = ['noChapitre','contenu', 'titreChapitre', 'cours_id', 'questionnaire_id'];
 
     public function cours()
     {
