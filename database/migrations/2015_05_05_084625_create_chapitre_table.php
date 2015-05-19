@@ -15,7 +15,8 @@ class CreateChapitreTable extends Migration {
 		Schema::create('chapitre', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('nbChapitre');
+			$table->integer('noChapitre');
+			$table->string('titreChapitre');
 			$table->string('contenuEditable');
 			$table->integer('questionnaire_id')->unsigned();
 			$table->integer('cours_id')->unsigned();
