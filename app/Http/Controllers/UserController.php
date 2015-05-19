@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Models\Learner;
-use App\Models\Teacher;
+use App\Models\Stats;
 
 class UserController extends Controller {
 
@@ -53,18 +52,28 @@ class UserController extends Controller {
     }
 
     /**
+     * enseigne fonction.
+     *
+     * @param  User u1, User u2
+     * @return Response
+    */
+    public function enseigne(User $u1, User $u2)
+    {
+        $u1->learnFrom()->save($u2);
+        return 'OK';
+    }
+
+    /**
      * test fonction.
      *
-     * @param  none
+     * @param  User u1, User u2
      * @return Response
     */
     public function test()
     {
-
-        $learner = User::find(1);
-        $teacher = User::find(3);
-
-        $learner->learnFrom()->save($teacher);
+        // $u1 = User::find(1);
+        // $u2 = Stats::find(1);
+        // $u1->learnFrom()->save($u2);
         return 'OK';
     }
 }

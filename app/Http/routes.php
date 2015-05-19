@@ -18,9 +18,15 @@ $app->get('/', 'App\Http\Controllers\WelcomeController@test');
 //Users routes
 $app->get('users', 'App\Http\Controllers\UserController@getAllProfile');
 $app->get('user/learner', 'App\Http\Controllers\UserController@showProfileLearners');
-// a remplacer avec un $app->delete pour API REST
 $app->delete('user/teacher', 'App\Http\Controllers\UserController@deleteAllUsers');
 $app->get('user/teacher', 'App\Http\Controllers\UserController@showProfileTeachers');
 $app->get('user/{id}', 'App\Http\Controllers\UserController@showProfile');
-$app->get('test', 'App\Http\Controllers\UserController@test');
+
+// enseigne routes
+$app->get('enseigne', 'App\Http\Controllers\UserController@enseigne');
+
+//fuzzy routes
 $app->get('fuzzy/{nbErr}/{nbResp}/{time}/{timeAvg}', 'App\Http\Controllers\FuzzyController@evaluate');
+
+// test routes
+$app->get('test', 'App\Http\Controllers\UserController@test');
