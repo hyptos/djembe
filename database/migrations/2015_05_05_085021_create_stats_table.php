@@ -22,12 +22,6 @@ class CreateStatsTable extends Migration {
 			$table->integer('user_id')->unsigned();;
  			$table->timestamps();
 		});
-
-		// Schema::table('stats', function(Blueprint $table)
-		// {
-  //           $table->foreign('cours_id')->references('id')->on('cours');
-  //           $table->foreign('user_id')->references('id')->on('user');
-		// });
 	}
 
 	/**

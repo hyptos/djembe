@@ -19,11 +19,6 @@ class CreateImageExoTable extends Migration {
 			$table->integer('exercice_id')->unsigned();
 			$table->timestamps();
 		});
-
-		// Schema::table('imageExo', function(Blueprint $table)
-		// {
-  //           $table->foreign('exercice_id')->references('id')->on('exercice');
-		// });
 	}
 
 	/**

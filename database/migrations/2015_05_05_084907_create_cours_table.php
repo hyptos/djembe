@@ -18,6 +18,7 @@ class CreateCoursTable extends Migration {
 			$table->string('titre');
 			$table->integer('difficulte');
 			$table->timestamps();
+			$table->unique( array('titre', 'difficulte') );
 		});
 	}
 
