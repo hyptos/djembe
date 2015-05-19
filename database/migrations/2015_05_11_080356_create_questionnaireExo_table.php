@@ -12,12 +12,13 @@ class CreateQuestionnaireExoTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('questionnaireExo', function(Blueprint $table)
+		Schema::create('questionnaire_exos', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->integer('questionnaire_id')->unsigned();
 			$table->integer('exercice_id')->unsigned();
 			$table->timestamps();
+			$table->unique( array('questionnaire_id', 'exercice_id') );
 		});
 	}
 
@@ -28,7 +29,7 @@ class CreateQuestionnaireExoTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('questionnaireExo');
+		Schema::drop('questionnaire_exos');
 	}
 
 }

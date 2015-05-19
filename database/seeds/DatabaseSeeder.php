@@ -28,5 +28,8 @@ class DatabaseSeeder extends Seeder {
 		
 		$this->call('QuestionnaireTableSeeder');
 		$this->command->info('Questionnaire table seeded!');
+
+		$this->call('QuestionnaireExoTableSeeder');
+		$this->command->info('QuestionnaireExo table seeded!');
 	}
 }

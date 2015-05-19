@@ -1,0 +1,17 @@
+<?php
+
+# database/seeds/QuestionnaireExoTableSeeder.php
+
+use App\Models\QuestionnaireExo;
+use Illuminate\Database\Seeder;
+
+class QuestionnaireExoTableSeeder extends Seeder
+{
+    public function run()
+    {
+        QuestionnaireExo::create([
+            'questionnaire_id' => 1,
+            'exercice_id' => 1,
+        ]);
+    }
+}
