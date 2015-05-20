@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cours extends Model {
     protected $fillable = ['titre','difficulte'];
 
-    public function chapitre()
+    public function chapitres()
     {
         return $this->hasMany('App\Models\Chapitre');
     }
