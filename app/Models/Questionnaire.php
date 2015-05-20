@@ -3,7 +3,12 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
+
+use App\Models\Questionnaire;
+use App\Models\Chapitre;
+
 class Questionnaire extends Model {
+    protected $table = 'questionnaires';
     protected $fillable = ['nbExos'];
 
     public function chapitres()
@@ -11,13 +16,7 @@ class Questionnaire extends Model {
         return $this->hasOne('App\Models\Chapitre');
     }
 
-    public function exercices()
-    {
-        return $this->hasMany('App\Models\Exercice');
-    }
-
     public function questionnaireExo(){
-        return $this->hasOne('App\Models\Exercice')
-        	->withPivot('App\Models\QuestionnaireExo','questionnaire_id');
+        return $this->hasMany('App\Models\QuestionnaireExo');
     }
 }
