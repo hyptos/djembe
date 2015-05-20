@@ -9,7 +9,7 @@ class Exercice extends Model {
 
     public function imageExos()
     {
-        return $this->hasMany('App\Models\ImageExo');
+        return $this->belongsToMany('App\Models\ImageExo');
     }
 
     public function questionnaireExo(){

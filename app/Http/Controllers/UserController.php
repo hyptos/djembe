@@ -9,6 +9,7 @@ use App\Models\Cours;
 use App\Models\Chapitre;
 use App\Models\Questionnaire;
 use App\Models\Exercice;
+use App\Models\ImageExo;
 
 class UserController extends Controller {
 
@@ -75,7 +76,9 @@ class UserController extends Controller {
     */
     public function test()
     {
-        $u1 = Exercice::find(1)->questionnaireExo;
+        $u1 = Exercice::find(1)->imageExos;
+
+
         // $s2 = Stats::find(1);
         // $c2 = Cours::find(3);
 

@@ -19,11 +19,6 @@ class CreateExerciceTable extends Migration {
 			$table->integer('difficulte');
 			$table->integer('temps_moyen');
 			$table->integer('nbReponses');
-			$table->integer('imageexo_id')->unsigned();
-			$table->integer('exo_continue_id')->unsigned();
-			$table->integer('exo_continue_difficult_id')->unsigned();
-			$table->integer('exo_redo_simple_id')->unsigned();
-			$table->integer('exo_review_basics_id')->unsigned();
 			$table->timestamps();
 			$table->unique( array('type', 'difficulte') );
 		});
