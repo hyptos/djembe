@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 class Questionnaire extends Model {
     protected $fillable = ['nbExos'];
 
-    public function chapitre()
+    public function chapitres()
     {
         return $this->hasOne('App\Models\Chapitre');
     }
