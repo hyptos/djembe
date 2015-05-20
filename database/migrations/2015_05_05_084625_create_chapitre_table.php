@@ -12,15 +12,16 @@ class CreateChapitreTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('chapitre', function(Blueprint $table)
+		Schema::create('chapitres', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->integer('noChapitre');
 			$table->string('titreChapitre');
-			$table->string('contenuEditable');
-			$table->integer('questionnaire_id')->unsigned();
+			$table->string('contenu');
+			$table->integer('questionnaire_id');
 			$table->integer('cours_id')->unsigned();
 			$table->timestamps();
+			$table->unique( array('noChapitre', 'cours_id') );
 		});
 	}
 
@@ -31,7 +32,7 @@ class CreateChapitreTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('chapitre');
+		Schema::drop('chapitres');
 	}
 
 }

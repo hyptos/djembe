@@ -89,24 +89,24 @@ class FuzzyController extends Controller {
 		/* ------ on clarifie le retour du conseil ------ */
 		/* --- si le résultat est "très mauvais" --- */
 		if($res['note'] < 12.5)
-			$res['conseil'] = 'reprendre les bases';
+			$res['conseil'] = 'REVIEW_BASICS';
 		/* --- si le résultat est "mauvais" --- */
 		else if($res['note'] < 27.5)
-			$res['conseil'] = 'refaire exercice en plus simple';
+			$res['conseil'] = 'REDO_SIMPLE';
 		/* --- si le résultat est "moyen" --- */
 		else if($res['note'] < 62.5){
 			/* ---- On regarde le conseil défini dans fuzzy ---- */
 			if($res['conseil'] < 0.25)
-				$res['conseil'] = 'refaire plus lentement';
+				$res['conseil'] = 'REDO_SLOWLY';
 			else if ($res['conseil'] < 0.75)
-				$res['conseil'] = 'refaire le même exercice';
+				$res['conseil'] = 'REDO';
 			else
-				$res['conseil'] = 'refaire plus vite';
+				$res['conseil'] = 'REDO_FASTER';
 		}
 		else if($res['note'] < 77.5)
-			$res['conseil'] = 'continuer le cours';
+			$res['conseil'] = 'CONTINUE';
 		else
-			$res['conseil'] = 'continuer le cours, avec exercices plus complexes';
+			$res['conseil'] = 'CONTINUE_DIFFICULT';
 		
 
 		return $res;
