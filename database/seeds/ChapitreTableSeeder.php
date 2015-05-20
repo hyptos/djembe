@@ -39,7 +39,7 @@ class ChapitreTableSeeder extends Seeder
 
                           [img de portée]',
             'cours_id' => 2,
-            'questionnaire_id' => -1,
+            'questionnaire_id' => NULL,
         ]);
     }
 }
