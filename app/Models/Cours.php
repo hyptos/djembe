@@ -13,7 +13,7 @@ class Cours extends Model {
 
     public function stats()
     {
-        return $this->hasMany('App\Models\Stats');
+        return $this->hasOne('App\Models\Stats');
     }
 
 }

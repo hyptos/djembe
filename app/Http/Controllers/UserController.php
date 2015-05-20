@@ -72,14 +72,13 @@ class UserController extends Controller {
     */
     public function test()
     {
-        $u1 = User::find(1);
-        $s2 = Stats::find(1);
-        $c2 = Cours::find(3);
+        $u1 = Stats::find(1)->user;
+        // $s2 = Stats::find(1);
+        // $c2 = Cours::find(3);
 
-        echo 'wesh';
-        $s2->cours()->save($c2);
-        echo 'wesh';
-        $s2->users()->save($u1);
+        echo '<pre>';
+        print_r($u1);
+        echo '</pre>';
         return 'OK';
     }
 }
