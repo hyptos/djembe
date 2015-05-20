@@ -4,6 +4,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Stats extends Model {
+	protected $table = 'stats';
     protected $fillable = ['reussite','temps','avancement'];
 
 
