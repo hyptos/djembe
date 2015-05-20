@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Stats;
 use App\Models\Cours;
+use App\Models\Chapitre;
 
 class UserController extends Controller {
 
@@ -72,7 +73,7 @@ class UserController extends Controller {
     */
     public function test()
     {
-        $u1 = Stats::find(1)->user;
+        $u1 = Chapitre::find(1)->cours;
         // $s2 = Stats::find(1);
         // $c2 = Cours::find(3);
 

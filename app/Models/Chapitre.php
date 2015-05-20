@@ -8,7 +8,7 @@ class Chapitre extends Model {
 
     public function cours()
     {
-        return $this->hasOne('App\Models\Cours');
+        return $this->belongsTo('App\Models\Cours');
     }
 
     public function questionnaire()
