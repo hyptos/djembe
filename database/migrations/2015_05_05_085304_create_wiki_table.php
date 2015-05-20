@@ -12,7 +12,7 @@ class CreateWikiTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('wiki', function(Blueprint $table)
+		Schema::create('wikis', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('name');
@@ -27,7 +27,7 @@ class CreateWikiTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('wiki');
+		Schema::drop('wikis');
 	}
 
 }

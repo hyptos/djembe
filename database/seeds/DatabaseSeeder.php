@@ -43,5 +43,8 @@ class DatabaseSeeder extends Seeder {
 
 		$this->call('ForumTableSeeder');
 		$this->command->info('Forum table seeded!');
+
+		$this->call('WikiTableSeeder');
+		$this->command->info('Wiki table seeded!');
 	}
 }
