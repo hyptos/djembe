@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Stats;
+use App\Models\Cours;
 
 class UserController extends Controller {
 
@@ -71,9 +72,14 @@ class UserController extends Controller {
     */
     public function test()
     {
-        // $u1 = User::find(1);
-        // $u2 = Stats::find(1);
-        // $u1->learnFrom()->save($u2);
+        $u1 = User::find(1);
+        $s2 = Stats::find(1);
+        $c2 = Cours::find(3);
+
+        echo 'wesh';
+        $s2->cours()->save($c2);
+        echo 'wesh';
+        $s2->users()->save($u1);
         return 'OK';
     }
 }
