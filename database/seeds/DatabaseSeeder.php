@@ -40,5 +40,8 @@ class DatabaseSeeder extends Seeder {
 
 		$this->call('EnseigneTableSeeder');
 		$this->command->info('Enseigne table seeded!');
+
+		$this->call('ForumTableSeeder');
+		$this->command->info('Forum table seeded!');
 	}
 }
