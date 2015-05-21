@@ -4,12 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Models\Stats;
-use App\Models\Cours;
-use App\Models\Chapitre;
-use App\Models\Questionnaire;
-use App\Models\Exercice;
-use App\Models\ImageExo;
+use Illuminate\Http\Request;
 
 class UserController extends Controller {
 
@@ -49,11 +44,41 @@ class UserController extends Controller {
         $users = User::all();
 
         foreach ($users as $key) {
-            echo 'delete' . $key->name . ' <br>';
+            // echo 'delete' . $key->name . ' <br>';
             $key->delete();
         }
 
         return 'Delete OK';
+    }
+
+    /**
+     * Return the view signup
+     *
+     * @param  none
+     * @return Response
+    */
+    public function signup()
+    {
+        return view('signup', []);
+    }
+
+    /**
+     * Add a new user.
+     *
+     * @param  none
+     * @return Response
+    */
+    public function addUser(Request $request)
+    {
+        $user           = new User();
+        $user->name     = $request->input('name');
+        $user->email    = $request->input('email');
+        $user->password = $request->input('password');
+        $user->teach    = $request->input('teach');
+
+        $user->save();
+
+        return response()->json(['type' => 'success', 'message' => 'user created']);
     }
 
     /**

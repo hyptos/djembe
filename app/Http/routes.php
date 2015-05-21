@@ -20,8 +20,10 @@ $app->get('exoTest', 'App\Http\Controllers\ExoTestController@test');
 
 //Users routes
 $app->get('users', 'App\Http\Controllers\UserController@getAllProfile');
+$app->delete('users', 'App\Http\Controllers\UserController@deleteAllUsers');
+$app->post('signup', 'App\Http\Controllers\UserController@addUser');
+$app->get('signup', 'App\Http\Controllers\UserController@signup');
 $app->get('user/learner', 'App\Http\Controllers\UserController@showProfileLearners');
-$app->delete('user/teacher', 'App\Http\Controllers\UserController@deleteAllUsers');
 $app->get('user/teacher', 'App\Http\Controllers\UserController@showProfileTeachers');
 $app->get('user/{id}', 'App\Http\Controllers\UserController@showProfile');
 
