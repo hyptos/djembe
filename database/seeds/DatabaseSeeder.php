@@ -35,6 +35,9 @@ class DatabaseSeeder extends Seeder {
 		$this->call('ExerciceTableSeeder');
 		$this->command->info('Exercice table seeded!');
 
+		$this->call('NextExerciceTableSeeder');
+		$this->command->info('NextExercice table seeded!');
+
 		$this->call('ImageExoTableSeeder');
 		$this->command->info('ImageExo table seeded!');
 

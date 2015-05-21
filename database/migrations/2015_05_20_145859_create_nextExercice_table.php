@@ -21,6 +21,7 @@ class CreateNextExerciceTable extends Migration {
 			$table->integer('exo_redo_simple_id')->unsigned();
 			$table->integer('exo_review_basics_id')->unsigned();
 			$table->timestamps();
+			$table->unique( array('exercice_id') );
 		});
 	}
 
