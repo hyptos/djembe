@@ -76,7 +76,7 @@ class UserController extends Controller {
     */
     public function test()
     {
-        $u1 = Exercice::find(1)->imageExos;
+        $u1 = User::find(1)->learnFrom();
 
 
         // $s2 = Stats::find(1);

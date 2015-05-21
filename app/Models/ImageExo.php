@@ -8,7 +8,7 @@ class ImageExo extends Model {
     protected $fillable = ['url'];
 
     public function exercices(){
-        return $this->hasMany('App\Models\Exercice', 'imageexo_id');
+        return $this->hasMany('App\Models\ExerciceImageExo', 'exercice_id');
     }
 
 }
