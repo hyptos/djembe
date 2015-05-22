@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Auth;
+use Session;
 
 class UserController extends Controller {
 
@@ -60,6 +62,52 @@ class UserController extends Controller {
     public function signup()
     {
         return view('signup', []);
+    }
+
+    /**
+     * Return the view login
+     *
+     * @param  none
+     * @return Response
+    */
+    public function login()
+    {
+        // return phpinfo();
+        return view('login', ['user' => Auth::user()]);
+    }
+
+
+    /**
+     * Return the view login
+     *
+     * @param  none
+     * @return Response
+    */
+    public function loginTest(Request $request)
+    {
+        $email      = $request->input('email');
+        $password   = $request->input('password');
+
+        if (Auth::attempt(array('email' => $email, 'password' => $password),true)) {
+            // Log::info(Auth::user() . ' just logged.');
+            return view('login', ['user' => Auth::user()]);
+        }
+        else {
+            return redirect('login');
+        }
+    }
+
+    /**
+     * logout the current user
+     *
+     * @param  none
+     * @return Response
+    */
+    public function logout()
+    {
+        Auth::logout();
+        Session::forget('user');
+        return redirect('login');
     }
 
     /**
