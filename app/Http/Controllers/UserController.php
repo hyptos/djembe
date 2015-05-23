@@ -106,10 +106,10 @@ class UserController extends Controller {
         $password   = $request->input('password');
 
         if (Auth::attempt(array('email' => $email, 'password' => $password),true)) {
-            return view('login', ['user' => Auth::user()]);
+            return redirect('dashboard');
         }
         else {
-            return redirect('dashboard');
+            return redirect('login');
         }
     }
 

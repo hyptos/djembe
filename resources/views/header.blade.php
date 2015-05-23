@@ -14,7 +14,7 @@
     <nav class="collapse navbar-collapse bs-navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
 @if(Auth::check())
-	<li><a href=""> Bonjour, {{Auth::user()->name}}</a></li>
+	<li><a href="dashboard"> Bonjour, {{Auth::user()->name}}</a></li>
 	<li><a href="logout">Déconnecte toi</a></li>
 @else
 	  	<li><a href="login">Connecte-toi</a></li>
