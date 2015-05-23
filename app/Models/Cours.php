@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Models;
+
 use Illuminate\Database\Eloquent\Model;
 
-class Cours extends Model {
-	protected $table = 'cours';
+class Cours extends Model
+{
+    protected $table = 'cours';
     protected $fillable = ['titre','difficulte'];
 
     public function chapitres()
@@ -16,5 +18,4 @@ class Cours extends Model {
     {
         return $this->hasOne('App\Models\Stats');
     }
-
 }

@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Chapitre;
 
-class ChapitreController extends Controller {
+class ChapitreController extends Controller
+{
 
     /**
      * fonction qui affiche un cours.
@@ -20,5 +21,4 @@ class ChapitreController extends Controller {
         $exercices = $chapitre->questionnaire->questionnaireExo;
         return view('getChapitre', ['chapitre' => $chapitre, 'exercices' => $exercices]);
     }
-
 }

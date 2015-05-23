@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Cours;
 
-class CoursController extends Controller {
+class CoursController extends Controller
+{
 
     /**
      * fonction qui affiche un cours.
@@ -20,5 +21,4 @@ class CoursController extends Controller {
         $chapitres = $cours->chapitres;
         return view('getCours', ['cours' => $cours, 'chapitres' => $chapitres]);
     }
-
 }

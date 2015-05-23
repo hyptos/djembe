@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Models;
+
 use Illuminate\Database\Eloquent\Model;
 
-class Chapitre extends Model {
-	protected $table = 'chapitres';
+class Chapitre extends Model
+{
+    protected $table = 'chapitres';
     protected $fillable = ['noChapitre','contenu', 'titreChapitre'];
 
     public function cours()
@@ -16,5 +18,4 @@ class Chapitre extends Model {
     {
         return $this->hasOne('App\Models\Questionnaire');
     }
-
 }
