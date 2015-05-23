@@ -1,6 +1,3 @@
-
-
-
 @extends('layouts.master')
 
 @section('title', 'All Users')
@@ -23,6 +20,7 @@
     <!--[if lte IE 8]><style>.main{display:none;} .support-note .note-ie{display:block;}</style><![endif]-->
 @stop
 
+@include('header')
 @section('content')
 
 @if (!isset($user))

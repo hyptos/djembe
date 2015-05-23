@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Auth;
 use Session;
+use Auth;
+use App\Models\User;
+use App\Models\Cours;
 
 class UserController extends Controller {
 
@@ -72,8 +73,24 @@ class UserController extends Controller {
     */
     public function login()
     {
-        // return phpinfo();
-        return view('login', ['user' => Auth::user()]);
+        if(Auth::check()){
+            return redirect('dashboard');
+        } else {
+            return view('login');
+        }
+    }
+
+    /**
+     * Return the view dashboard
+     *
+     * @param  none
+     * @return Response
+    */
+    public function dashboard()
+    {
+        $cours = Cours::all();
+        return view('dashboard',['cours' => $cours]);
+
     }
 
 
@@ -83,17 +100,16 @@ class UserController extends Controller {
      * @param  none
      * @return Response
     */
-    public function loginTest(Request $request)
+    public function loginAttempt(Request $request)
     {
         $email      = $request->input('email');
         $password   = $request->input('password');
 
         if (Auth::attempt(array('email' => $email, 'password' => $password),true)) {
-            // Log::info(Auth::user() . ' just logged.');
             return view('login', ['user' => Auth::user()]);
         }
         else {
-            return redirect('login');
+            return redirect('dashboard');
         }
     }
 
@@ -107,7 +123,7 @@ class UserController extends Controller {
     {
         Auth::logout();
         Session::forget('user');
-        return redirect('login');
+        return redirect('/');
     }
 
     /**

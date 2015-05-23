@@ -15,10 +15,6 @@ class WelcomeController extends Controller {
     */
     public function test()
     {
-        if(Auth::check()){
-            return 'wesh ma gueule' .  Auth::user()->email;
-        } else {
-            return view('welcome', ['user' => Auth::user()]);
-        }
+        return view('welcome', ['user' => Auth::user()]);
     }
 }

@@ -15,13 +15,13 @@ class CreateChapitreTable extends Migration {
 		Schema::create('chapitres', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('noChapitre');
-			$table->string('titreChapitre');
+			$table->integer('no');
+			$table->string('titre');
 			$table->string('contenu');
 			$table->integer('questionnaire_id')->nullable();
 			$table->integer('cours_id')->unsigned();
 			$table->timestamps();
-			$table->unique( array('noChapitre', 'cours_id') );
+			$table->unique( array('no', 'cours_id') );
 		});
 	}
 

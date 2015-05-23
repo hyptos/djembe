@@ -23,6 +23,7 @@
     <!--[if lte IE 8]><style>.main{display:none;} .support-note .note-ie{display:block;}</style><![endif]-->
 @stop
 
+@include('header')
 @section('content')
 <div class="row">
     <div class="col-sm-5 form-box">
@@ -36,6 +37,8 @@
         </div>
         <div class="form-bottom">
             <form role="form" action="signup" method="post" class="registration-form">
+
+            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
             	<div class="form-group">
             		<label class="sr-only" for="form-first-name">First name</label>
                 	<input type="text" name="name" placeholder="First name..." class="form-first-name form-control" id="form-first-name">

@@ -22,12 +22,16 @@ $app->get('son', 'App\Http\Controllers\sonController@test');
 
 //Users routes
 $app->get('users', 'App\Http\Controllers\UserController@getAllProfile');
+$app->get('dashboard', 'App\Http\Controllers\UserController@dashboard');
 $app->delete('users', 'App\Http\Controllers\UserController@deleteAllUsers');
+
+// Authentification system
 $app->post('signup', 'App\Http\Controllers\UserController@addUser');
 $app->get('signup', 'App\Http\Controllers\UserController@signup');
 $app->get('login', 'App\Http\Controllers\UserController@login');
-$app->post('login', 'App\Http\Controllers\UserController@loginTest');
+$app->post('login', 'App\Http\Controllers\UserController@loginAttempt');
 $app->get('logout', 'App\Http\Controllers\UserController@logout');
+
 $app->get('user/learner', 'App\Http\Controllers\UserController@showProfileLearners');
 $app->get('user/teacher', 'App\Http\Controllers\UserController@showProfileTeachers');
 $app->get('user/{id}', 'App\Http\Controllers\UserController@showProfile');
@@ -37,6 +41,12 @@ $app->get('enseigne', 'App\Http\Controllers\UserController@enseigne');
 
 //fuzzy routes
 $app->get('fuzzy/{nbErr}/{nbResp}/{time}/{timeAvg}', 'App\Http\Controllers\FuzzyController@evaluate');
+
+// cours routes
+$app->get('cours/{id}', 'App\Http\Controllers\CoursController@get');
+
+// chapitres routes
+$app->get('chapitre/{id}', 'App\Http\Controllers\ChapitreController@get');
 
 // test routes
 $app->get('test', 'App\Http\Controllers\UserController@test');
