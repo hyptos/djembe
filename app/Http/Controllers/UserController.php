@@ -8,8 +8,10 @@ use Session;
 use Auth;
 use App\Models\User;
 use App\Models\Cours;
+use App\Models\QuestionnaireExo;
 
-class UserController extends Controller {
+class UserController extends Controller
+{
 
     /**
      * Show the profile for the given user.
@@ -73,7 +75,7 @@ class UserController extends Controller {
     */
     public function login()
     {
-        if(Auth::check()){
+        if (Auth::check()) {
             return redirect('dashboard');
         } else {
             return view('login');
@@ -89,7 +91,7 @@ class UserController extends Controller {
     public function dashboard()
     {
         $cours = Cours::all();
-        return view('dashboard',['cours' => $cours]);
+        return view('dashboard', ['cours' => $cours]);
 
     }
 
@@ -105,10 +107,9 @@ class UserController extends Controller {
         $email      = $request->input('email');
         $password   = $request->input('password');
 
-        if (Auth::attempt(array('email' => $email, 'password' => $password),true)) {
+        if (Auth::attempt(array('email' => $email, 'password' => $password), true)) {
             return redirect('dashboard');
-        }
-        else {
+        } else {
             return redirect('login');
         }
     }
@@ -165,11 +166,7 @@ class UserController extends Controller {
     */
     public function test()
     {
-        $u1 = User::find(1)->learnFrom();
-
-
-        // $s2 = Stats::find(1);
-        // $c2 = Cours::find(3);
+        $u1 = QuestionnaireExo::find(1)->exercices;
 
         echo '<pre>';
         print_r($u1);

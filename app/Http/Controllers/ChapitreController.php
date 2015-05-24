@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Chapitre;
+use App\Models\QuestionnaireExo;
 
 class ChapitreController extends Controller
 {
@@ -19,6 +20,10 @@ class ChapitreController extends Controller
     {
         $chapitre = Chapitre::find($id);
         $exercices = $chapitre->questionnaire->questionnaireExo;
-        return view('getChapitre', ['chapitre' => $chapitre, 'exercices' => $exercices]);
+        $tab = array();
+        foreach ($exercices as $value) {
+            array_push($tab, $value->exercices);
+        }
+        return view('getChapitre', ['chapitre' => $chapitre, 'exercices' => $tab]);
     }
 }

@@ -28,12 +28,15 @@
     @if (isset($exercices))
     	<ul>
             @foreach ($exercices as $exercice)
-                {{ $exercice }}
-                <li><a href="/exercice/{{ $exercice->id }}">Exercice n°{{ $exercice->id }} de type {{ $exercice->type }} et de difficulte {{$exercice->difficulte }}</a></li>
-                }
+                @foreach ($exercice as $exo)
+                       <li><a href="/exercice/{{ $exo->id }}">Exercice n°{{ $exo->id }} de type {{ $exo->type }} et de difficulte {{$exo->difficulte }}</a></li>
+                @endforeach
             @endforeach
     	</ul>
     @else
         <p>Pas d'exercice de disponible pour ce chapitre.</p>
     @endif
 @stop
+
+
+
