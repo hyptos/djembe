@@ -17,7 +17,7 @@ class ChapitreController extends Controller
     */
     public function get($id)
     {
-        $chapitre = Chapitre::find($id)
+        $chapitre = Chapitre::find($id);
         $exercices = $chapitre->questionnaire->questionnaireExo;
         return view('getChapitre', ['chapitre' => $chapitre, 'exercices' => $exercices]);
     }
