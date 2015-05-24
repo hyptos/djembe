@@ -29,4 +29,15 @@ class ChapitreController extends Controller
         }
         return view('getChapitre', ['chapitre' => $chapitre, 'exercices' => $tab]);
     }
+
+    /* fonction qui affiche tous les chapitre.
+     *
+     * @param  none
+     * @return Response
+    */
+    public function getAll()
+    {
+        $chapitres = Chapitre::all();
+        return view('getAllChapitres', ['chapitres' => $chapitres]);
+    }
 }

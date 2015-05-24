@@ -48,5 +48,8 @@ $app->get('cours/{id}', 'App\Http\Controllers\CoursController@get');
 // chapitres routes
 $app->get('chapitre/{id}', 'App\Http\Controllers\ChapitreController@get');
 
+// exercices routes
+$app->get('exercice/{id}', 'App\Http\Controllers\ExerciceController@get');
+
 // test routes
 $app->get('test', 'App\Http\Controllers\UserController@test');
