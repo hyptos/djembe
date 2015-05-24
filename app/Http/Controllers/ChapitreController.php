@@ -18,11 +18,14 @@ class ChapitreController extends Controller
     */
     public function get($id)
     {
-        $chapitre = Chapitre::find($id);
-        $exercices = $chapitre->questionnaire->questionnaireExo;
         $tab = array();
-        foreach ($exercices as $value) {
-            array_push($tab, $value->exercices);
+        $chapitre = Chapitre::find($id);
+        $exercices = $chapitre->questionnaire;
+        if (isset($exercices)) {
+            $exercices = $exercices->questionnaireExo;
+            foreach ($exercices as $value) {
+                array_push($tab, $value->exercices);
+            }
         }
         return view('getChapitre', ['chapitre' => $chapitre, 'exercices' => $tab]);
     }

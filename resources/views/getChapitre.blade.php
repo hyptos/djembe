@@ -25,11 +25,16 @@
 	<h1>{{ $chapitre->no }} - {{ $chapitre->titre }}</h1>
 	<p>{{ $chapitre->contenu }}.</p>
 	<h2>Les exercices disponibles dans ce chapitre</h2>
-    @if (isset($exercices))
+    @if(isset($exercices))
     	<ul>
             @foreach ($exercices as $exercice)
                 @foreach ($exercice as $exo)
-                       <li><a href="/exercice/{{ $exo->id }}">Exercice n°{{ $exo->id }} de type {{ $exo->type }} et de difficulte {{$exo->difficulte }}</a></li>
+                    <li>
+                        <a href="/exercice/{{ $exo->id }}">
+                            Exercice n°{{ $exo->id }} de type {{ $exo->type }}
+                            et de difficulte {{$exo->difficulte }}
+                        </a>
+                    </li>
                 @endforeach
             @endforeach
     	</ul>
