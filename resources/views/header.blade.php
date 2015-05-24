@@ -13,13 +13,13 @@
     </div>
     <nav class="collapse navbar-collapse bs-navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
-@if(Auth::check())
-	<li><a href="/dashboard"> Bonjour, {{Auth::user()->name}}</a></li>
-	<li><a href="/logout">Déconnecte toi</a></li>
-@else
-	  	<li><a href="/login">Connecte-toi</a></li>
+      @if(Auth::check())
+      	<li><a href="/dashboard"> Bonjour, {{Auth::user()->name}}</a></li>
+      	<li><a href="/logout">Déconnecte toi</a></li>
+      @else
+  	  	<li><a href="/login">Connecte-toi</a></li>
         <li><a href="/signup">Tu es nouveau ?</a></li>
-@endif
+      @endif
       </ul>
     </nav>
   </div>

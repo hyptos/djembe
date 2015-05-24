@@ -53,3 +53,4 @@ $app->get('exercice/{id}', 'App\Http\Controllers\ExerciceController@get');
 
 // test routes
 $app->get('test', 'App\Http\Controllers\UserController@test');
+$app->get('pie', 'App\Http\Controllers\UserController@pie');

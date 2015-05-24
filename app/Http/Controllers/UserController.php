@@ -173,4 +173,15 @@ class UserController extends Controller
         echo '</pre>';
         return 'OK';
     }
+
+    /**
+     * pie fonction.
+     *
+     * @param  none
+     * @return Response
+    */
+    public function pie()
+    {
+        return view('exoPieGame');
+    }
 }
