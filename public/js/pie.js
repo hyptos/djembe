@@ -1,6 +1,6 @@
 var tab = [];
 var suite = [];
-var numberOfClicks = 0;
+var numberOfClicks = 1;
 var contents = [
     {
         "label": "do",
@@ -95,13 +95,25 @@ var pie = new d3pie("pieChart", {
             tab.push(a.data.label);
             if(numberOfClicks === 3){
                 // On stocke en bdd le résultat
-                // $.ajax(url, settings, settings);
-                if(isNoteRight(tab)){
-                    success();
-                } else {
-                    tab = [];
-                    fail();
-                }
+                $.ajax({
+                  url: "http://djembe.com/fuzzy",
+                  method: "POST",
+                  data: {
+                    nbErrors:numberOfErrors(tab),
+                    nbResponses:3,
+                    time:60,
+                    timeAvg:$('#timeAvg').val(),
+                    idUser:$('#idUser').val(),
+                    idCours:$('#idCours').val(),
+                    _token: $('#token').val()
+                  }
+                }).done(function(mess){
+                    success(mess);
+                    if(numberOfErrors(tab) !== 0){
+                        tab = [];
+                    }
+                });
+
             }
             numberOfClicks++;
         }
@@ -116,28 +128,32 @@ function getIndexForShuffled(tab, note){
     }
 }
 
-function success(){
-    $('#message').addClass('alert-success').fadeIn(1000).html('<p>Bravo, tu es le meilleur !</p>').complete()
+function success(mess){
+    $('#message').addClass('alert-warning').fadeIn(1000).html('<p>'+mess.conseil+'</p>');
 }
 
-function fail(){
-    $('#message').addClass('alert-danger').fadeIn(1000).html('<p>OMG, tu es mauvais !</p>');
-}
+function numberOfErrors(tab){
+    if(tab[0] === 'do' && tab[1] === 're' && tab[2] === 'mi')
+        return 0;
 
-function isNoteRight(tab){
-    if(tab[0] !== 'do')
-        return false;
-    if(tab[1] !== 're')
-        return false;
-    if(tab[2] !== 'mi')
-        return false;
+    if(tab[0] === 'do' && tab[1] === 're' && tab[2] !== 'mi')
+        return 1;
 
-    return true;
+    if(tab[0] === 'do' && tab[1] !== 're' && tab[2] === 'mi')
+        return 1;
+
+    if(tab[0] !== 'do' && tab[1] !== 're' && tab[2] === 'mi')
+        return 1;
+
+    if(tab[0] === 'do' || tab[1] === 're' || tab[2] === 'mi')
+        return 2;
+
+    return 3;
 }
 
 $('body').on('click', '#beginGame', function(){
     console.log('On demarre le jeu');
-    melody(3);
+    melody(2);
 
 });
 

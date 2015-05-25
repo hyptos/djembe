@@ -9,6 +9,7 @@ use Auth;
 use App\Models\User;
 use App\Models\Cours;
 use App\Models\QuestionnaireExo;
+use App\Models\Stats;
 
 class UserController extends Controller
 {
@@ -166,12 +167,22 @@ class UserController extends Controller
     */
     public function test()
     {
-        $u1 = QuestionnaireExo::find(1)->exercices;
+        $stat = new Stats();
 
-        echo '<pre>';
-        print_r($u1);
-        echo '</pre>';
-        return 'OK';
+        $stat->temps = '10';
+        $stat->reussite = '50';
+        $stat->avancement = '100';
+
+        $user = User::find(3);
+        $cours = Cours::find(2);
+
+        $stat->user_id = $user->id;
+        $stat->cours_id = $cours->id;
+        $stat->save();
+
+
+        return 'ok';
+
     }
 
     /**

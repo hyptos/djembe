@@ -8,7 +8,8 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
+class User extends Model implements AuthenticatableContract, CanResetPasswordContract
+{
 
     use Authenticatable, CanResetPassword;
 
@@ -57,17 +58,28 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         $this->password = Hash::make($password);
     }
 
-    public function teachTo(){
-        return $this->belongsToMany('App\Models\Enseigne', 'enseigne', 'learner_id', 'teacher_id')->withPivot('App\Models\User', 'learner_id');
+    public function teachTo()
+    {
+        return $this->belongsToMany(
+            'App\Models\Enseigne',
+            'enseigne',
+            'learner_id',
+            'teacher_id'
+        )->withPivot('App\Models\User', 'learner_id');
     }
 
-    public function learnFrom(){
-        return $this->belongsToMany('App\Models\Enseigne', 'enseigne', 'teacher_id', 'learner_id')->withPivot('App\Models\User', 'teacher_id');
+    public function learnFrom()
+    {
+        return $this->belongsToMany(
+            'App\Models\Enseigne',
+            'enseigne',
+            'teacher_id',
+            'learner_id'
+        )->withPivot('App\Models\User', 'teacher_id');
     }
 
     public function stats()
     {
         return $this->hasOne('App\Models\Stats');
     }
-
 }
