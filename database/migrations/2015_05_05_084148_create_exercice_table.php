@@ -16,6 +16,8 @@ class CreateExerciceTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('type');
+			$table->string('ressource');
+			$table->string('script');
 			$table->integer('difficulte');
 			$table->integer('temps_moyen');
 			$table->integer('nbReponses');

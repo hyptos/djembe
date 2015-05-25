@@ -22,6 +22,24 @@ class ExerciceTableSeeder extends Seeder
         Exercice::create([ // id : 2
             'type' => 'ReconnaitreSuiteNotes',
             'difficulte' => 1,
+            'ressource' => '<div class="row">
+    <div class="col-md-12">
+        <div id="game" class="text-center">
+            <div id="pieChart"></div>
+            <button class="btn btn-primary btn-lg" id="beginGame">Jouer</button>
+            <div id="message" class="alert"></div>
+        </div>
+    </div>
+</div>
+
+<audio id="do" src="/son/piano_do.mp3" preload="auto"></audio>
+<audio id="re" src="/son/piano_re.mp3" preload="auto"></audio>
+<audio id="mi" src="/son/piano_mi.mp3" preload="auto"></audio>
+<audio id="fa" src="/son/piano_fa.mp3" preload="auto"></audio>
+<audio id="sol" src="/son/piano_sol.mp3" preload="auto"></audio>
+<audio id="la" src="/son/piano_la.mp3" preload="auto"></audio>
+<audio id="si" src="/son/piano_si.mp3" preload="auto"></audio>',
+            'script' => '/js/pie.js',
             'temps_moyen' => 60,
             'nbReponses' => 3,
         ]);

@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Exercice extends Model {
 	protected $table = 'exercices';
-    protected $fillable = ['type', 'difficulte', 'temps_moyen', 'nbReponses'];
+    protected $fillable = ['type', 'difficulte', 'ressource', 'script', 'temps_moyen', 'nbReponses'];
 
     public function imageExos()
     {
