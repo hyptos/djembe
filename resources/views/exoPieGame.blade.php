@@ -41,7 +41,6 @@
 
 <script>
 var tab = [];
-var suite = [];
 var numberOfClicks = 0;
 var contents = [
     {
@@ -131,9 +130,9 @@ var pie = new d3pie("pieChart", {
     },
     "callbacks": {
         onClickSegment: function(a) {
-            $('#'+a.data.label).trigger('pause');
-            $('#'+a.data.label).prop("currentTime",0);
-            $('#'+a.data.label).trigger('play');
+            $("#" + a.data.label).trigger('pause');
+            $('#'+ a.data.label).prop("currentTime",0);
+            $("#" + a.data.label).trigger('play');
             tab.push(a.data.label);
             if(numberOfClicks === 3){
                 // On stocke en bdd le résultat
@@ -180,7 +179,6 @@ function isNoteRight(tab){
 $('body').on('click', '#beginGame', function(){
     console.log('On demarre le jeu');
     melody(3);
-
 });
 
 function melody(number){

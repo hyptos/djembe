@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Providers\FuzzyLogicProvider;
+use Illuminate\Http\Request;
+use App\Models\Stats;
+use App\Models\User;
+use App\Models\Cours;
 
 class FuzzyController extends Controller {
 
@@ -16,8 +20,14 @@ class FuzzyController extends Controller {
      * @param  int  $timeAvg
      * @return [note, conseil]
      */
-	public function evaluate($nbErrors, $nbResponses, $time, $timeAvg)
+	public function evaluate(Request $request)
 	{
+		$nbErrors 		= $request->input('nbErrors');
+		$nbResponses 	= $request->input('nbResponses');
+		$time 			= $request->input('time'); 
+		$timeAvg		= $request->input('timeAvg');
+		$idUser			= $request->input('idUser');
+		$idCours		= $request->input('idCours');
 
 		$fuzzy = new FuzzyLogicProvider();
 
@@ -108,6 +118,20 @@ class FuzzyController extends Controller {
 		else
 			$res['conseil'] = 'CONTINUE_DIFFICULT';
 		
+
+		// Sauvegarde en base des résultats
+		$stat = new Stats();
+
+		$stat->temps = '';
+		$stat->reussite = '';
+		$stat->avancement = '';
+
+		$user = User::find($idUser);
+		$cours = Cours::find($idCours);
+		$stat->user->save($user);
+		$stat->cours->save($cours);
+
+		$stat->save();
 
 		return $res;
 	}

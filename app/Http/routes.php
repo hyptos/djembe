@@ -40,7 +40,7 @@ $app->get('user/{id}', 'App\Http\Controllers\UserController@showProfile');
 $app->get('enseigne', 'App\Http\Controllers\UserController@enseigne');
 
 //fuzzy routes
-$app->get('fuzzy/{nbErr}/{nbResp}/{time}/{timeAvg}', 'App\Http\Controllers\FuzzyController@evaluate');
+$app->post('fuzzy', 'App\Http\Controllers\FuzzyController@evaluate');
 
 // cours routes
 $app->get('cours/{id}', 'App\Http\Controllers\CoursController@get');
