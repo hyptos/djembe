@@ -30,14 +30,14 @@
         </div>
     </div>
 </div>
-<audio id="do" src="/son/do.mp3" preload="auto"></audio>
-<audio id="re" src="/son/re.mp3" preload="auto"></audio>
-<audio id="mi" src="/son/mi.mp3" preload="auto"></audio>
-<audio id="fa" src="/son/fa.mp3" preload="auto"></audio>
-<audio id="sol" src="/son/sol.mp3" preload="auto"></audio>
-<audio id="la" src="/son/la.mp3" preload="auto"></audio>
-<audio id="si" src="/son/si.mp3" preload="auto"></audio>
 
+<audio id="do" src="/son/piano_do.mp3" preload="auto"></audio>
+<audio id="re" src="/son/piano_re.mp3" preload="auto"></audio>
+<audio id="mi" src="/son/piano_mi.mp3" preload="auto"></audio>
+<audio id="fa" src="/son/piano_fa.mp3" preload="auto"></audio>
+<audio id="sol" src="/son/piano_sol.mp3" preload="auto"></audio>
+<audio id="la" src="/son/piano_la.mp3" preload="auto"></audio>
+<audio id="si" src="/son/piano_si.mp3" preload="auto"></audio>
 
 <script>
 var tab = [];
@@ -130,7 +130,9 @@ var pie = new d3pie("pieChart", {
     },
     "callbacks": {
         onClickSegment: function(a) {
-            $("#" + a.data.label).trigger('play');
+            $('#'+a.data.label).trigger('pause');
+            $('#'+a.data.label).prop("currentTime",0);
+            $('#'+a.data.label).trigger('play');
             tab.push(a.data.label);
             if(numberOfClicks === 3){
                 // On stocke en bdd le résultat
@@ -221,6 +223,8 @@ function melody(number){
 }
 
 function openAndPlay(note){
+    $('#'+note).trigger('pause');
+    $('#'+note).prop("currentTime",0);
     $('#'+note).trigger('play');
     var index = getIndexForShuffled(contents, note);
     pie.openSegment(index);
