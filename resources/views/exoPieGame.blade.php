@@ -12,6 +12,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.4/d3.min.js"></script>
     <script src="/js/d3pie.min.js"></script>
+    <script src="/js/utility.js"></script>
     <link rel="shortcut icon" href="../favicon.ico">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css' />
     <script type="text/javascript" src="/js/modernizr.custom.79639.js"></script>
@@ -21,7 +22,11 @@
 @include('header')
 
 @section('content')
-<div id="pieChart"></div>
+<div class="row">
+    <div class="col-md-12">
+        <div id="pieChart" style="text-align: center;"></div>
+    </div>
+</div>
 <audio id="do" src="/son/do.mp3" preload="auto"></audio>
 <audio id="re" src="/son/re.mp3" preload="auto"></audio>
 <audio id="mi" src="/son/mi.mp3" preload="auto"></audio>
@@ -32,6 +37,44 @@
 
 
 <script>
+var shuffledContents = [
+    {
+        "label": "do",
+        "value": 20,
+        "color": "#2484c1"
+    },
+    {
+        "label": "re",
+        "value": 20,
+        "color": "#0c6197"
+    },
+    {
+        "label": "mi",
+        "value": 20,
+        "color": "#4daa4b"
+    },
+    {
+        "label": "fa",
+        "value": 20,
+        "color": "#90c469"
+    },
+    {
+        "label": "sol",
+        "value": 20,
+        "color": "#daca61"
+    },
+    {
+        "label": "la",
+        "value": 20,
+        "color": "#e4a14b"
+    },
+    {
+        "label": "si",
+        "value": 20,
+        "color": "#e98125"
+    }
+];
+shuffle(shuffledContents);
 var pie = new d3pie("pieChart", {
     "header": {
         "title": {
@@ -52,47 +95,14 @@ var pie = new d3pie("pieChart", {
         "pieOuterRadius": "90%"
     },
     "data": {
-        "content": [
-            {
-                "label": "Do",
-                "value": 20,
-                "color": "#2484c1"
-            },
-            {
-                "label": "Re",
-                "value": 20,
-                "color": "#0c6197"
-            },
-            {
-                "label": "Mi",
-                "value": 20,
-                "color": "#4daa4b"
-            },
-            {
-                "label": "Fa",
-                "value": 20,
-                "color": "#90c469"
-            },
-            {
-                "label": "Sol",
-                "value": 20,
-                "color": "#daca61"
-            },
-            {
-                "label": "La",
-                "value": 20,
-                "color": "#e4a14b"
-            },
-            {
-                "label": "Si",
-                "value": 20,
-                "color": "#e98125"
-            }
-        ]
+        "content": shuffledContents
     },
     "labels": {
         "inner": {
             "format":'none'
+        },
+        "outer":{
+            "format":"none"
         },
         "mainLabel": {
             "fontSize": 11
@@ -119,36 +129,10 @@ var pie = new d3pie("pieChart", {
     },
     "callbacks": {
         onClickSegment: function(a) {
-            console.log(a.index);
-            switch(a.index){
-                case 0:
-                    $("#do").trigger('play');
-                    break;
-                case 1:
-                    $("#re").trigger('play');
-                    break;
-                case 2:
-                    $("#mi").trigger('play');
-                    break;
-                case 3:
-                    $("#fa").trigger('play');
-                    break;
-                case 4:
-                    $("#sol").trigger('play');
-                    break;
-                case 5:
-                    $("#la").trigger('play');
-                    break;
-                case 6:
-                    $("#si").trigger('play');
-                    break;
-                case 7:
-                    $("#do").trigger('play');
-                    break;
-                default:
-                    console.log('fail');
-                    break;
-            }
+            console.log(a.data.label);
+
+            $("#" + a.data.label).trigger('play');
+
         }
     }
 });

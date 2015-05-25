@@ -19,11 +19,15 @@
 @include('header')
 
 @section('content')
-	<p>Bienvenue sur ton tableau de bord !</p>
-	<p>Voici des exercices que tu devrais essayer pour t'améliorer.</p>
-	<ul>
-		@foreach ($cours as $cour)
-	    	<li><a href="cours/{{ $cour->id }}">{{ $cour->titre }}</a></li>
-		@endforeach
-	</ul>
+    <div class="row">
+        <div class="col-md-12">
+        	<p>Bienvenue sur ton tableau de bord !</p>
+        	<p>Voici des exercices que tu devrais essayer pour t'améliorer.</p>
+        	<ul>
+        		@foreach ($cours as $cour)
+        	    	<li><a href="cours/{{ $cour->id }}">{{ $cour->titre }}</a></li>
+        		@endforeach
+        	</ul>
+        </div>
+    </div>
 @stop
