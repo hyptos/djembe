@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.4/d3.min.js"></script>
     <script src="/js/d3pie.min.js"></script>
@@ -24,7 +23,11 @@
 @section('content')
 <div class="row">
     <div class="col-md-12">
-        <div id="pieChart" style="text-align: center;"></div>
+        <div id="game" class="text-center">
+            <div id="pieChart"></div>
+            <button class="btn btn-primary btn-lg" id="beginGame">Jouer</button>
+            <div id="message" class="alert"></div>
+        </div>
     </div>
 </div>
 <audio id="do" src="/son/do.mp3" preload="auto"></audio>
@@ -37,7 +40,9 @@
 
 
 <script>
-var shuffledContents = [
+var tab = [];
+var numberOfClicks = 0;
+var contents = [
     {
         "label": "do",
         "value": 20,
@@ -74,7 +79,6 @@ var shuffledContents = [
         "color": "#e98125"
     }
 ];
-shuffle(shuffledContents);
 var pie = new d3pie("pieChart", {
     "header": {
         "title": {
@@ -95,14 +99,11 @@ var pie = new d3pie("pieChart", {
         "pieOuterRadius": "90%"
     },
     "data": {
-        "content": shuffledContents
+        "content": contents
     },
     "labels": {
         "inner": {
             "format":'none'
-        },
-        "outer":{
-            "format":"none"
         },
         "mainLabel": {
             "fontSize": 11
@@ -116,9 +117,9 @@ var pie = new d3pie("pieChart", {
     },
     "effects": {
         "pullOutSegmentOnClick": {
-            "effect": "none",
+            "effect": "elastic",
             "speed": 400,
-            "size": 8
+            "size": 16
         }
     },
     "misc": {
@@ -129,13 +130,102 @@ var pie = new d3pie("pieChart", {
     },
     "callbacks": {
         onClickSegment: function(a) {
-            console.log(a.data.label);
-
             $("#" + a.data.label).trigger('play');
-
+            tab.push(a.data.label);
+            if(numberOfClicks === 3){
+                // On stocke en bdd le résultat
+                // $.ajax(url, settings, settings);
+                if(isNoteRight(tab)){
+                    success();
+                } else {
+                    tab = [];
+                    fail();
+                }
+            }
+            numberOfClicks++;
         }
     }
 });
+
+function getIndexForShuffled(tab, note){
+    for(var i in tab){
+        if(tab[i].label === note){
+            return i;
+        }
+    }
+}
+
+function success(){
+    $('#message').addClass('alert-success').fadeIn(1000).html('<p>Bravo, tu es le meilleur !</p>').complete()
+}
+
+function fail(){
+    $('#message').addClass('alert-danger').fadeIn(1000).html('<p>OMG, tu es mauvais !</p>');
+}
+
+function isNoteRight(tab){
+    if(tab[0] !== 'do')
+        return false;
+    if(tab[1] !== 're')
+        return false;
+    if(tab[2] !== 'mi')
+        return false;
+
+    return true;
+}
+
+$('body').on('click', '#beginGame', function(){
+    console.log('On demarre le jeu');
+    melody(3);
+
+});
+
+function melody(number){
+    for (var i = 0; i <= number; i++) {
+        if(i >= 0){
+            setTimeout(function(){
+                openAndPlay('do');
+            },0);
+        }
+        if(i >= 1){
+            setTimeout(function(){
+                openAndPlay('re');
+            },500);
+        }
+        if(i >= 2){
+            setTimeout(function(){
+                openAndPlay('mi');
+            },1000);
+        }
+        if(i >= 3){
+            setTimeout(function(){
+                openAndPlay('fa');
+            },1500);
+        }
+        if(i >= 4){
+            setTimeout(function(){
+                openAndPlay('sol');
+            },2000);
+        }
+        if(i >= 5){
+            setTimeout(function(){
+                openAndPlay('la');
+            },2500);
+        }
+        if(i >= 6){
+            setTimeout(function(){
+                openAndPlay('si');
+            },3000);
+        }
+    }
+}
+
+function openAndPlay(note){
+    $('#'+note).trigger('play');
+    var index = getIndexForShuffled(contents, note);
+    pie.openSegment(index);
+}
+
 </script>
 
 @stop
