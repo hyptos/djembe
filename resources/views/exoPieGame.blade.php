@@ -30,13 +30,13 @@
         </div>
     </div>
 </div>
-<audio id="do" src="/son/do.mp3" preload="auto"></audio>
-<audio id="re" src="/son/re.mp3" preload="auto"></audio>
-<audio id="mi" src="/son/mi.mp3" preload="auto"></audio>
-<audio id="fa" src="/son/fa.mp3" preload="auto"></audio>
-<audio id="sol" src="/son/sol.mp3" preload="auto"></audio>
-<audio id="la" src="/son/la.mp3" preload="auto"></audio>
-<audio id="si" src="/son/si.mp3" preload="auto"></audio>
+<audio id="do" src="/son/piano_do.wav" preload="auto"></audio>
+<audio id="re" src="/son/piano_re.wav" preload="auto"></audio>
+<audio id="mi" src="/son/piano_mi.wav" preload="auto"></audio>
+<audio id="fa" src="/son/piano_fa.wav" preload="auto"></audio>
+<audio id="sol" src="/son/piano_sol.wav" preload="auto"></audio>
+<audio id="la" src="/son/piano_la.wav" preload="auto"></audio>
+<audio id="si" src="/son/piano_si.wav" preload="auto"></audio>
 
 
 <script>
