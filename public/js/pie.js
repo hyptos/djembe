@@ -1,5 +1,4 @@
 var tab = [];
-var suite = [];
 var numberOfClicks = 1;
 var contents = [
     {
@@ -38,6 +37,7 @@ var contents = [
         "color": "#e98125"
     }
 ];
+var solution = random_solution(contents, 3);
 var pie = new d3pie("pieChart", {
     "header": {
         "title": {
@@ -65,7 +65,7 @@ var pie = new d3pie("pieChart", {
             "format":'none'
         },
         "mainLabel": {
-            "fontSize": 11
+            "fontSize": 18
         },
         "lines": {
             "enabled": true
@@ -99,7 +99,7 @@ var pie = new d3pie("pieChart", {
                   url: "http://djembe.com/fuzzy",
                   method: "POST",
                   data: {
-                    nbErrors:numberOfErrors(tab),
+                    nbErrors:numberOfErrors(tab, solution),
                     nbResponses:3,
                     time:60,
                     timeAvg:$('#timeAvg').val(),
@@ -109,7 +109,7 @@ var pie = new d3pie("pieChart", {
                   }
                 }).done(function(mess){
                     success(mess);
-                    if(numberOfErrors(tab) !== 0){
+                    if(numberOfErrors(tab, solution) !== 0){
                         tab = [];
                     }
                 });
@@ -132,68 +132,29 @@ function success(mess){
     $('#message').addClass('alert-warning').fadeIn(1000).html('<p>'+mess.conseil+'</p>');
 }
 
-function numberOfErrors(tab){
-    if(tab[0] === 'do' && tab[1] === 're' && tab[2] === 'mi')
-        return 0;
+function numberOfErrors(tab_reponse, tab_solution){
 
-    if(tab[0] === 'do' && tab[1] === 're' && tab[2] !== 'mi')
-        return 1;
+    var nb_error = 0;
+    for(var i in tab_solution){
+        if(tab_reponse[i] != tab_solution[i].label)
+            nb_error++;
+    }
 
-    if(tab[0] === 'do' && tab[1] !== 're' && tab[2] === 'mi')
-        return 1;
-
-    if(tab[0] !== 'do' && tab[1] !== 're' && tab[2] === 'mi')
-        return 1;
-
-    if(tab[0] === 'do' || tab[1] === 're' || tab[2] === 'mi')
-        return 2;
-
-    return 3;
+    return nb_error;
 }
 
 $('body').on('click', '#beginGame', function(){
     console.log('On demarre le jeu');
-    melody(2);
-
+    melody(solution);
 });
 
-function melody(number){
-    for (var i = 0; i <= number; i++) {
-        if(i >= 0){
-            setTimeout(function(){
-                openAndPlay('do');
-            },0);
-        }
-        if(i >= 1){
-            setTimeout(function(){
-                openAndPlay('re');
-            },500);
-        }
-        if(i >= 2){
-            setTimeout(function(){
-                openAndPlay('mi');
-            },1000);
-        }
-        if(i >= 3){
-            setTimeout(function(){
-                openAndPlay('fa');
-            },1500);
-        }
-        if(i >= 4){
-            setTimeout(function(){
-                openAndPlay('sol');
-            },2000);
-        }
-        if(i >= 5){
-            setTimeout(function(){
-                openAndPlay('la');
-            },2500);
-        }
-        if(i >= 6){
-            setTimeout(function(){
-                openAndPlay('si');
-            },3000);
-        }
+function melody(tab){
+    var i = 0;
+    for (var n in tab){
+        setTimeout(function(){
+            openAndPlay(tab[i].label);
+            i++;
+        }, n*500);
     }
 }
 
@@ -201,6 +162,7 @@ function openAndPlay(note){
     $('#'+note).trigger('pause');
     $('#'+note).prop("currentTime",0);
     $('#'+note).trigger('play');
+    
     var index = getIndexForShuffled(contents, note);
     pie.openSegment(index);
 }
