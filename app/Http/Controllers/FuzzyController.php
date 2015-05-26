@@ -27,7 +27,7 @@ class FuzzyController extends Controller
         $nbResponses    = $request->input('nbResponses');
         $time           = $request->input('time');
         $timeAvg        = $request->input('timeAvg');
-        $idUser             = $request->input('idUser');
+        $idUser         = $request->input('idUser');
         $idCours        = $request->input('idCours');
 
         $fuzzy = new FuzzyLogicProvider();

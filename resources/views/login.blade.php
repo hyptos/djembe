@@ -40,7 +40,7 @@
                 </div>
                 <div class="form-group">
                     <label class="sr-only" for="form-password">Mot de passe</label>
-                    <input type="text" name="password" placeholder="mot de passe" class="form-password form-control" id="form-password ">
+                    <input type="password" name="password" placeholder="mot de passe" class="form-password form-control" id="form-password ">
                 </div>
                 <button type="submit" class="btn btn-primary btn-large">Je me connecte</button>
             </form>
