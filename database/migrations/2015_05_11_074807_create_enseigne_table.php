@@ -12,7 +12,7 @@ class CreateEnseigneTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('enseigne', function(Blueprint $table)
+		Schema::create('enseignes', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->integer('teacher_id')->unsigned();
@@ -29,7 +29,7 @@ class CreateEnseigneTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('enseigne');
+		Schema::drop('enseignes');
 	}
 
 }

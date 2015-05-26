@@ -1,0 +1,18 @@
+# path to phpcs "binary"
+PHPCS_BIN=/home/antoine/.composer/vendor/bin/phpcs
+ 
+# the coding standard, you can also specify a path to your own standard here 
+# e. g. /path/to/my/standard/dir/
+PHPCS_CODING_STANDARD=PSR
+ 
+# comma-separated list of file patterns being ignored
+PHPCS_IGNORE="blade.php, config"
+ 
+# egrep compatible pattern of  files to be checked
+PHPCS_FILE_PATTERN="\.(php|phtml)$"
+ 
+# ignore warnings
+PHPCS_IGNORE_WARNINGS=1
+ 
+# encoding
+PHPCS_ENCODING=utf-8

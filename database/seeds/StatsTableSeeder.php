@@ -20,7 +20,7 @@ class StatsTableSeeder extends Seeder
         Stats::create([
             'reussite' => '60',
             'temps' => '60',
-            'avancement' => '60'
+            'avancement' => '60',
             'user_id' => 2,
             'cours_id' => 1
         ]);

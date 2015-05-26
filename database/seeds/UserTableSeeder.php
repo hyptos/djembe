@@ -4,31 +4,31 @@
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class UserTableSeeder extends Seeder
 {
     public function run()
     {
+        $password = bcrypt('secret');
+
         User::create([
             'name' => 'Elodie',
             'email' => 'elo@univ.fr',
-            'password' => 'eh',
+            'password' => $password,
             'teach' => false
         ]);
 
-        User::create([
-            'name' => 'Antoine',
-            'email' => 'anto@univ.fr',
-            'password' => 'am',
-            'teach' => false
-        ]);
+        $faker = Faker::create();
 
-        User::create([
-            'name' => 'Stéphanie',
-            'email' => 'jd@univ.fr',
-            'password' => 'sjd',
-            'teach' => true
-        ]);
-
+        foreach (range(1, 100) as $index)
+        {
+            User::create([
+                'email'      => $faker->email,
+                'password'   => $password,
+                'name'       => $faker->firstName,
+                'teach'      => $faker->boolean(20)
+            ]);
+        }
     }
 }

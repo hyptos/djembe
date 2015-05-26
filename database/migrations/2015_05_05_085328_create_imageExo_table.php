@@ -12,11 +12,10 @@ class CreateImageExoTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('imageExo', function(Blueprint $table)
+		Schema::create('image_exos', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('url');
-			$table->integer('exercice_id')->unsigned();
+			$table->string('url')->unique();
 			$table->timestamps();
 		});
 	}
@@ -28,7 +27,7 @@ class CreateImageExoTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('imageExo');
+		Schema::drop('image_exos');
 	}
 
 }

@@ -12,7 +12,7 @@ class CreateForumTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('forum', function(Blueprint $table)
+		Schema::create('forums', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('name');
@@ -27,7 +27,7 @@ class CreateForumTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('forum');
+		Schema::drop('forums');
 	}
 
 }

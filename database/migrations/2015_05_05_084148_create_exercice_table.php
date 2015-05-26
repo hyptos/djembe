@@ -12,15 +12,17 @@ class CreateExerciceTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('exercice', function(Blueprint $table)
+		Schema::create('exercices', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('contenuATrou');
+			$table->string('type');
+			$table->text('ressource');
+			$table->string('script');
 			$table->integer('difficulte');
-			$table->string('resultat');
-			$table->string('indice');
-			$table->integer('imageexo_id')->unsigned();
+			$table->integer('temps_moyen');
+			$table->integer('nbReponses');
 			$table->timestamps();
+			$table->unique( array('type', 'difficulte') );
 		});
 
 		// Schema::table('exercice', function(Blueprint $table)
@@ -36,7 +38,7 @@ class CreateExerciceTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('exercice');
+		Schema::drop('exercices');
 	}
 
 }

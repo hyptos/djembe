@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Auth;
+use Session;
 
 class WelcomeController extends Controller {
     /**
@@ -13,6 +15,6 @@ class WelcomeController extends Controller {
     */
     public function test()
     {
-        return view('welcome', []);;
+        return view('welcome', ['user' => Auth::user()]);
     }
 }

@@ -11,7 +11,7 @@ class CoursTableSeeder extends Seeder
     {
         Cours::create([
             'titre' => 'Introduction aux sons',
-            'difficulte' => 0,
+            'difficulte' => 1,
         ]);
 
         Cours::create([
