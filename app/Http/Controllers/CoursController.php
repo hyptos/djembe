@@ -29,7 +29,33 @@ class CoursController extends Controller
     */
     public function getAll()
     {
-        $cours = Cours::all();
+        $cours = Cours::all()->where('type' == 'solfege');
         return view('getAllCours', ['cours' => $cours]);
     }
+
+    /* fonction qui affiche tous les cours.
+     *
+     * @param  none
+     * @return Response
+    */
+    public function dashboardSolfege()
+    {
+        $cours = Cours::where('type', '=', 'solfege')->get();
+        return view('dashboard', ['cours' => $cours]);
+    }
+
+    /* fonction qui affiche tous les cours.
+     *
+     * @param  none
+     * @return Response
+    */
+    public function dashboardHistoire()
+    {
+        $cours = Cours::where('type', '=', 'histoire')->get();
+        return view('dashboard', ['cours' => $cours]);
+    }
+
+
+
+
 }

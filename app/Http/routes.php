@@ -16,13 +16,15 @@ $app->get('/', 'App\Http\Controllers\WelcomeController@test');
 
 //test routes
 $app->get('exoTest', 'App\Http\Controllers\ExoTestController@test');
+$app->get('exoTest2', 'App\Http\Controllers\ExoTest2Controller@test');
 
 //testson routes
 $app->get('son', 'App\Http\Controllers\sonController@test');
 
 //Users routes
 $app->get('users', 'App\Http\Controllers\UserController@getAllProfile');
-$app->get('dashboard', 'App\Http\Controllers\UserController@dashboard');
+$app->get('dashboardSolfege', 'App\Http\Controllers\CoursController@dashboardSolfege');
+$app->get('dashboardHistoire', 'App\Http\Controllers\CoursController@dashboardHistoire');
 $app->delete('users', 'App\Http\Controllers\UserController@deleteAllUsers');
 
 // Authentification system
@@ -50,6 +52,8 @@ $app->get('chapitre/{id}', 'App\Http\Controllers\ChapitreController@get');
 
 // exercices routes
 $app->get('exercice/{id}', 'App\Http\Controllers\ExerciceController@get');
+$app->get('textatrou', 'App\Http\Controllers\Exercices\TextATrouController@get');
+$app->post('textatrou', 'App\Http\Controllers\Exercices\TextATrouController@post');
 
 // test routes
 $app->get('test', 'App\Http\Controllers\UserController@test');
