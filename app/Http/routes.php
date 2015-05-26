@@ -16,6 +16,7 @@ $app->get('/', 'App\Http\Controllers\WelcomeController@test');
 
 //test routes
 $app->get('exoTest', 'App\Http\Controllers\ExoTestController@test');
+$app->get('exoTest2', 'App\Http\Controllers\ExoTest2Controller@test');
 
 
 //Users routes

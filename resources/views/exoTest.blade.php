@@ -13,8 +13,9 @@
 
 @section('content')
 	<style>
-		ul { list-style-type: none; margin: 0; padding: 0; margin-bottom: 10px; }
-		li { margin: 5px; padding: 5px; width: 60px; text-align: center; float:left;}
+		ul { list-style-type: none; margin: 0; padding: 0; margin-bottom: 10px; float:left;}
+		li { margin: 5px; padding: 2px; width: 60px; text-align: center; float:left;}
+		.ui-state-default {background: none;}
 	</style>
 	<script>
 		$(function() {
@@ -29,6 +30,7 @@
 			$( "ul, li" ).disableSelection();
 		});
 	</script>
+	<img style="float:left;" src="/djembe/images/cleDeSol.jpg">
 	<ul id="sortable">
 		<li class="ui-state-default"><img src="/djembe/images/re.jpg"></li>
 		<li class="ui-state-default"><img src="/djembe/images/fa.jpg"></li>
