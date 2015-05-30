@@ -30,12 +30,15 @@
 
 	<p>On affiche ses propres stats dasn tous les cas</p>
 
-<table class="table">
+<h2><span class="glyphicon glyphicon-stats" aria-hidden="true">&nbsp; Mes statistiques</h2>
+<hr>
+<table class="table table-striped">
 	<tr>
 		<th>id</th>
 		<th>avancement</th>
 		<th>reussite</th>
 		<th>temps</th>
+		<th>Jour</th>
 	</tr>
 	@foreach ($user->stats as $stat)
 	<tr>
@@ -43,6 +46,7 @@
 			<td>{{ $stat->avancement }}</td>
 			<td>{{ $stat->reussite }}</td>
 			<td>{{ $stat->temps }}</td>
+			<td>{{ $stat->created_at}} </td>
 	</tr>
 	@endforeach
 </table>

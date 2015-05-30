@@ -97,7 +97,7 @@ class UserController extends Controller
     public function dashboard()
     {
         $cours = Cours::all();
-        return view('dashboard', ['cours' => $cours]);
+        return view('/', ['cours' => $cours]);
 
     }
 
@@ -114,7 +114,7 @@ class UserController extends Controller
         $password   = $request->input('password');
 
         if (Auth::attempt(array('email' => $email, 'password' => $password), true)) {
-            return redirect('dashboard');
+            return redirect('/');
         } else {
             return redirect('login');
         }
