@@ -139,8 +139,8 @@ class FuzzyController extends Controller
         // Sauvegarde en base des résultats
         $stat = new Stats();
 
-        $stat->temps = '10';
-        $stat->reussite = '50';
+        $stat->temps = $time;
+        $stat->reussite = $res['note'];
         $stat->avancement = '100';
 
         $user = User::find($idUser);

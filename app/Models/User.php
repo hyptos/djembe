@@ -80,6 +80,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function stats()
     {
-        return $this->hasOne('App\Models\Stats');
+        return $this->hasMany('App\Models\Stats');
     }
 }

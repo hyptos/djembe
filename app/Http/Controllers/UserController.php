@@ -20,9 +20,14 @@ class UserController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function showProfile($id)
+    public function showProfile($id = null)
     {
-        $user = User::find($id);
+        if (isset($id)) {
+            $user = User::find($id);
+        } else {
+            $user = Auth::user();
+        }
+
         return view('user', ['user' => $user]);
     }
 

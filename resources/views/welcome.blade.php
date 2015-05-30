@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/djembe/css/demo.css" />
-    <link rel="stylesheet" type="text/css" href="/djembe/css/common.css" />
-    <link rel="stylesheet" type="text/css" href="/djembe/css/style6.css" />
+    <link rel="stylesheet" type="text/css" href="/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style6.css" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css' />
-    <script type="text/javascript" src="/djembe/js/modernizr.custom.79639.js"></script>
+    <script type="text/javascript" src="/js/modernizr.custom.79639.js"></script>
     <!--[if lte IE 8]><style>.main{display:none;} .support-note .note-ie{display:block;}</style><![endif]-->
 @stop
 
@@ -33,7 +33,7 @@
                                     <div class="ch-info-front ch-img-1"></div>
                                     <div class="ch-info-back">
                                         <h3>Solfège</h3>
-                                        <p><a href="/djembe/index.php/dashboard">Commencer</a></p>
+                                        <p><a href="/dashboardSolfege">Commencer</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@
                                     <div class="ch-info-front ch-img-3"></div>
                                     <div class="ch-info-back">
                                         <h3>Histoire</h3>
-                                        <p><a href="http://drbl.in/eNTe">Commencer</a></p>
+                                        <p><a href="/dashboardHistoire">Commencer</a></p>
                                     </div>
                                 </div>
                             </div>
