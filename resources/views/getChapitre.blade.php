@@ -19,7 +19,7 @@
 @include('header')
 
 @section('content')
-	<h1>{{ $chapitre->no }} - {{ $chapitre->titre }}</h1>
+	<h1><span class="glyphicon glyphicon-book" aria-hidden="true"></span> &nbsp; {{ $chapitre->no }} - {{ $chapitre->titre }}</h1>
 	<p>{{ $chapitre->contenu }}.</p>
 	<h2>Les exercices disponibles dans ce chapitre</h2>
     @if(isset($exercices))
