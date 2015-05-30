@@ -38,6 +38,7 @@ var contents = [
     }
 ];
 var solution = random_solution(contents, 3);
+var timeStart, timeEnd;
 var pie = new d3pie("pieChart", {
     "header": {
         "title": {
@@ -93,7 +94,13 @@ var pie = new d3pie("pieChart", {
             $('#'+a.data.label).prop("currentTime",0);
             $('#'+a.data.label).trigger('play');
             tab.push(a.data.label);
+
+            if(numberOfClicks === 1){
+                timeStart = Date.now();
+            }
             if(numberOfClicks === 3){
+                numberOfClicks = 0;
+                var currentdate = Date.now() - timeStart;
                 // On stocke en bdd le résultat
                 $.ajax({
                   url: "http://djembe.com/fuzzy",
@@ -101,7 +108,7 @@ var pie = new d3pie("pieChart", {
                   data: {
                     nbErrors:numberOfErrors(tab, solution),
                     nbResponses:3,
-                    time:60,
+                    time: currentdate/1000,
                     timeAvg:$('#timeAvg').val(),
                     idUser:$('#idUser').val(),
                     idCours:$('#idCours').val(),
@@ -162,7 +169,7 @@ function openAndPlay(note){
     $('#'+note).trigger('pause');
     $('#'+note).prop("currentTime",0);
     $('#'+note).trigger('play');
-    
+
     var index = getIndexForShuffled(contents, note);
     pie.openSegment(index);
 }
