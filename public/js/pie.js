@@ -37,7 +37,7 @@ var contents = [
         "color": "#FF00FF"
     }
 ];
-var solution = random_solution(contents, 3);
+var solution = random_solution(contents, 5);
 var timeStart, timeEnd;
 var pie = new d3pie("pieChart", {
     "header": {
@@ -98,7 +98,7 @@ var pie = new d3pie("pieChart", {
             if(numberOfClicks === 1){
                 timeStart = Date.now();
             }
-            if(numberOfClicks === 3){
+            if(numberOfClicks === 5){
                 numberOfClicks = 0;
                 var currentdate = Date.now() - timeStart;
                 // On stocke en bdd le résultat
@@ -107,7 +107,7 @@ var pie = new d3pie("pieChart", {
                   method: "POST",
                   data: {
                     nbErrors:numberOfErrors(tab, solution),
-                    nbResponses:3,
+                    nbResponses:5,
                     time: currentdate/1000,
                     timeAvg:$('#timeAvg').val(),
                     idUser:$('#idUser').val(),
@@ -136,7 +136,8 @@ function getIndexForShuffled(tab, note){
 }
 
 function success(mess){
-    $('#message').addClass('alert-warning').fadeIn(1000).html('<p>'+mess.conseil+'</p>');
+    console.log(mess.smiley);
+    $('#message').addClass('alert-warning').fadeIn(1000).html('<p>'+mess.conseil+'<img src='+mess.smiley+'>'+'</p>');
 }
 
 function numberOfErrors(tab_reponse, tab_solution){

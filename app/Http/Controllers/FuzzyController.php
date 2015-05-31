@@ -116,11 +116,14 @@ class FuzzyController extends Controller
         /* --- si le résultat est "très mauvais" --- */
         if ($res['note'] < 12.5) {
             $res['conseil'] = 'REVIEW_BASICS';
+            $res['smiley'] = '/images/very_bad.png';
         } /* --- si le résultat est "mauvais" --- */
         elseif ($res['note'] < 27.5) {
             $res['conseil'] = 'REDO_SIMPLE';
+            $res['smiley'] = '/images/bad.png';
         } /* --- si le résultat est "moyen" --- */
         elseif ($res['note'] < 62.5) {
+        	$res['smiley'] = '/images/medium.png';
             /* ---- On regarde le conseil défini dans fuzzy ---- */
             if ($res['conseil'] < 0.25) {
                 $res['conseil'] = 'REDO_SLOWLY';
@@ -130,8 +133,10 @@ class FuzzyController extends Controller
                 $res['conseil'] = 'REDO_FASTER';
             }
         } elseif ($res['note'] < 77.5) {
+        	$res['smiley'] = '/images/good.png';
             $res['conseil'] = 'CONTINUE';
         } else {
+        	$res['smiley'] = '/images/very_good.png';
             $res['conseil'] = 'CONTINUE_DIFFICULT';
         }
 
