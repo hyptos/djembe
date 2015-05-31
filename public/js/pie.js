@@ -4,37 +4,37 @@ var contents = [
     {
         "label": "do",
         "value": 20,
-        "color": "#2484c1"
+        "color": "#0000FF"
     },
     {
         "label": "re",
         "value": 20,
-        "color": "#0c6197"
+        "color": "#00FFFF"
     },
     {
         "label": "mi",
         "value": 20,
-        "color": "#4daa4b"
+        "color": "#00CD00"
     },
     {
         "label": "fa",
         "value": 20,
-        "color": "#90c469"
+        "color": "#FFFF00"
     },
     {
         "label": "sol",
         "value": 20,
-        "color": "#daca61"
+        "color": "#FFA500"
     },
     {
         "label": "la",
         "value": 20,
-        "color": "#e4a14b"
+        "color": "#FF0000"
     },
     {
         "label": "si",
         "value": 20,
-        "color": "#e98125"
+        "color": "#FF00FF"
     }
 ];
 var solution = random_solution(contents, 3);
