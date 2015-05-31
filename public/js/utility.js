@@ -12,7 +12,7 @@ function shuffle(sourceArray) {
 
 function random_solution(sourceArray, n) {
 	var solution = [];
-	
+
 	for ( var i = 0 ; i < n ; i++){
 		var k = Math.floor(Math.random() * sourceArray.length);
 		solution.push(sourceArray[k]);

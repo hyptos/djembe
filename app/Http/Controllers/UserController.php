@@ -20,9 +20,14 @@ class UserController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function showProfile($id)
+    public function showProfile($id = null)
     {
-        $user = User::find($id);
+        if (isset($id)) {
+            $user = User::find($id);
+        } else {
+            $user = Auth::user();
+        }
+
         return view('user', ['user' => $user]);
     }
 
@@ -92,7 +97,7 @@ class UserController extends Controller
     public function dashboard()
     {
         $cours = Cours::all();
-        return view('dashboard', ['cours' => $cours]);
+        return view('/', ['cours' => $cours]);
 
     }
 
@@ -109,7 +114,7 @@ class UserController extends Controller
         $password   = $request->input('password');
 
         if (Auth::attempt(array('email' => $email, 'password' => $password), true)) {
-            return redirect('dashboard');
+            return redirect('/');
         } else {
             return redirect('login');
         }
