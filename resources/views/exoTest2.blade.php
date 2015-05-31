@@ -126,19 +126,19 @@ interact('.dropzone').dropzone({
 
 <div id="yes-drop" class="draggable drag-drop">
 	<div class="nomNote">do</div>
-	<img id="do" src="/djembe/images/teteNote.png" width="40px">
+	<img id="do" src="images/teteNote.png" width="40px">
 </div>
 <div id="yes-drop" class="draggable drag-drop">
 	<div class="nomNote">mi</div>
-	<img id="mi" src="/djembe/images/teteNote.png" width="40px">
+	<img id="mi" src="images/teteNote.png" width="40px">
 </div>
 <div id="yes-drop" class="draggable drag-drop">
 	<div class="nomNote">sol</div>
-	<img id="sol" src="/djembe/images/teteNote.png" width="40px">
+	<img id="sol" src="images/teteNote.png" width="40px">
 </div>
 <div id="yes-drop" class="draggable drag-drop">
 	<div class="nomNote">fa</div>
-	<img id="fa" src="/djembe/images/teteNote.png" width="40px">
+	<img id="fa" src="images/teteNote.png" width="40px">
 </div>
 <br/><br/><br/><br/>
 
