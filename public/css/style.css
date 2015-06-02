@@ -1,0 +1,64 @@
+body {
+	/*background: linear-gradient(to bottom, #FEF6DC, white);
+	color: #EA8716;*/
+}
+
+a {
+	color: #EA8716;
+}
+
+a:hover {
+	color: #B66B15;
+}
+
+a:focus {
+	color: #B66B15;
+}
+
+.banniere {
+	margin: auto;
+	padding: 0px;
+	max-width: 80%;
+	text-align: center;
+	border: none;
+}
+
+.panel-body {
+	padding: 0px;
+	border: none;
+}
+
+.imgBanniere {
+	max-width: 100%;
+}
+
+.navbar {
+	max-width: 90%;
+	margin: auto;
+}
+
+
+.navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a {
+    color: #EA8716;
+}
+
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+	color: #B66B15;
+}
+
+.containerNavbar {
+	padding: 0px;
+	width: 100%;
+}
+
+.container {
+	width: 80%;
+	background-color: #F2EFEA;
+}
+
+footer {
+	width: 80%;
+	margin: auto;
+	text-align: center;
+	background-color: #CDC4B3;
+}

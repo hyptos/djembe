@@ -1,7 +1,6 @@
 <?php
 
 # database/seeds/ExerciceTableSeeder.php
-namespace seeds\Exercice;
 
 use App\Models\Exercice;
 use Illuminate\Database\Seeder;
@@ -75,6 +74,7 @@ class ExerciceTableSeeder extends Seeder
             'difficulte' => 1,
             'ressource' => '<link rel="stylesheet" href="/djembe/css/styleddpartition.css">
                             <script type="text/javascript" src="/djembe/js/interact.min.js"></script>
+                            <div id="message" class="alert"></div>
                             <div id="lesNotes">
                             <br/><br/>
                             <div id="zone0" class="dropzone b"></div>
@@ -95,7 +95,8 @@ class ExerciceTableSeeder extends Seeder
                             <div id="zone13" class="dropzone nn"></div>
                             <div id="zone14" class="dropzone b"></div>
                             <div id="zone15" class="dropzone nn"></div><br/><br/>
-                            </div>',
+                            </div>
+                            <button id="finish" class="btn btn-primary">J\'ai terminé !</button>',
             'script' => '/djembe/js/ddpartition.js',
             'temps_moyen' => 60,
             'nbReponses' => 1,

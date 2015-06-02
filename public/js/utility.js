@@ -48,13 +48,24 @@ var notes = [
     return origin;
 }*/
 
-function random_solution(sourceArray, n) {
+function random_solution(sourceArray, n, doublon) {
 	var solution = [];
 
 	for ( var i = 0 ; i < n ; i++){
 		var k = Math.floor(Math.random() * sourceArray.length);
-		solution.push(sourceArray[k]);
+        if(doublon && solution.indexOf(sourceArray[k]) === -1) {
+            solution.push(sourceArray[k]);
+        } else if(doublon) {
+            i--;
+        } else {
+            solution.push(sourceArray[k]);
+        }
 	}
 
 	return solution;
+}
+
+function success(mess){
+    console.log(mess.smiley);
+    $('#message').addClass('alert-warning').fadeIn(1000).html('<p>'+mess.conseil+'</p><br/><p>'+mess.choix+'</p><img src='+mess.smiley+'>');
 }

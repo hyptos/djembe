@@ -1,3 +1,8 @@
+var res = [];
+var nbErr = 0;
+var timeStart, timeEnd;
+timeStart = Date.now();
+
 interact('.draggable').draggable({
     inertia: true,
     restrict: {
@@ -47,9 +52,17 @@ interact('.dropzone').dropzone({
 		event.relatedTarget.classList.remove('can-drop');
 	},
 	ondrop: function (event) {
-		//event.relatedTarget.textContent = 'Dropped';
+		var nouv = true;
 		var dropzoneElement = event.target;
-		//alert(dropzoneElement.id);
+		for(var i = 0; i < res.length; i++) {
+			if(res[i][1] == event.relatedTarget.children[1].id) {
+				nouv = false;
+				res[i][0] = dropzoneElement.id;
+			}
+		}
+		if(nouv) {
+			res.push([dropzoneElement.id, event.relatedTarget.children[1].id]);
+		}
 	},
 	ondropdeactivate: function (event) {
 		// remove active dropzone feedback
@@ -58,7 +71,7 @@ interact('.dropzone').dropzone({
 	}
 });
 
-var tabNote = random_solution(notes, 4);
+var tabNote = random_solution(notes, 4, true);
 
 function insertNotes(element, index, array) {
 	console.log(element.label);
@@ -66,3 +79,96 @@ function insertNotes(element, index, array) {
 }
 
 tabNote.forEach(insertNotes);
+
+$("body").on("click", "#finish", function() {
+	timeEnd = Date.now() - timeStart;
+	$.each(res, function( index, value ) {
+		switch(value[0]) {
+		    case 'zone0':
+		    	nbErr++;
+		        break;
+		    case 'zone1':
+		    	nbErr++;
+		        break;
+		    case 'zone2':
+		    	nbErr++;
+		        break;
+		    case 'zone3':
+		    	nbErr++;
+		        break;
+		    case 'zone4':
+		    	nbErr++;
+		        break;
+		    case 'zone5':
+		    	nbErr++;
+		        break;
+		    case 'zone6':
+		    	nbErr++;
+		        break;
+		    case 'zone7':
+		    	if(value[1] !== 'si') {
+		    		nbErr++;
+		    	}
+		        break;
+		    case 'zone8':
+		    	if(value[1] !== 'la') {
+		    		nbErr++;
+		    	}
+		        break;
+		    case 'zone9':
+		    	if(value[1] !== 'sol') {
+		    		nbErr++;
+		    	}
+		        break;
+		    case 'zone10':
+		    	if(value[1] !== 'fa') {
+		    		nbErr++;
+		    	}
+		        break;
+		    case 'zone11':
+		    	if(value[1] !== 'mi') {
+		    		nbErr++;
+		    	}
+		        break;
+		    case 'zone12':
+		    	if(value[1] !== 're') {
+		    		nbErr++;
+		    	}
+		        break;
+		    case 'zone13':
+		    	if(value[1] !== 'do') {
+		    		nbErr++;
+		    	}
+		        break;
+		    case 'zone14':
+		    	nbErr++;
+		        break;
+		    case 'zone15':
+		    	nbErr++;
+		        break;
+		    default:
+        		nbErr++;
+		} 
+		if(res.length < 4) {
+			nbErr += 4 - res.length;
+		}
+	});
+	if(res.length === 0) {
+		nbErr = 4;
+	}
+	$.ajax({
+		url: "http://djembe.com/djembe/index.php/fuzzy",
+		method: "POST",
+		data: {
+			nbErrors:nbErr,
+			nbResponses:4,
+			time: timeEnd/1000,
+			timeAvg:$('#timeAvg').val(),
+			idUser:$('#idUser').val(),
+			idCours:$('#idCours').val(),
+			_token: $('#token').val()
+		}
+    }).done(function(mess){
+        success(mess);
+    });
+});
