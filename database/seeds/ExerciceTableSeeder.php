@@ -1,6 +1,7 @@
 <?php
 
 # database/seeds/ExerciceTableSeeder.php
+namespace seeds\Exercice;
 
 use App\Models\Exercice;
 use Illuminate\Database\Seeder;
@@ -15,6 +16,8 @@ class ExerciceTableSeeder extends Seeder
             'difficulte' => 1,
             'temps_moyen' => 60,
             'nbReponses' => 1,
+            'ressource' => '<p>wesh</p>',
+            'script' => '/js/reconnaissance.js'
         ]);
 
 
