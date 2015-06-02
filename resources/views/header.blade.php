@@ -1,6 +1,6 @@
 @section('header')
 
-<link rel="stylesheet" href="/djembe/css/style.css">
+<link rel="stylesheet" href="/css/style.css">
 <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
   <div class="containerNavbar">
     <nav class="navbar navbar-default">
@@ -13,7 +13,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/djembe/">Djembe</a>
+      <a class="navbar-brand" href="/">Djembe</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -35,7 +35,7 @@
 </header>
 <div class="panel panel-default banniere" >
     <div class="panel-body">
-      <img src="/djembe/images/banniere.jpg" class="imgBanniere" />
+      <img src="/images/banniere.jpg" class="imgBanniere" />
     </div>
 </div>
 

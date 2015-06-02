@@ -72,8 +72,8 @@ class ExerciceTableSeeder extends Seeder
         Exercice::create([ // id : 6
             'type' => 'LirePartition',
             'difficulte' => 1,
-            'ressource' => '<link rel="stylesheet" href="/djembe/css/styleddpartition.css">
-                            <script type="text/javascript" src="/djembe/js/interact.min.js"></script>
+            'ressource' => '<link rel="stylesheet" href="/css/styleddpartition.css">
+                            <script type="text/javascript" src="/js/interact.min.js"></script>
                             <div id="message" class="alert"></div>
                             <div id="lesNotes">
                             <br/><br/>
@@ -87,7 +87,7 @@ class ExerciceTableSeeder extends Seeder
                             <div id="zone7" class="dropzone n"></div>
                             <div id="zone8" class="dropzone b"></div>
                             <div id="zone9" class="dropzone n" style="position: relative;">
-                                <div style="position: absolute; top: -250px;"><img src="/djembe/images/cleDeSol.png"></div>
+                                <div style="position: absolute; top: -250px;"><img src="/images/cleDeSol.png"></div>
                             </div>
                             <div id="zone10" class="dropzone b"></div>
                             <div id="zone11" class="dropzone n"></div>
@@ -97,7 +97,7 @@ class ExerciceTableSeeder extends Seeder
                             <div id="zone15" class="dropzone nn"></div><br/><br/>
                             </div>
                             <button id="finish" class="btn btn-primary">J\'ai terminé !</button>',
-            'script' => '/djembe/js/ddpartition.js',
+            'script' => '/js/ddpartition.js',
             'temps_moyen' => 60,
             'nbReponses' => 1,
         ]);

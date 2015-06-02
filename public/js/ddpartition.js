@@ -75,7 +75,7 @@ var tabNote = random_solution(notes, 4, true);
 
 function insertNotes(element, index, array) {
 	console.log(element.label);
-    $('#lesNotes').append('<div id="yes-drop" class="draggable drag-drop"><div class="nomNote">'+ element.label +'</div><img id="'+ element.label +'" src="/djembe/images/teteNote.png" width="40px"></div>');
+    $('#lesNotes').append('<div id="yes-drop" class="draggable drag-drop"><div class="nomNote">'+ element.label +'</div><img id="'+ element.label +'" src="/images/teteNote.png" width="40px"></div>');
 }
 
 tabNote.forEach(insertNotes);
@@ -148,7 +148,7 @@ $("body").on("click", "#finish", function() {
 		        break;
 		    default:
         		nbErr++;
-		} 
+		}
 		if(res.length < 4) {
 			nbErr += 4 - res.length;
 		}
@@ -157,7 +157,7 @@ $("body").on("click", "#finish", function() {
 		nbErr = 4;
 	}
 	$.ajax({
-		url: "http://djembe.com/djembe/index.php/fuzzy",
+		url: "http://djembe.com/fuzzy",
 		method: "POST",
 		data: {
 			nbErrors:nbErr,
