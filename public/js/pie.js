@@ -101,7 +101,7 @@ function getIndexForShuffled(tab, note){
 
 function success(mess){
     console.log(mess.smiley);
-    $('#message').addClass('alert-warning').fadeIn(1000).html('<p>'+mess.conseil+'<img src='+mess.smiley+'>'+'</p>');
+    $('#message').addClass('alert-warning').fadeIn(1000).html('<p>'+mess.conseil+'</p><br/><p>'+mess.choix+'</p><img src='+mess.smiley+'>');
 }
 
 function numberOfErrors(tab_reponse, tab_solution){
