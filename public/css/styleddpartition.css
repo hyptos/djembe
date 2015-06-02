@@ -1,0 +1,45 @@
+.b {
+	margin: 0px auto 0px;
+	padding: 10px;
+	transition: background-color 0.3s;
+	height: 25px;
+}
+
+.n, .nn {
+	background-color: black;
+	margin: 0px auto 0px;
+	padding: 10px;
+	transition: background-color 0.3s;
+	height: 2px;
+}
+
+.nn {
+	background-color: #FFFFFF;
+}
+
+
+.drop-target {
+  background-color: #29e;
+}
+
+.drag-drop {
+	z-index: 999;
+  display: inline-block;
+  position: relative;
+  min-width: 40px;
+  padding: 2px;
+  color: #fff;
+  -webkit-transform: translate(0px, 0px);
+          transform: translate(0px, 0px);
+  transition: background-color 0.3s;
+}
+
+.nomNote {
+	position: absolute;
+	padding: 5px;
+	padding-left: 10px;
+}
+
+.drag-drop.can-drop {
+  background-color: #FEFA7A;
+}
