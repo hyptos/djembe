@@ -6,12 +6,12 @@ var timeStart, timeEnd;
 var pie = new d3pie("pieChart", {
     "header": {
         "title": {
-            "text": "Game sound ",
+            "text": "Reconnais les notes ",
             "fontSize": 24,
             "font": "open sans"
         },
         "subtitle": {
-            "text": "Clique sur une zone pour faire un bruit.",
+            "text": "Clique sur une zone pour jouer une note.",
             "color": "#999999",
             "fontSize": 12,
             "font": "open sans"
@@ -76,6 +76,7 @@ var pie = new d3pie("pieChart", {
                     timeAvg:$('#timeAvg').val(),
                     idUser:$('#idUser').val(),
                     idCours:$('#idCours').val(),
+                    idExercice:$('#idExercice').val(),
                     _token: $('#token').val()
                   }
                 }).done(function(mess){
@@ -100,8 +101,15 @@ function getIndexForShuffled(tab, note){
 }
 
 function success(mess){
-    console.log(mess.smiley);
-    $('#message').addClass('alert-warning').fadeIn(1000).html('<p>'+mess.conseil+'</p><br/><p>'+mess.choix+'</p><img src='+mess.smiley+'>');
+    var content = '<p>Tu as fais ' + mess.error + ' erreurs !</p>';
+    var conseil = '<p>';
+    for (var i = mess.choix.length - 1; i >= 0; i--) {
+        conseil += '<a class="btn btn-warning"' +
+            'href="#">' + mess.choix[i] + '</a>&nbsp;';
+    };
+    conseil += '</p>';
+    content += '<p>'+mess.conseil+'</p><p>'+ conseil +'</p><br/><img src='+mess.smiley+'>';
+    $('#game').addClass('alert').fadeIn(1000).html(content);
 }
 
 function numberOfErrors(tab_reponse, tab_solution){

@@ -14,7 +14,8 @@ class StatsTableSeeder extends Seeder
             'temps' => '50',
             'avancement' => '50',
             'user_id' => 1,
-            'cours_id' => 2
+            'cours_id' => 2,
+            'exercice_id' => 2,
         ]);
 
         Stats::create([
@@ -22,7 +23,8 @@ class StatsTableSeeder extends Seeder
             'temps' => '60',
             'avancement' => '60',
             'user_id' => 2,
-            'cours_id' => 1
+            'cours_id' => 1,
+            'exercice_id' => 2
         ]);
 
     }

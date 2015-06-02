@@ -1,7 +1,6 @@
 <?php
 
 # database/seeds/ExerciceTableSeeder.php
-namespace seeds\Exercice;
 
 use App\Models\Exercice;
 use Illuminate\Database\Seeder;

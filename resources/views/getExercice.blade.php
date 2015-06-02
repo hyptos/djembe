@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <script src="/djembe/js/utility.js"></script>
-    <script src="/djembe/js/d3pie.min.js"></script>
+    <script src="/js/utility.js"></script>
+    <script src="/js/d3pie.min.js"></script>
     <link rel="shortcut icon" href="../favicon.ico">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css' />
-    <script type="text/javascript" src="/djembe/js/modernizr.custom.79639.js"></script>
+    <script type="text/javascript" src="/js/modernizr.custom.79639.js"></script>
     <!--[if lte IE 8]><style>.main{display:none;} .support-note .note-ie{display:block;}</style><![endif]-->
 @stop
 
@@ -31,6 +31,7 @@
     <input type="hidden" id="nbResponses" name="nbResponses" value="{{ $exercice->nbResponses }}">
     <input type="hidden" id="timeAvg" name="timeAvg" value="60">
     <input type="hidden" id="idUser" name="idUser" value="{{ Auth::user()->id }}">
+    <input type="hidden" id="idExercice" name="idExercice" value="{{ $exercice->id }}">
     <input type="hidden" id="idCours" name="idCours" value="1">
     <script type="text/javascript" src="{{ $exercice->script }}"></script>
 @stop

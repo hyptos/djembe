@@ -29,6 +29,7 @@ class FuzzyController extends Controller
         $timeAvg        = $request->input('timeAvg');
         $idUser         = $request->input('idUser');
         $idCours        = $request->input('idCours');
+        $idExercice     = $request->input('idExercice');
 
         $fuzzy = new FuzzyLogicProvider();
 
@@ -127,7 +128,7 @@ class FuzzyController extends Controller
             $res['choix'] = ['PlusFacile', 'Recommencer'];
         } /* --- si le résultat est "moyen" --- */
         elseif ($res['note'] < 62.5) {
-        	$res['smiley'] = '/images/medium.png';
+            $res['smiley'] = '/images/medium.png';
             $res['choix'] = ['Recommencer'];
             $res['conseil'] = "Tu fais encore quelques erreurs.";
             /* ---- On regarde le conseil défini dans fuzzy ---- */
@@ -141,14 +142,15 @@ class FuzzyController extends Controller
                 M0aintenant essai d'aller un peu plus vite.";
             }
         } elseif ($res['note'] < 77.5) {
-        	$res['smiley'] = '/images/good.png';
+            $res['smiley'] = '/images/good.png';
             $res['conseil'] = "C'est bien. Prêt pour la suite ?";
             $res['choix'] = ['Recommencer', 'Continuer'];
         } else {
-        	$res['smiley'] = '/images/very_good.png';
+            $res['smiley'] = '/images/very_good.png';
             $res['conseil'] = "C'est très bien ! Prêt pour la suite ?";
             $res['choix'] = ['Recommencer', 'ContinuerHard'];
         }
+        $res['error'] = $nbErrors;
 
 
         // Sauvegarde en base des résultats
@@ -160,9 +162,11 @@ class FuzzyController extends Controller
 
         $user = User::find($idUser);
         $cours = Cours::find($idCours);
+        $exercice = Exercice::find($idExercice);
 
         $stat->user_id = $user->id;
         $stat->cours_id = $cours->id;
+        $stat->exercice_id = $exercice->id;
         $stat->save();
 
         return $res;
