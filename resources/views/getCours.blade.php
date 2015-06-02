@@ -19,7 +19,7 @@
 @include('header')
 
 @section('content')
-	<h1>{{ $cours->titre }}</h1>
+	<h1><span class="glyphicon glyphicon-education" aria-hidden="true"></span> &nbsp; {{ $cours->titre }}</h1>
 	<p>Ce cours est de difficulte : {{ $cours->difficulte }}.</p>
 	<h2>Les chapitres disponibles dans ce cours</h2>
 	@if (isset($chapitres))

@@ -1,6 +1,7 @@
 <?php
 
 # database/seeds/ExerciceTableSeeder.php
+namespace seeds\Exercice;
 
 use App\Models\Exercice;
 use Illuminate\Database\Seeder;
@@ -15,6 +16,8 @@ class ExerciceTableSeeder extends Seeder
             'difficulte' => 1,
             'temps_moyen' => 60,
             'nbReponses' => 1,
+            'ressource' => '<p>wesh</p>',
+            'script' => '/js/reconnaissance.js'
         ]);
 
 
@@ -40,28 +43,28 @@ class ExerciceTableSeeder extends Seeder
 <audio id="la" src="/son/piano_la.mp3" preload="auto"></audio>
 <audio id="si" src="/son/piano_si.mp3" preload="auto"></audio>',
             'script' => '/js/pie.js',
-            'temps_moyen' => 60,
+            'temps_moyen' => 3,
             'nbReponses' => 3,
         ]);
 
         Exercice::create([ // id : 3
             'type' => 'ReconnaitreSuiteNotes',
             'difficulte' => 2,
-            'temps_moyen' => 60,
+            'temps_moyen' => 5,
             'nbReponses' => 5,
         ]);
 
         Exercice::create([ // id : 4
             'type' => 'ReconnaitreSuiteNotes',
             'difficulte' => 3,
-            'temps_moyen' => 60,
+            'temps_moyen' => 10,
             'nbReponses' => 10,
         ]);
 
         Exercice::create([ // id : 5
             'type' => 'ReconnaitreSuiteNotes',
             'difficulte' => 4,
-            'temps_moyen' => 60,
+            'temps_moyen' => 15,
             'nbReponses' => 10,
         ]);
 

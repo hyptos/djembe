@@ -9,3 +9,14 @@ function shuffle(sourceArray) {
     }
     return origin;
 }
+
+function random_solution(sourceArray, n) {
+	var solution = [];
+
+	for ( var i = 0 ; i < n ; i++){
+		var k = Math.floor(Math.random() * sourceArray.length);
+		solution.push(sourceArray[k]);
+	}
+
+	return solution;
+}

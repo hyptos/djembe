@@ -37,6 +37,7 @@ $app->get('logout', 'App\Http\Controllers\UserController@logout');
 $app->get('user/learner', 'App\Http\Controllers\UserController@showProfileLearners');
 $app->get('user/teacher', 'App\Http\Controllers\UserController@showProfileTeachers');
 $app->get('user/{id}', 'App\Http\Controllers\UserController@showProfile');
+$app->get('user', 'App\Http\Controllers\UserController@showProfile');
 
 // enseigne routes
 $app->get('enseigne', 'App\Http\Controllers\UserController@enseigne');

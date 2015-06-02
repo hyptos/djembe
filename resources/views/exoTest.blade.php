@@ -30,14 +30,14 @@
 			$( "ul, li" ).disableSelection();
 		});
 	</script>
-	<img style="float:left;" src="/djembe/images/cleDeSol.jpg">
+	<img style="float:left;" src="images/cleDeSol.jpg">
 	<ul id="sortable">
-		<li class="ui-state-default"><img src="/images/re.jpg"></li>
-		<li class="ui-state-default"><img src="/images/fa.jpg"></li>
-		<li class="ui-state-default"><img src="/images/do.jpg"></li>
-		<li class="ui-state-default"><img src="/images/mi.jpg"></li>
-		<li class="ui-state-default"><img src="/images/la.jpg"></li>
-		<li class="ui-state-default"><img src="/images/si.jpg"></li>
-		<li class="ui-state-default"><img src="/images/sol.jpg"></li>
+		<li class="ui-state-default"><img src="images/re.jpg"></li>
+		<li class="ui-state-default"><img src="images/fa.jpg"></li>
+		<li class="ui-state-default"><img src="images/do.jpg"></li>
+		<li class="ui-state-default"><img src="images/mi.jpg"></li>
+		<li class="ui-state-default"><img src="images/la.jpg"></li>
+		<li class="ui-state-default"><img src="images/si.jpg"></li>
+		<li class="ui-state-default"><img src="images/sol.jpg"></li>
 	</ul>
 @stop
