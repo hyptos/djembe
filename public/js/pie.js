@@ -1,42 +1,6 @@
 var tab = [];
 var numberOfClicks = 1;
-var contents = [
-    {
-        "label": "do",
-        "value": 20,
-        "color": "#0000FF"
-    },
-    {
-        "label": "re",
-        "value": 20,
-        "color": "#00FFFF"
-    },
-    {
-        "label": "mi",
-        "value": 20,
-        "color": "#00CD00"
-    },
-    {
-        "label": "fa",
-        "value": 20,
-        "color": "#FFFF00"
-    },
-    {
-        "label": "sol",
-        "value": 20,
-        "color": "#FFA500"
-    },
-    {
-        "label": "la",
-        "value": 20,
-        "color": "#FF0000"
-    },
-    {
-        "label": "si",
-        "value": 20,
-        "color": "#FF00FF"
-    }
-];
+var contents = notes;
 var solution = random_solution(contents, 5);
 var timeStart, timeEnd;
 var pie = new d3pie("pieChart", {

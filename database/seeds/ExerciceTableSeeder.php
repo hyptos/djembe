@@ -23,22 +23,22 @@ class ExerciceTableSeeder extends Seeder
             'type' => 'ReconnaitreSuiteNotes',
             'difficulte' => 1,
             'ressource' => '<div class="row">
-    <div class="col-md-12">
-        <div id="game" class="text-center">
-            <div id="pieChart"></div>
-            <button class="btn btn-primary btn-lg" id="beginGame">Jouer</button>
-            <div id="message" class="alert"></div>
-        </div>
-    </div>
-</div>
+                                <div class="col-md-12">
+                                    <div id="game" class="text-center">
+                                        <div id="pieChart"></div>
+                                        <button class="btn btn-primary btn-lg" id="beginGame">Jouer</button>
+                                        <div id="message" class="alert"></div>
+                                    </div>
+                                </div>
+                            </div>
 
-<audio id="do" src="/son/piano_do.mp3" preload="auto"></audio>
-<audio id="re" src="/son/piano_re.mp3" preload="auto"></audio>
-<audio id="mi" src="/son/piano_mi.mp3" preload="auto"></audio>
-<audio id="fa" src="/son/piano_fa.mp3" preload="auto"></audio>
-<audio id="sol" src="/son/piano_sol.mp3" preload="auto"></audio>
-<audio id="la" src="/son/piano_la.mp3" preload="auto"></audio>
-<audio id="si" src="/son/piano_si.mp3" preload="auto"></audio>',
+                            <audio id="do" src="/son/piano_do.mp3" preload="auto"></audio>
+                            <audio id="re" src="/son/piano_re.mp3" preload="auto"></audio>
+                            <audio id="mi" src="/son/piano_mi.mp3" preload="auto"></audio>
+                            <audio id="fa" src="/son/piano_fa.mp3" preload="auto"></audio>
+                            <audio id="sol" src="/son/piano_sol.mp3" preload="auto"></audio>
+                            <audio id="la" src="/son/piano_la.mp3" preload="auto"></audio>
+                            <audio id="si" src="/son/piano_si.mp3" preload="auto"></audio>',
             'script' => '/js/pie.js',
             'temps_moyen' => 3,
             'nbReponses' => 3,
@@ -70,6 +70,30 @@ class ExerciceTableSeeder extends Seeder
         Exercice::create([ // id : 6
             'type' => 'LirePartition',
             'difficulte' => 1,
+            'ressource' => '<link rel="stylesheet" href="/djembe/css/styleddpartition.css">
+                            <script type="text/javascript" src="/djembe/js/interact.min.js"></script>
+                            <div id="lesNotes">
+                            <br/><br/>
+                            <div id="zone0" class="dropzone b"></div>
+                            <div id="zone1" class="dropzone nn"></div>
+                            <div id="zone2" class="dropzone b"></div>
+                            <div id="zone3" class="dropzone n"></div>
+                            <div id="zone4" class="dropzone b"></div>
+                            <div id="zone5" class="dropzone n"></div>
+                            <div id="zone6" class="dropzone b"></div>
+                            <div id="zone7" class="dropzone n"></div>
+                            <div id="zone8" class="dropzone b"></div>
+                            <div id="zone9" class="dropzone n" style="position: relative;">
+                                <div style="position: absolute; top: -250px;"><img src="/djembe/images/cleDeSol.png"></div>
+                            </div>
+                            <div id="zone10" class="dropzone b"></div>
+                            <div id="zone11" class="dropzone n"></div>
+                            <div id="zone12" class="dropzone b"></div>
+                            <div id="zone13" class="dropzone nn"></div>
+                            <div id="zone14" class="dropzone b"></div>
+                            <div id="zone15" class="dropzone nn"></div><br/><br/>
+                            </div>',
+            'script' => '/djembe/js/ddpartition.js',
             'temps_moyen' => 60,
             'nbReponses' => 1,
         ]);
