@@ -6,12 +6,12 @@ var timeStart, timeEnd;
 var pie = new d3pie("pieChart", {
     "header": {
         "title": {
-            "text": "Game sound ",
+            "text": "Reconnais les notes ",
             "fontSize": 24,
             "font": "open sans"
         },
         "subtitle": {
-            "text": "Clique sur une zone pour faire un bruit.",
+            "text": "Clique sur une zone pour jouer une note.",
             "color": "#999999",
             "fontSize": 12,
             "font": "open sans"
@@ -76,6 +76,7 @@ var pie = new d3pie("pieChart", {
                     timeAvg:$('#timeAvg').val(),
                     idUser:$('#idUser').val(),
                     idCours:$('#idCours').val(),
+                    idExercice:$('#idExercice').val(),
                     _token: $('#token').val()
                   }
                 }).done(function(mess){

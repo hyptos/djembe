@@ -66,6 +66,13 @@ function random_solution(sourceArray, n, doublon) {
 }
 
 function success(mess){
-    console.log(mess.smiley);
-    $('#message').addClass('alert-warning').fadeIn(1000).html('<p>'+mess.conseil+'</p><br/><p>'+mess.choix+'</p><img src='+mess.smiley+'>');
+    var content = '<p>Tu as fais ' + mess.error + ' erreurs !</p>';
+    var conseil = '<p>';
+    for (var i = mess.choix.length - 1; i >= 0; i--) {
+        conseil += '<a class="btn btn-warning"' +
+            'href="#">' + mess.choix[i] + '</a>&nbsp;';
+    };
+    conseil += '</p>';
+    content += '<p>'+mess.conseil+'</p><p>'+ conseil +'</p><br/><img src='+mess.smiley+'>';
+    $('#game').addClass('alert').fadeIn(1000).html(content);
 }
