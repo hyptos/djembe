@@ -64,3 +64,20 @@ function success(mess){
     content += '<p>'+mess.conseil+'</p><p>'+ conseil +'</p><br/><img src='+mess.smiley+'>';
     $('#game').addClass('alert').fadeIn(1000).html(content);
 }
+
+function getIndexForShuffled(tab, note){
+    for(var i in tab){
+        if(tab[i].label === note){
+            return i;
+        }
+    }
+}
+
+
+function openAndPlay(note){
+    $('#'+note).trigger('pause');
+    $('#'+note).prop("currentTime",0);
+    $('#'+note).trigger('play');
+}
+
+

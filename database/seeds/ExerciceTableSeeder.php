@@ -15,7 +15,34 @@ class ExerciceTableSeeder extends Seeder
             'difficulte' => 1,
             'temps_moyen' => 60,
             'nbReponses' => 1,
-            'ressource' => '<p>wesh</p>',
+            'ressource' => '<p>
+                            <button id="find" class="btn btn-primary">Quel est ce son</button>
+                            <br/>
+                            <br/>
+
+                            <input id="do_check" type="checkbox">
+                            <button class="btn btn-warning">do</button>
+                            <input id="re_check" type="checkbox">
+                            <button class="btn btn-warning">re</button>
+                            <input id="mi_check" type="checkbox">
+                            <button class="btn btn-warning">mi</button>
+                            <input id="fa_check" type="checkbox">
+                            <button class="btn btn-warning">fa</button>
+                            <input id="sol_check" type="checkbox">
+                            <button class="btn btn-warning">sol</button>
+                            <input id="la_check" type="checkbox">
+                            <button class="btn btn-warning">la</button>
+                            <input id="si_check" type="checkbox">
+                            <button class="btn btn-warning">si</button>
+                            <audio id="do" src="/son/piano_do.mp3" preload="auto"></audio>
+                            <audio id="re" src="/son/piano_re.mp3" preload="auto"></audio>
+                            <audio id="mi" src="/son/piano_mi.mp3" preload="auto"></audio>
+                            <audio id="fa" src="/son/piano_fa.mp3" preload="auto"></audio>
+                            <audio id="sol" src="/son/piano_sol.mp3" preload="auto"></audio>
+                            <audio id="la" src="/son/piano_la.mp3" preload="auto"></audio>
+                            <audio id="si" src="/son/piano_si.mp3" preload="auto"></audio>
+
+            </p>',
             'script' => '/js/reconnaissance.js'
         ]);
 
