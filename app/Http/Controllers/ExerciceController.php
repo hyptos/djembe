@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Exercice;
+use Auth;
 
 class ExerciceController extends Controller
 {
@@ -19,7 +20,11 @@ class ExerciceController extends Controller
     {
         $exercice = Exercice::find($id);
 
-        return view('getExercice', ['exercice' => $exercice]);
+        if (Auth::check()) {
+            return view('getExercice', ['exercice' => $exercice]);
+        } else {
+            return redirect('login');
+        }
     }
 
     /* fonction qui affiche tous les exercices.
