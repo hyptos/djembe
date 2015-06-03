@@ -15,7 +15,7 @@ class ExerciceTableSeeder extends Seeder
             'difficulte' => 1,
             'temps_moyen' => 60,
             'nbReponses' => 1,
-            'ressource' => '<div class="col-md-12 text-center" id="game">
+            'ressource' => '<div class="col-md-12" id="game">
                             <p id="message"></p>
                             <p>
                             <button id="find" class="btn btn-primary" note="si">Quel est cette note ?</button>
@@ -104,6 +104,7 @@ class ExerciceTableSeeder extends Seeder
             'difficulte' => 1,
             'ressource' => '<link rel="stylesheet" href="/css/styleddpartition.css">
                             <script type="text/javascript" src="/js/interact.min.js"></script>
+                            <div class="col-md-12" id="game">
                             <div id="message" class="alert"></div>
                             <div id="lesNotes">
                             <br/><br/>
@@ -126,7 +127,7 @@ class ExerciceTableSeeder extends Seeder
                             <div id="zone14" class="dropzone b"></div>
                             <div id="zone15" class="dropzone nn"></div><br/><br/>
                             </div>
-                            <button id="finish" class="btn btn-primary">J\'ai terminé !</button>',
+                            <button id="finish" class="btn btn-primary">J\'ai terminé !</button></div>',
             'script' => '/js/ddpartition.js',
             'temps_moyen' => 60,
             'nbReponses' => 1,
@@ -162,7 +163,7 @@ class ExerciceTableSeeder extends Seeder
         Exercice::create([ // id : 11
                 'type' => 'TextATrou',
                 'difficulte' => 1,
-                'ressource' => '<div id="game">
+                'ressource' => '<div class="col-md-12" id="game">
                                 <p class="listedesmots"><u>mots à utiliser :</u>
                                  doux,Terre,rythme,mains,sentiments,mélodies,voix,danses
                                 </p>
@@ -188,7 +189,7 @@ class ExerciceTableSeeder extends Seeder
                                     <p>
                                 </form>
                                 </div>',
-                            'script' => '/djembe/js/textatrou.js',
+                            'script' => '/js/textatrou.js',
                 'temps_moyen' => 60,
                 'nbReponses' => 15,
             ]);

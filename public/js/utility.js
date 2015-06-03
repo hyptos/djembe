@@ -62,6 +62,7 @@ function success(mess){
     };
     conseil += '</p>';
     content += '<p>'+mess.conseil+'</p><p>'+ conseil +'</p><br/><img src='+mess.smiley+'>';
+    $('#game').addClass('text-center');
     $('#game').addClass('alert').fadeIn(1000).html(content);
 }
 

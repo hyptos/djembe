@@ -39,7 +39,7 @@ class ChapitreTableSeeder extends Seeder
 
                           [img de portée]',
             'cours_id' => 2,
-            'questionnaire_id' => NULL,
+            'questionnaire_id' => null,
         ]);
          Chapitre::create([
             'no' => '1',
@@ -51,8 +51,8 @@ class ChapitreTableSeeder extends Seeder
                         La danse est la musique du corps et ils frappaient des mains, dansaient et martelaient le sol avec les pieds pour accompagner leur musique.
                         Leurs danses consistaient entièrement en mouvements du corps et des bras, lents ou endiablés, doux ou violents, selon le sentiment exprimé.
                         Ils utilisaient la voix.',
-            'cours_id' => 3,
+            'cours_id' => 4,
             'questionnaire_id' => 4,
-        ]);
+         ]);
     }
 }
