@@ -25,6 +25,6 @@ $("body").on("click", "#finish", function() {
     if (document.getElementById("h").value != reponses[7])
     { erreur = erreur + 1 ; }
 
-
+    sendAnswerToFuzzy(erreur,8,timeEnd);
 });
 

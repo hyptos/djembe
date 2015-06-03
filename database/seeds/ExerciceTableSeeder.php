@@ -162,7 +162,32 @@ class ExerciceTableSeeder extends Seeder
         Exercice::create([ // id : 11
                 'type' => 'TextATrou',
                 'difficulte' => 1,
-                'ressource' => 'en cours...',
+                'ressource' => '<div id="game">
+                                <p class="listedesmots"><u>mots à utiliser :</u>
+                                 doux,Terre,rythme,mains,sentiments,mélodies,voix,danses
+                                </p>
+                                <p> </p>
+
+                                <form role="form" method="post" class="registration-form">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <p>
+                                    Comme il n\'existait aucun moyen d\'enregistrer ni d\'écrire la musique, on ne sait pas depuis combien de temps elle existe.
+
+                                	Au début, la musique des hommes qui vivaient sur <input id="a" size="8" type="text" name="a"> à ces époques lointaines n\'était pas sûrement semblable à la nôtre.
+                                	Les <input id="b" size="8" type="text" name="b"> qu\'ils inventaient traduisaient des <input id="c" size="8" type="text" name="c">, des émotions.
+                                	Le <input id="d" size="8" type="text" name="d"> leur donnait vie.
+                                	La danse est la musique du corps et ils frappaient des <input id="e" size="8" type="text" name="e">, dansaient et martelaient le sol avec les pieds pour accompagner leur musique.
+                                	Leurs <input id="f" size="8" type="text" name="f"> consistaient entièrement en mouvements du corps et des bras, lents ou endiablés, <input id="g" size="8" type="text" name="g"> ou violents, selon le sentiment exprimé.
+                                	Ils utilisaient la <input id="h" size="8" type="text" name="h">.
+                                    </p>
+                                    <p> </p>
+                                    <p> </p>
+                                    <p class="rep">
+                                	<button id="finish" type="button">Vérifier les réponses</button>
+                                    <input type="reset" name="effacer" value="Tout effacer !">
+                                    <p>
+                                </form>
+                                </div>',
                             'script' => '/djembe/js/textatrou.js',
                 'temps_moyen' => 60,
                 'nbReponses' => 15,
