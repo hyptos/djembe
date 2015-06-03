@@ -15,25 +15,27 @@ class ExerciceTableSeeder extends Seeder
             'difficulte' => 1,
             'temps_moyen' => 60,
             'nbReponses' => 1,
-            'ressource' => '<p>
-                            <button id="find" class="btn btn-primary">Quel est ce son</button>
-                            <br/>
-                            <br/>
+            'ressource' => '<div class="col-md-12 text-center" id="game">
+                            <p id="message"></p>
+                            <p>
+                            <button id="find" class="btn btn-primary" note="si">Quel est cette note ?</button>
+                            <br>
+                            <br>
 
-                            <input id="do_check" type="checkbox">
-                            <button class="btn btn-warning">do</button>
-                            <input id="re_check" type="checkbox">
-                            <button class="btn btn-warning">re</button>
-                            <input id="mi_check" type="checkbox">
-                            <button class="btn btn-warning">mi</button>
-                            <input id="fa_check" type="checkbox">
-                            <button class="btn btn-warning">fa</button>
-                            <input id="sol_check" type="checkbox">
-                            <button class="btn btn-warning">sol</button>
-                            <input id="la_check" type="checkbox">
-                            <button class="btn btn-warning">la</button>
-                            <input id="si_check" type="checkbox">
-                            <button class="btn btn-warning">si</button>
+                            <input note="do" name="answer" type="radio">
+                            <button class="btn btn-warning rep">do</button>
+                            <input note="re" name="answer" type="radio">
+                            <button class="btn btn-warning rep">re</button>
+                            <input note="mi" name="answer" type="radio">
+                            <button class="btn btn-warning rep">mi</button>
+                            <input note="fa" name="answer" type="radio">
+                            <button class="btn btn-warning rep">fa</button>
+                            <input note="sol" name="answer" type="radio">
+                            <button class="btn btn-warning rep">sol</button>
+                            <input note="la" name="answer" type="radio">
+                            <button class="btn btn-warning rep">la</button>
+                            <input note="si" name="answer" type="radio">
+                            <button class="btn btn-warning rep">si</button>
                             <audio id="do" src="/son/piano_do.mp3" preload="auto"></audio>
                             <audio id="re" src="/son/piano_re.mp3" preload="auto"></audio>
                             <audio id="mi" src="/son/piano_mi.mp3" preload="auto"></audio>
@@ -41,8 +43,9 @@ class ExerciceTableSeeder extends Seeder
                             <audio id="sol" src="/son/piano_sol.mp3" preload="auto"></audio>
                             <audio id="la" src="/son/piano_la.mp3" preload="auto"></audio>
                             <audio id="si" src="/son/piano_si.mp3" preload="auto"></audio>
-
-            </p>',
+                    </p>
+<a href="#" id="sendAnswers" class="btn btn-primary">J\'ai fini</a>
+                    </div>',
             'script' => '/js/reconnaissance.js'
         ]);
 

@@ -80,4 +80,21 @@ function openAndPlay(note){
     $('#'+note).trigger('play');
 }
 
-
+function sendAnswerToFuzzy(nbErr, nbResponses, time){
+    return $.ajax({
+          url: "http://djembe.com/fuzzy",
+          method: "POST",
+          data: {
+            nbErrors:nbErr,
+            nbResponses:nbResponses,
+            time: time/1000,
+            timeAvg:$('#timeAvg').val(),
+            idUser:$('#idUser').val(),
+            idCours:$('#idCours').val(),
+            idExercice:$('#idExercice').val(),
+            _token: $('#token').val()
+          }
+        }).done(function(mess){
+            success(mess);
+        });
+}
