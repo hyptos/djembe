@@ -100,18 +100,6 @@ function getIndexForShuffled(tab, note){
     }
 }
 
-function success(mess){
-    var content = '<p>Tu as fais ' + mess.error + ' erreurs !</p>';
-    var conseil = '<p>';
-    for (var i = mess.choix.length - 1; i >= 0; i--) {
-        conseil += '<a class="btn btn-warning"' +
-            'href="#">' + mess.choix[i] + '</a>&nbsp;';
-    };
-    conseil += '</p>';
-    content += '<p>'+mess.conseil+'</p><p>'+ conseil +'</p><br/><img src='+mess.smiley+'>';
-    $('#game').addClass('alert').fadeIn(1000).html(content);
-}
-
 function numberOfErrors(tab_reponse, tab_solution){
 
     var nb_error = 0;

@@ -15,7 +15,37 @@ class ExerciceTableSeeder extends Seeder
             'difficulte' => 1,
             'temps_moyen' => 60,
             'nbReponses' => 1,
-            'ressource' => '<p>wesh</p>',
+            'ressource' => '<div class="col-md-12 text-center" id="game">
+                            <p id="message"></p>
+                            <p>
+                            <button id="find" class="btn btn-primary" note="si">Quel est cette note ?</button>
+                            <br>
+                            <br>
+
+                            <input note="do" name="answer" type="radio">
+                            <button class="btn btn-warning rep">do</button>
+                            <input note="re" name="answer" type="radio">
+                            <button class="btn btn-warning rep">re</button>
+                            <input note="mi" name="answer" type="radio">
+                            <button class="btn btn-warning rep">mi</button>
+                            <input note="fa" name="answer" type="radio">
+                            <button class="btn btn-warning rep">fa</button>
+                            <input note="sol" name="answer" type="radio">
+                            <button class="btn btn-warning rep">sol</button>
+                            <input note="la" name="answer" type="radio">
+                            <button class="btn btn-warning rep">la</button>
+                            <input note="si" name="answer" type="radio">
+                            <button class="btn btn-warning rep">si</button>
+                            <audio id="do" src="/son/piano_do.mp3" preload="auto"></audio>
+                            <audio id="re" src="/son/piano_re.mp3" preload="auto"></audio>
+                            <audio id="mi" src="/son/piano_mi.mp3" preload="auto"></audio>
+                            <audio id="fa" src="/son/piano_fa.mp3" preload="auto"></audio>
+                            <audio id="sol" src="/son/piano_sol.mp3" preload="auto"></audio>
+                            <audio id="la" src="/son/piano_la.mp3" preload="auto"></audio>
+                            <audio id="si" src="/son/piano_si.mp3" preload="auto"></audio>
+                    </p>
+<a href="#" id="sendAnswers" class="btn btn-primary">J\'ai fini</a>
+                    </div>',
             'script' => '/js/reconnaissance.js'
         ]);
 
@@ -72,8 +102,9 @@ class ExerciceTableSeeder extends Seeder
         Exercice::create([ // id : 6
             'type' => 'LirePartition',
             'difficulte' => 1,
-            'ressource' => '<link rel="stylesheet" href="/djembe/css/styleddpartition.css">
-                            <script type="text/javascript" src="/djembe/js/interact.min.js"></script>
+            'ressource' => '<link rel="stylesheet" href="/css/styleddpartition.css">
+                            <script type="text/javascript" src="/js/interact.min.js"></script>
+                            <div id="message" class="alert"></div>
                             <div id="lesNotes">
                             <br/><br/>
                             <div id="zone0" class="dropzone b"></div>
@@ -86,7 +117,7 @@ class ExerciceTableSeeder extends Seeder
                             <div id="zone7" class="dropzone n"></div>
                             <div id="zone8" class="dropzone b"></div>
                             <div id="zone9" class="dropzone n" style="position: relative;">
-                                <div style="position: absolute; top: -250px;"><img src="/djembe/images/cleDeSol.png"></div>
+                                <div style="position: absolute; top: -250px;"><img src="/images/cleDeSol.png"></div>
                             </div>
                             <div id="zone10" class="dropzone b"></div>
                             <div id="zone11" class="dropzone n"></div>
@@ -94,8 +125,9 @@ class ExerciceTableSeeder extends Seeder
                             <div id="zone13" class="dropzone nn"></div>
                             <div id="zone14" class="dropzone b"></div>
                             <div id="zone15" class="dropzone nn"></div><br/><br/>
-                            </div>',
-            'script' => '/djembe/js/ddpartition.js',
+                            </div>
+                            <button id="finish" class="btn btn-primary">J\'ai terminé !</button>',
+            'script' => '/js/ddpartition.js',
             'temps_moyen' => 60,
             'nbReponses' => 1,
         ]);

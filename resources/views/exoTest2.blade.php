@@ -122,8 +122,13 @@ interact('.dropzone').dropzone({
 		event.target.classList.remove('drop-target');
 	}
 });
-	</script>
 
+$("body").on("click", "#finish", function() {
+  alert("GG bonhomme !");
+});
+
+	</script>
+<div id="lesNotes">
 <div id="yes-drop" class="draggable drag-drop">
 	<div class="nomNote">do</div>
 	<img id="do" src="/djembe/images/teteNote.png" width="40px">
@@ -160,6 +165,8 @@ interact('.dropzone').dropzone({
 <div id="zone13" class="dropzone nn"></div>
 <div id="zone14" class="dropzone b"></div>
 <div id="zone15" class="dropzone nn"></div>
+</div>
 
+<button id="finish" class='btn btn-primary'>J'ai terminé !</button>
 
 @stop

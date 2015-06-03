@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Stats;
 use App\Models\User;
 use App\Models\Cours;
+use App\Models\Exercice;
 
 class FuzzyController extends Controller
 {
