@@ -16,8 +16,10 @@ class CreateQuestionnaireTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('nbExos');
-			$table->integer('chapitre_id')->unique();
+			$table->integer('chapitre_id');
+			$table->integer('cours_id');
 			$table->timestamps();
+			$table->unique( array('chapitre_id', 'cours_id') );
 		});
 	}
 

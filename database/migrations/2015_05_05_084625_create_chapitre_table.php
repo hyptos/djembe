@@ -17,7 +17,7 @@ class CreateChapitreTable extends Migration {
 			$table->increments('id');
 			$table->integer('no');
 			$table->string('titre');
-			$table->string('contenu');
+			$table->text('contenu');
 			$table->integer('questionnaire_id')->nullable();
 			$table->integer('cours_id')->unsigned();
 			$table->timestamps();

@@ -127,5 +127,13 @@ class ExerciceTableSeeder extends Seeder
             'temps_moyen' => 60,
             'nbReponses' => 15,
         ]);
+        Exercice::create([ // id : 11
+                'type' => 'TextATrou',
+                'difficulte' => 1,
+                'ressource' => 'en cours...',
+                            'script' => '/djembe/js/textatrou.js',
+                'temps_moyen' => 60,
+                'nbReponses' => 15,
+            ]);
     }
 }

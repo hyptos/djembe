@@ -12,7 +12,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link rel="shortcut icon" href="../favicon.ico">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css' />
-    <script type="text/javascript" src="/js/modernizr.custom.79639.js"></script>
+    <script type="text/javascript" src="/djembe/js/modernizr.custom.79639.js"></script>
     <!--[if lte IE 8]><style>.main{display:none;} .support-note .note-ie{display:block;}</style><![endif]-->
 @stop
 

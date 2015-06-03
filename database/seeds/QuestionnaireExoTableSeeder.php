@@ -18,5 +18,9 @@ class QuestionnaireExoTableSeeder extends Seeder
             'questionnaire_id' => 2,
             'exercice_id' => 2,
         ]);
+        QuestionnaireExo::create([
+            'questionnaire_id' => 3,
+            'exercice_id' => 11,
+        ]);
     }
 }

@@ -41,5 +41,18 @@ class ChapitreTableSeeder extends Seeder
             'cours_id' => 2,
             'questionnaire_id' => NULL,
         ]);
+         Chapitre::create([
+            'no' => '1',
+            'titre' => 'Au commencement...',
+            'contenu' => 'Comme il n\'existait aucun moyen d\'enregistrer ni d\'écrire la musique, on ne sait pas depuis combien de temps elle existe.
+
+                        Au début, la musique des hommes qui vivaient sur Terre à ces époques lointaines n\'était pas sûrement semblable à la nôtre.
+                        Les mélodies qu\'ils inventaient traduisaient des sentiments, des émotions. Le rythme leur donnait vie.
+                        La danse est la musique du corps et ils frappaient des mains, dansaient et martelaient le sol avec les pieds pour accompagner leur musique.
+                        Leurs danses consistaient entièrement en mouvements du corps et des bras, lents ou endiablés, doux ou violents, selon le sentiment exprimé.
+                        Ils utilisaient la voix.',
+            'cours_id' => 3,
+            'questionnaire_id' => 4,
+        ]);
     }
 }
