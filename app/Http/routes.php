@@ -55,6 +55,7 @@ $app->get('chapitre/{id}', 'App\Http\Controllers\ChapitreController@get');
 $app->get('exercice/{id}', 'App\Http\Controllers\ExerciceController@get');
 $app->get('textatrou', 'App\Http\Controllers\Exercices\TextATrouController@get');
 $app->post('textatrou', 'App\Http\Controllers\Exercices\TextATrouController@post');
+$app->post('nextExercices', 'App\Http\Controllers\ExerciceController@getNextExercices');
 
 // test routes
 $app->get('test', 'App\Http\Controllers\UserController@test');

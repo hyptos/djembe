@@ -99,3 +99,17 @@ function sendAnswerToFuzzy(nbErr, nbResponses, time){
             success(mess);
         });
 }
+
+
+function getNextExercices(idExercice){
+    return $.ajax({
+          url: "http://djembe.com/nextExercices",
+          method: "POST",
+          data: {
+            idExercice:idExercice,
+            _token: $('#token').val()
+          }
+        }).done(function(response){
+            console.log(response);
+        });
+}

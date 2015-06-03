@@ -21,8 +21,6 @@ $('#sendAnswers').on('click',function(e){
 	var response = $('#find').attr('note');
 	var answerUser = $('input[name=answer]:checked').attr('note');
 
-	console.log('omg : '+ response);
-	console.log('omg : '+ answerUser);
 	var nbErr = 0;
 	if(response !== answerUser){
 		nbErr = 1;
@@ -34,6 +32,7 @@ $('#sendAnswers').on('click',function(e){
 	} else {
 		//requete ajax
 		sendAnswerToFuzzy(nbErr, 1, time);
+		getNextExercices($('#idExercice').val());
 	}
 });
 

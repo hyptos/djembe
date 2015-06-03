@@ -170,6 +170,6 @@ class FuzzyController extends Controller
         $stat->exercice_id = $exercice->id;
         $stat->save();
 
-        return $res;
+        return response()->json($res);
     }
 }
