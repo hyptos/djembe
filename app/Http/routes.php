@@ -25,6 +25,7 @@ $app->get('son', 'App\Http\Controllers\sonController@test');
 $app->get('users', 'App\Http\Controllers\UserController@getAllProfile');
 $app->get('dashboardSolfege', 'App\Http\Controllers\CoursController@dashboardSolfege');
 $app->get('dashboardHistoire', 'App\Http\Controllers\CoursController@dashboardHistoire');
+$app->get('dashboardInstruments', 'App\Http\Controllers\CoursController@dashboardInstruments');
 $app->delete('users', 'App\Http\Controllers\UserController@deleteAllUsers');
 
 // Authentification system

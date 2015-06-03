@@ -54,7 +54,16 @@ class CoursController extends Controller
         $cours = Cours::where('type', '=', 'histoire')->get();
         return view('dashboard', ['cours' => $cours]);
     }
-
+/* fonction qui affiche tous les cours.
+     *
+     * @param  none
+     * @return Response
+    */
+    public function dashboardInstruments()
+    {
+        $cours = Cours::where('type', '=', 'instruments')->get();
+        return view('dashboard', ['cours' => $cours]);
+    }
 
 
 
