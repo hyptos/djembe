@@ -46,9 +46,9 @@ class FuzzyController extends Controller
         /* -----
         input Taux D'erreurs (%) : {'faible', 'moyen', 'élevé'}
         --------*/
-        $fuzzy->addMember($fuzzy->getInputName(0), 'faible', -0.5, 0.0, 0.5, LINFINITY);
-        $fuzzy->addMember($fuzzy->getInputName(0), 'moyen', 0.0, 0.5, 1, TRIANGLE);
-        $fuzzy->addMember($fuzzy->getInputName(0), 'eleve', 0.5, 1, 1.5, RINFINITY);
+        $fuzzy->addMember($fuzzy->getInputName(0), 'faible', -50, 0, 50, LINFINITY);
+        $fuzzy->addMember($fuzzy->getInputName(0), 'moyen', 0, 50, 100, TRIANGLE);
+        $fuzzy->addMember($fuzzy->getInputName(0), 'eleve', 50, 100, 150, RINFINITY);
 
         /* -----
         définition des ensembles de l'input Vitesse (s) : {'rapide', 'normale', 'lente'}
@@ -104,7 +104,7 @@ class FuzzyController extends Controller
         $fuzzy->addRule('IF taux_err.moyen AND vitesse.rapide THEN conseil.ralenti');
         $fuzzy->addRule('IF taux_err.moyen AND vitesse.normale THEN conseil.recommence');
 
-        $fuzzy->SetRealInput('taux_err', $nbErrors / $nbResponses);
+        $fuzzy->SetRealInput('taux_err', $nbErrors*100 / $nbResponses);
         $fuzzy->SetRealInput('vitesse', $time);
 
         /* ------
