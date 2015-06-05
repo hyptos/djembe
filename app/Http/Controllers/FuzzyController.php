@@ -151,13 +151,13 @@ class FuzzyController extends Controller
         if ($note < 12.5) {
             $res['conseil'] = "Oups, tu as fait beaucoup d'erreurs. Veux tu revoir le cours ?";
             $res['smiley'] = '/images/very_bad.png';
-            $res['choix'] = ['Revoir le cours', 'Plus Facile', 'Recommencer'];
+            $res['choix'] = ['Revoir_cours', 'Plus_facile', 'Recommencer'];
         } /* --- si le résultat est "mauvais" --- */
         elseif ($note < 27.5) {
             $res['conseil'] = "Hmm, ce n'est pas encore ça.
             Veux essayer le même exercice en plus facile ?";
             $res['smiley'] = '/images/bad.png';
-            $res['choix'] = ['PlusFacile', 'Recommencer'];
+            $res['choix'] = ['Plus_facile', 'Recommencer'];
         } /* --- si le résultat est "moyen" --- */
         elseif ($note < 62.5) {
             $res['smiley'] = '/images/medium.png';
