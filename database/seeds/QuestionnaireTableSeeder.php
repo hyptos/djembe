@@ -20,6 +20,7 @@ class QuestionnaireTableSeeder extends Seeder
             'chapitre_id' => 2,
             'cours_id' => 1,
         ]);
+        
         Questionnaire::create([
             'nbExos' => 1,
             'chapitre_id' => 4,
