@@ -67,7 +67,7 @@ var pie = new d3pie("pieChart", {
                 var currentdate = Date.now() - timeStart;
                 // On stocke en bdd le résultat
                 $.ajax({
-                  url: "http://djembe.com/fuzzy",
+                  url: "/fuzzy",
                   method: "POST",
                   data: {
                     nbErrors:numberOfErrors(tab, solution),

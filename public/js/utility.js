@@ -83,7 +83,7 @@ function openAndPlay(note){
 
 function sendAnswerToFuzzy(nbErr, nbResponses, time){
     return $.ajax({
-          url: "http://djembe.com/fuzzy",
+          url: "/fuzzy",
           method: "POST",
           data: {
             nbErrors:nbErr,
@@ -103,7 +103,7 @@ function sendAnswerToFuzzy(nbErr, nbResponses, time){
 
 function getNextExercices(idExercice){
     return $.ajax({
-          url: "http://djembe.com/nextExercices",
+          url: "/nextExercices",
           method: "POST",
           data: {
             idExercice:idExercice,
