@@ -33,6 +33,7 @@ $('#sendAnswers').on('click',function(e){
 		//requete ajax
 		sendAnswerToFuzzy(nbErr, 1, time);
 		getNextExercices($('#idExercice').val());
+		getFuzzyNote(12);
 	}
 });
 

@@ -113,3 +113,24 @@ function getNextExercices(idExercice){
             console.log(response);
         });
 }
+
+function getFuzzyNote(note, idExercice){
+    return $.ajax({
+          url: "/fuzzyNote",
+          method: "POST",
+          data: {
+            note:note,
+            _token: $('#token').val()
+          }
+        }).done(function(response){
+            $(response).each(function(index){
+                var notes = $('.note');
+                var smiley = this.smiley;
+                notes.each(function( index ) {
+                    if($( this ).attr('data') === idExercice){
+                        $(this).append('<img src="'+smiley+'">')
+                    }
+                });
+            });
+        });
+}

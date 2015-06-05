@@ -66,26 +66,11 @@ var pie = new d3pie("pieChart", {
                 numberOfClicks = 0;
                 var currentdate = Date.now() - timeStart;
                 // On stocke en bdd le résultat
-                $.ajax({
-                  url: "/fuzzy",
-                  method: "POST",
-                  data: {
-                    nbErrors:numberOfErrors(tab, solution),
-                    nbResponses:5,
-                    time: currentdate/1000,
-                    timeAvg:$('#timeAvg').val(),
-                    idUser:$('#idUser').val(),
-                    idCours:$('#idCours').val(),
-                    idExercice:$('#idExercice').val(),
-                    _token: $('#token').val()
-                  }
-                }).done(function(mess){
-                    success(mess);
+                sendAnswerToFuzzy(numberOfErrors(tab, solution),5,currentdate).complete(function(){
                     if(numberOfErrors(tab, solution) !== 0){
                         tab = [];
                     }
                 });
-
             }
             numberOfClicks++;
         }

@@ -114,43 +114,7 @@ class FuzzyController extends Controller
         ------ */
         $res = $fuzzy->calcFuzzy();
 
-        /* ------ on clarifie le retour du conseil ------ */
-        /* --- si le résultat est "très mauvais" --- */
-        if ($res['note'] < 12.5) {
-            $res['conseil'] = "Oups, tu as fait beaucoup d'erreurs.
-            Veux tu revoir le cours ?";
-            $res['smiley'] = '/images/very_bad.png';
-            $res['choix'] = ['Revoir le cours', 'Plus Facile', 'Recommencer'];
-        } /* --- si le résultat est "mauvais" --- */
-        elseif ($res['note'] < 27.5) {
-            $res['conseil'] = "Hmm, ce n'est pas encore ça.
-            Veux essayer le même exercice en plus facile ?";
-            $res['smiley'] = '/images/bad.png';
-            $res['choix'] = ['PlusFacile', 'Recommencer'];
-        } /* --- si le résultat est "moyen" --- */
-        elseif ($res['note'] < 62.5) {
-            $res['smiley'] = '/images/medium.png';
-            $res['choix'] = ['Recommencer'];
-            $res['conseil'] = "Tu fais encore quelques erreurs.";
-            /* ---- On regarde le conseil défini dans fuzzy ---- */
-            if ($res['conseil'] < 0.25) {
-                $res['conseil'] .= " Essai d'aller un peu moins vite.";
-            } elseif ($res['conseil'] < 0.75) {
-                $res['conseil'] .= " Recommence tu va y arriver.";
-            } else {
-                $res['conseil'] = "C'est bien tu fais peu d'erreurs,
-                mais tu prends encore un peu trop ton temps.
-                M0aintenant essai d'aller un peu plus vite.";
-            }
-        } elseif ($res['note'] < 77.5) {
-            $res['smiley'] = '/images/good.png';
-            $res['conseil'] = "C'est bien. Prêt pour la suite ?";
-            $res['choix'] = ['Recommencer', 'Continuer'];
-        } else {
-            $res['smiley'] = '/images/very_good.png';
-            $res['conseil'] = "C'est très bien ! Prêt pour la suite ?";
-            $res['choix'] = ['Recommencer', 'ContinuerHard'];
-        }
+        $res = $this->noteConseil($res, $res['note']);
         $res['error'] = $nbErrors;
 
 
@@ -171,5 +135,53 @@ class FuzzyController extends Controller
         $stat->save();
 
         return response()->json($res);
+    }
+
+    public function ajaxNoteConseil(Request $request)
+    {
+        $note = $request->input('note');
+        $res = $this->noteConseil(array(), $note);
+        return response()->json($res);
+    }
+
+    public function noteConseil($res, $note)
+    {
+        /* ------ on clarifie le retour du conseil ------ */
+        /* --- si le résultat est "très mauvais" --- */
+        if ($note < 12.5) {
+            $res['conseil'] = "Oups, tu as fait beaucoup d'erreurs. Veux tu revoir le cours ?";
+            $res['smiley'] = '/images/very_bad.png';
+            $res['choix'] = ['Revoir le cours', 'Plus Facile', 'Recommencer'];
+        } /* --- si le résultat est "mauvais" --- */
+        elseif ($note < 27.5) {
+            $res['conseil'] = "Hmm, ce n'est pas encore ça.
+            Veux essayer le même exercice en plus facile ?";
+            $res['smiley'] = '/images/bad.png';
+            $res['choix'] = ['PlusFacile', 'Recommencer'];
+        } /* --- si le résultat est "moyen" --- */
+        elseif ($note < 62.5) {
+            $res['smiley'] = '/images/medium.png';
+            $res['choix'] = ['Recommencer'];
+            $res['conseil'] = "Tu fais encore quelques erreurs.";
+            /* ---- On regarde le conseil défini dans fuzzy ---- */
+            if ($res['conseil'] < 0.25) {
+                $res['conseil'] .= " Essai d'aller un peu moins vite.";
+            } elseif ($res['conseil'] < 0.75) {
+                $res['conseil'] .= " Recommence tu va y arriver.";
+            } else {
+                $res['conseil'] = "C'est bien tu fais peu d'erreurs,
+                mais tu prends encore un peu trop ton temps.
+                M0aintenant essai d'aller un peu plus vite.";
+            }
+        } elseif ($note < 77.5) {
+            $res['smiley'] = '/images/good.png';
+            $res['conseil'] = "C'est bien. Prêt pour la suite ?";
+            $res['choix'] = ['Recommencer', 'Continuer'];
+        } else {
+            $res['smiley'] = '/images/very_good.png';
+            $res['conseil'] = "C'est très bien ! Prêt pour la suite ?";
+            $res['choix'] = ['Recommencer', 'ContinuerHard'];
+        }
+        return $res;
     }
 }

@@ -163,41 +163,4 @@ class UserController extends Controller
         $u1->learnFrom()->save($u2);
         return 'OK';
     }
-
-    /**
-     * test fonction.
-     *
-     * @param  User u1, User u2
-     * @return Response
-    */
-    public function test()
-    {
-        $stat = new Stats();
-
-        $stat->temps = '10';
-        $stat->reussite = '50';
-        $stat->avancement = '100';
-
-        $user = User::find(3);
-        $cours = Cours::find(2);
-
-        $stat->user_id = $user->id;
-        $stat->cours_id = $cours->id;
-        $stat->save();
-
-
-        return 'ok';
-
-    }
-
-    /**
-     * pie fonction.
-     *
-     * @param  none
-     * @return Response
-    */
-    public function pie()
-    {
-        return view('exoPieGame');
-    }
 }

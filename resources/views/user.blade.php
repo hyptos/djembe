@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/js/utility.js"></script>
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" type="text/css" href="/css/signup.css" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css' />
@@ -32,23 +33,56 @@
 
 <h2><span class="glyphicon glyphicon-stats" aria-hidden="true">&nbsp; Mes statistiques</h2>
 <hr>
-<table class="table table-striped">
-	<tr>
-		<th>id</th>
-		<th>avancement</th>
-		<th>reussite</th>
-		<th>temps</th>
-		<th>Jour</th>
-	</tr>
-	@foreach ($user->stats as $stat)
-	<tr>
-		    <td>{{ $stat->id }}</td>
-			<td>{{ $stat->avancement }}</td>
-			<td>{{ $stat->reussite }}</td>
-			<td>{{ $stat->temps }}</td>
-			<td>{{ $stat->created_at}} </td>
-	</tr>
+
+<?php
+
+	$result = array();
+	foreach ($user->stats as $stat) {
+	  $id = $stat->exercice_id;
+	  $val = 0;
+	  if (isset($result[$id])) {
+	     $result[$id][] = $stat->reussite;
+	  } else {
+	     $result[$id] = array($stat->reussite);
+	  }
+	}
+
+
+	$total = array();
+	foreach($result as $key => $id){
+		$val = 0;
+		foreach ($id as $nb => $reussite){
+			$val += $reussite;
+			$total[$key] = array($nb => $val);
+		}
+	}
+?>
+
+@foreach ($total as $key => $value)
+		<p> Exercice n° {{$key}}
+	@foreach ($value as $k => $v)
+		<span class="note" data="{{$key}}" ></span></p>
 	@endforeach
-</table>
+@endforeach
+
+
+<input type="hidden" id="token" name="_token" value="{{ csrf_token() }}">
+
+@unless (Auth::check())
+    Il faut se connecter.
+@endunless
+
+
+<script type="text/javascript">
+	$(function() {
+  		var notes = $('.note');
+  		notes.each(function( index ) {
+  			var smiley;
+		  	getFuzzyNote($( this ).text(), $( this ).attr('data'));
+		});
+  	});
+</script>
 
 @stop
+
+
