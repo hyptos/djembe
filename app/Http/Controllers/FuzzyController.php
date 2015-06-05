@@ -24,14 +24,14 @@ class FuzzyController extends Controller
      */
     public function evaluate(Request $request)
     {
-
-        $nbResponses    = $request->input('nbResponses');
         $nbErrors       = $request->input('nbErrors');
+        $nbResponses    = $request->input('nbResponses');
         $time           = $request->input('time');
         $timeAvg        = $request->input('timeAvg');
         $idUser         = $request->input('idUser');
         $idCours        = $request->input('idCours');
         $idExercice     = $request->input('idExercice');
+
 
         $fuzzy = new FuzzyLogicProvider();
 
@@ -108,6 +108,9 @@ class FuzzyController extends Controller
         $fuzzy->SetRealInput('taux_err', $nbErrors*100 / $nbResponses);
         $fuzzy->SetRealInput('vitesse', $time);
 
+        
+
+
         /* ------
 
         on lance le calcul en logique floue et
@@ -120,10 +123,23 @@ class FuzzyController extends Controller
         else if($res['note'] > 100.0)
             $res['note'] = 100.0;
 
-        $res = $this->noteConseil($res, $res['note']);
+        if($nbResponses == 1){
+            if($nbErrors >= 1){
+                $res['conseil'] = "Hmm, ce n'est pas encore ça.
+                 Veux tu réessayer l'exercice ?";
+                $res['smiley'] = '/images/bad.png';
+            }
+            else{
+                $res['conseil'] = "C'est très bien ! Prêt pour la suite ?";
+                $res['smiley'] = '/images/good.png';
+            }
+
+            $res['choix'] = ['Recommencer', 'Continuer'];
+        }
+        else
+            $res = $this->noteConseil($res, $res['note']);
+
         $res['error'] = $nbErrors;
-
-
         // Sauvegarde en base des résultats
         $stat = new Stats();
 
@@ -161,19 +177,21 @@ class FuzzyController extends Controller
         } /* --- si le résultat est "mauvais" --- */
         elseif ($note < 27.5) {
             $res['conseil'] = "Hmm, ce n'est pas encore ça.
-            Veux essayer le même exercice en plus facile ?";
+            Veux tu essayer le même exercice en plus facile ?";
             $res['smiley'] = '/images/bad.png';
             $res['choix'] = ['Plus_facile', 'Recommencer'];
         } /* --- si le résultat est "moyen" --- */
         elseif ($note < 62.5) {
             $res['smiley'] = '/images/medium.png';
             $res['choix'] = ['Recommencer'];
-            $res['conseil'] = "Tu fais encore quelques erreurs.";
+            
             /* ---- On regarde le conseil défini dans fuzzy ---- */
             if ($res['conseil'] < 0.25) {
-                $res['conseil'] .= " Essai d'aller un peu moins vite.";
+                $res['conseil'] .= "Tu fais encore quelques erreurs.
+                 Essai d'aller un peu moins vite.";
             } elseif ($res['conseil'] < 0.75) {
-                $res['conseil'] .= " Recommence tu va y arriver.";
+                $res['conseil'] .= "Tu fais encore quelques erreurs.
+                 Recommence tu va y arriver.";
             } else {
                 $res['conseil'] = "C'est bien tu fais peu d'erreurs,
                 mais tu prends encore un peu trop ton temps.
