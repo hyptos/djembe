@@ -24,8 +24,9 @@ class FuzzyController extends Controller
      */
     public function evaluate(Request $request)
     {
-        $nbErrors       = $request->input('nbErrors');
+
         $nbResponses    = $request->input('nbResponses');
+        $nbErrors       = $request->input('nbErrors');
         $time           = $request->input('time');
         $timeAvg        = $request->input('timeAvg');
         $idUser         = $request->input('idUser');
@@ -113,6 +114,11 @@ class FuzzyController extends Controller
         récupère les valeurs qui nous interesse
         ------ */
         $res = $fuzzy->calcFuzzy();
+
+        if($res['note'] < 0.0)
+            $res['note'] = 0.0;
+        else if($res['note'] > 100.0)
+            $res['note'] = 100.0;
 
         $res = $this->noteConseil($res, $res['note']);
         $res['error'] = $nbErrors;
