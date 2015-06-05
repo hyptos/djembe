@@ -112,7 +112,6 @@ class FuzzyController extends Controller
 
 
         /* ------
-
         on lance le calcul en logique floue et
         récupère les valeurs qui nous interesse
         ------ */

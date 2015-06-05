@@ -129,6 +129,26 @@ class ExerciceTableSeeder extends Seeder
         Exercice::create([ // id : 4
             'type' => 'ReconnaitreSuiteNotes',
             'difficulte' => 2,
+            'ressource' => '<div class="row">
+                                <div class="col-md-12">
+                                    <div id="game" class="text-center">
+                                        <div id="pieChart"></div>
+                                        <button class="btn btn-primary btn-lg" id="beginGame">
+                                        <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                                        Jouer</button>
+                                        <div id="message" class="alert"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <audio id="do" src="/son/piano_do.mp3" preload="auto"></audio>
+                            <audio id="re" src="/son/piano_re.mp3" preload="auto"></audio>
+                            <audio id="mi" src="/son/piano_mi.mp3" preload="auto"></audio>
+                            <audio id="fa" src="/son/piano_fa.mp3" preload="auto"></audio>
+                            <audio id="sol" src="/son/piano_sol.mp3" preload="auto"></audio>
+                            <audio id="la" src="/son/piano_la.mp3" preload="auto"></audio>
+                            <audio id="si" src="/son/piano_si.mp3" preload="auto"></audio>',
+            'script' => '/js/pie.js',
             'temps_moyen' => 5,
             'nbReponses' => 5,
         ]);
@@ -136,6 +156,26 @@ class ExerciceTableSeeder extends Seeder
         Exercice::create([ // id : 5
             'type' => 'ReconnaitreSuiteNotes',
             'difficulte' => 3,
+            'ressource' => '<div class="row">
+                                <div class="col-md-12">
+                                    <div id="game" class="text-center">
+                                        <div id="pieChart"></div>
+                                        <button class="btn btn-primary btn-lg" id="beginGame">
+                                        <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                                        Jouer</button>
+                                        <div id="message" class="alert"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <audio id="do" src="/son/piano_do.mp3" preload="auto"></audio>
+                            <audio id="re" src="/son/piano_re.mp3" preload="auto"></audio>
+                            <audio id="mi" src="/son/piano_mi.mp3" preload="auto"></audio>
+                            <audio id="fa" src="/son/piano_fa.mp3" preload="auto"></audio>
+                            <audio id="sol" src="/son/piano_sol.mp3" preload="auto"></audio>
+                            <audio id="la" src="/son/piano_la.mp3" preload="auto"></audio>
+                            <audio id="si" src="/son/piano_si.mp3" preload="auto"></audio>',
+            'script' => '/js/pie.js',
             'temps_moyen' => 10,
             'nbReponses' => 10,
         ]);
@@ -143,6 +183,26 @@ class ExerciceTableSeeder extends Seeder
         Exercice::create([ // id : 6
             'type' => 'ReconnaitreSuiteNotes',
             'difficulte' => 4,
+            'ressource' => '<div class="row">
+                                <div class="col-md-12">
+                                    <div id="game" class="text-center">
+                                        <div id="pieChart"></div>
+                                        <button class="btn btn-primary btn-lg" id="beginGame">
+                                        <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                                        Jouer</button>
+                                        <div id="message" class="alert"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <audio id="do" src="/son/piano_do.mp3" preload="auto"></audio>
+                            <audio id="re" src="/son/piano_re.mp3" preload="auto"></audio>
+                            <audio id="mi" src="/son/piano_mi.mp3" preload="auto"></audio>
+                            <audio id="fa" src="/son/piano_fa.mp3" preload="auto"></audio>
+                            <audio id="sol" src="/son/piano_sol.mp3" preload="auto"></audio>
+                            <audio id="la" src="/son/piano_la.mp3" preload="auto"></audio>
+                            <audio id="si" src="/son/piano_si.mp3" preload="auto"></audio>',
+            'script' => '/js/pie.js',
             'temps_moyen' => 15,
             'nbReponses' => 10,
         ]);
@@ -150,7 +210,7 @@ class ExerciceTableSeeder extends Seeder
 
         // Exercices de lecture d'une portée
         Exercice::create([ // id : 7
-            'type' => 'LirePartition',
+            'type' => 'EcrirePartition',
             'difficulte' => 1,
             'ressource' => '<link rel="stylesheet" href="/css/styleddpartition.css">
                             <script type="text/javascript" src="/js/interact.min.js"></script>
@@ -180,32 +240,32 @@ class ExerciceTableSeeder extends Seeder
                             <button id="finish" class="btn btn-primary">J\'ai terminé !</button></div>',
             'script' => '/js/ddpartition.js',
             'temps_moyen' => 60,
-            'nbReponses' => 1,
-        ]);
-
-        Exercice::create([ // id : 8
-            'type' => 'LirePartition',
-            'difficulte' => 2,
-            'temps_moyen' => 60,
             'nbReponses' => 3,
         ]);
 
+        Exercice::create([ // id : 8
+            'type' => 'EcrirePartition',
+            'difficulte' => 2,
+            'temps_moyen' => 60,
+            'nbReponses' => 5,
+        ]);
+
         Exercice::create([ // id : 9
-            'type' => 'LirePartition',
+            'type' => 'EcrirePartition',
             'difficulte' => 3,
             'temps_moyen' => 60,
-            'nbReponses' => 6,
+            'nbReponses' => 7,
         ]);
 
         Exercice::create([ // id : 10
-            'type' => 'LirePartition',
+            'type' => 'EcrirePartition',
             'difficulte' => 4,
             'temps_moyen' => 60,
             'nbReponses' => 10,
         ]);
 
         Exercice::create([ // id : 11
-            'type' => 'LirePartition',
+            'type' => 'EcrirePartition',
             'difficulte' => 5,
             'temps_moyen' => 60,
             'nbReponses' => 15,
