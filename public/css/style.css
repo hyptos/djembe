@@ -15,6 +15,11 @@ a:focus {
 	color: #B66B15;
 }
 
+.logo {
+	padding: 0px;
+	padding-left: 10px;
+}
+
 .banniere {
 	margin: auto;
 	padding: 0px;
@@ -35,6 +40,7 @@ a:focus {
 .navbar {
 	max-width: 90%;
 	margin: auto;
+	height: 60px;
 }
 
 
