@@ -60,12 +60,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function teachTo()
     {
-        return $this->belongsToMany(
+        return $this->hasMany(
             'App\Models\Enseigne',
-            'enseigne',
-            'learner_id',
-            'teacher_id'
-        )->withPivot('App\Models\User', 'learner_id');
+            'teacher_id',
+            ''
+        );
     }
 
     public function learnFrom()

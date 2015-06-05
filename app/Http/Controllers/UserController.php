@@ -22,13 +22,17 @@ class UserController extends Controller
      */
     public function showProfile($id = null)
     {
+        $learners = array();
         if (isset($id)) {
             $user = User::find($id);
         } else {
             $user = Auth::user();
+            foreach ($user->teachTo as $value) {
+                $learners[] = User::find($value->learner_id);
+            }
         }
 
-        return view('user', ['user' => $user]);
+        return view('user', ['user' => $user, 'learners' => $learners]);
     }
 
     /**

@@ -26,16 +26,42 @@
     <p>{{ $user->teach == 1 ? 'Prof' : 'pas prof' }}</p>
 
 	@if ($user->teach == 1)
-	    <p>On affiche les stats des learners</p>
-	@endif
+		<h2><span class="glyphicon glyphicon-stats" aria-hidden="true">&nbsp; Liste des élèves</h2>
 
-	<p>On affiche ses propres stats dasn tous les cas</p>
+		<table class="table">
+		<tr>
+			<th>
+				Nom
+			</th>
+			<th>
+				Exercice
+			</th>
+			<th>
+				Moyenne
+			</th>
+		</tr>
+    	@foreach ($learners as $v)
+	    	@foreach ($v->stats as $s)
+    		<tr>
+    			<td><a href="/user/{{$v->id}}"> {{$v->name}}</a></td>
+	    		<td>
+	    			{{$s->exercice_id}}
+	    		</td>
+	    		<td>
+	    			{{$s->reussite}}
+	    		</td>
+			</tr>
+			@endforeach
+		@endforeach
+		</table>
+	@endif
 
 <h2><span class="glyphicon glyphicon-stats" aria-hidden="true">&nbsp; Mes statistiques</h2>
 <hr>
 
 <?php
 
+function getMoyenne($user){
 	$result = array();
 	foreach ($user->stats as $stat) {
 	  $id = $stat->exercice_id;
@@ -56,10 +82,14 @@
 			$total[$key] = array($nb => $val);
 		}
 	}
-?>
 
+	return $total;
+}
+
+$total = getMoyenne($user);
+?>
 @foreach ($total as $key => $value)
-		<p> Exercice n° {{$key}}
+		<p> <a href="/exercice/{{$key}}">Exercice n°{{$key}}</a>
 	@foreach ($value as $k => $v)
 		<span class="note" data="{{$key}}" ></span></p>
 	@endforeach
