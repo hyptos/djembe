@@ -104,17 +104,17 @@ function sendAnswerToFuzzy(nbErr, nbResponses, time){
                 $('#Revoir_cours').html(createA(response.exo_review_basics_id, 'Revoir le cours'));
                 $('#Plus_facile').html(createA(response.exo_redo_simple_id, 'Plus facile'));
                 $('#Recommencer').html(createA($('#idExercice').val(), 'Recommencer'));
-                $('#ContinuerHard').html(createA(response.exo_continue_difficult_id, 'Continuer'));
+                $('#ContinuerHard').html(createA(response.exo_continue_difficult_id, 'Refaire en plus difficile !'));
                 $('#Continuer').html(createA(response.exo_continue_id,'Continuer'));
             });
         });
 }
 
-function createA(id,txt){
-    if(txt === "Revoir le cours")
-        return '<a class="btn" href="/exercice/'+id+'">'+ txt +'</a>';
+function createA(id, txt){
+    if(txt === "Revoir le cours" || txt === "Continuer")
+        return '<a class="btn" href="/chapitre/'+id+'">'+ txt +'</a>';
     else
-        return '<a class="btn" href="/cours/'+id+'">'+ txt +'</a>';
+        return '<a class="btn" href="/exercice/'+id+'">'+ txt +'</a>';
 }
 
 
