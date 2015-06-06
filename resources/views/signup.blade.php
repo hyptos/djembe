@@ -51,10 +51,12 @@
                 	<label class="sr-only" for="form-password">Mot de passe</label>
                 	<input type="text" name="password" placeholder="mot de passe" class="form-password form-control" id="form-password ">
                 </div>
-                <div class="form-group">
-                	<label class="sr-only" for="form-teach">teach</label>
-                	<input type="text" name="teach" placeholder="teach" class="form-teach form-control" id="form-teach">
-                </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="radio" name="teach" class="signup"> Professeur
+                    </label>
+                  </div>
+
                 <button type="submit" class="btn btn-primary btn-large">Je m'enregistre</button>
             </form>
         </div>

@@ -148,12 +148,14 @@ class UserController extends Controller
         $user           = new User();
         $user->name     = $request->input('name');
         $user->email    = $request->input('email');
-        $user->password = $request->input('password');
-        $user->teach    = $request->input('teach');
+        $user->password = bcrypt($request->input('password'));
+        $user->teach    = $request->input('teach') == "on" ? 1 : 0;
 
         $user->save();
 
-        return response()->json(['type' => 'success', 'message' => 'user created']);
+        Auth::login($user);
+
+        return redirect('/');
     }
 
     /**
