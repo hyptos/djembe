@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/js/utility.js"></script>
     <link rel="shortcut icon" href="../favicon.ico">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css' />
     <script type="text/javascript" src="/djembe/js/modernizr.custom.79639.js"></script>
@@ -19,25 +20,32 @@
 @include('header')
 
 @section('content')
-	<h1><span class="glyphicon glyphicon-book" aria-hidden="true"></span> &nbsp; {{ $chapitre->no }} - {{ $chapitre->titre }}</h1>
-	<p>{{ $chapitre->contenu }}.</p>
-	<h2>Les exercices disponibles dans ce chapitre</h2>
+<div class="col-md-8 text-center">
+    <h1>
+        <span class="glyphicon glyphicon-book" aria-hidden="true"></span> &nbsp; {{ $chapitre->no }} - {{ $chapitre->titre }}
+    </h1>
+    <p>{{ $chapitre->contenu }}.</p>
+</div>
+
+<div class="col-md-4 text-center">
     @if(isset($exercices))
-    	<ul>
             @foreach ($exercices as $exercice)
                 @foreach ($exercice as $exo)
-                    <li>
-                        <a href="/exercice/{{ $exo->id }}">
-                            Exercice n°{{ $exo->id }} de type {{ $exo->type }}
-                            et de difficulte {{$exo->difficulte }}
-                        </a>
-                    </li>
+                        <h1><a href="/exercice/{{ $exo->id }}">
+                            Suivant <span class="glyphicon glyphicon-arrow-right nextExo" aria-hidden="true"></span>
+                        </a></h1>
                 @endforeach
             @endforeach
-    	</ul>
     @else
         <p>Pas d'exercice de disponible pour ce chapitre.</p>
     @endif
+</div>
+
+<script type="text/javascript">
+    $(function() {
+        animateArrowChapter();
+    });
+</script>
 @stop
 
 

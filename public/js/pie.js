@@ -62,7 +62,7 @@ var pie = new d3pie("pieChart", {
             if(numberOfClicks === 1){
                 timeStart = Date.now();
             }
-            if(numberOfClicks === $('#nbResponses').val()){
+            if(numberOfClicks === parseInt($('#nbResponses').val())){
                 numberOfClicks = 0;
                 var currentdate = Date.now() - timeStart;
                 // On stocke en bdd le résultat

@@ -22,6 +22,7 @@
 @include('header')
 
 @section('content')
+<div class="exercice">
 	<h1>Exercice n°{{ $exercice->id }}</h1>
     <p>Cet exercice est de difficulte : {{ $exercice->difficulte }}.</p>
     {!!html_entity_decode($exercice->ressource)!!}
@@ -35,5 +36,12 @@
     <input type="hidden" id="idUser" name="idUser" value="{{ Auth::user()->id }}">
     <input type="hidden" id="idExercice" name="idExercice" value="{{ $exercice->id }}">
     <input type="hidden" id="idCours" name="idCours" value="1">
-    <script type="text/javascript" src="/djembe/{{ $exercice->script }}"></script>
+    </script>
+    <script type="text/javascript" src="{{ $exercice->script }}"></script>
+    <script type="text/javascript">
+    $(function(){
+        $('.exercice').hide().show(1000);
+    });
+    </script>
+
 @stop
