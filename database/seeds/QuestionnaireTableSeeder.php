@@ -26,10 +26,16 @@ class QuestionnaireTableSeeder extends Seeder
             'chapitre_id' => 3,
             'cours_id' => 1,
         ]);
-        
-        Questionnaire::create([ // id 4 : texte à trou
+
+        Questionnaire::create([ // id 4 : Ecrire sur un Partition
             'nbExos' => 1,
             'chapitre_id' => 4,
+            'cours_id' => 2,
+        ]);
+        
+        Questionnaire::create([ // id 5 : texte à trou
+            'nbExos' => 1,
+            'chapitre_id' => 7,
             'cours_id' => 4,
         ]);
     }

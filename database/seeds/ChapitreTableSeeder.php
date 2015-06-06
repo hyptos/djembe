@@ -9,6 +9,10 @@ class ChapitreTableSeeder extends Seeder
 {
     public function run()
     {
+
+        /******
+            Cours de solfège 
+        *******/
         Chapitre::create([ // id 1
             'no' => '1',
             'titre' => 'Les sons',
@@ -43,19 +47,52 @@ class ChapitreTableSeeder extends Seeder
 
         Chapitre::create([ // id 4
             'no' => '1',
-            'titre' => 'La portée',
-            'contenu' => 'En musique les sons s\'appellent des notes.
-                          Comme tu le sais il en existe plusieurs :
-                          Do Ré Mi Fa Sol La Si.
-
-                          Pour les lire et les écrire nous utilisons une portée
+            'titre' => 'Lire et Ecrire la Musique - La portée',
+            'contenu' => 'Pour pourvoir partager la musique
+                            aux gens qui nous entourent nous
+                            écrivons les notes sur ce que l\'on
+                            appelle une portée.
 
                           [img de portée]',
+            'cours_id' => 2,
+            'questionnaire_id' => 4,
+        ]);
+
+        Chapitre::create([ // id 5
+            'no' => '2',
+            'titre' => 'Lire et Ecrire la Musique - Les notes',
+            'contenu' => 'Les notes sur une portée sont représentées
+                            par des ronds posés sur ou entre les lignes
+                            de la portée.<br/>
+
+                            [img de portée avec notes]',
             'cours_id' => 2,
             'questionnaire_id' => null,
         ]);
 
-         Chapitre::create([ // id 5
+        Chapitre::create([ // id 6
+            'no' => '3',
+            'titre' => 'Lire et Ecrire la Musique - La clef de Sol',
+            'contenu' => 'Pour savoir où doit être placée une note, nous
+                            utilisons ce que l\'on appelle une Clef de Sol.<br/>
+
+                            Celle ci est placée au début de la portée et indique
+                            sur qu\'elle ligne de la portée est placé le sol.<br/>
+
+                            Puis en suivant le code : Do Ré Mi Fa Sol La Si Do,
+                            nous pouvons savoir où écrire les autres notes.
+
+                            [img de portée DoReMiFaSolLaSi]',
+            'cours_id' => 2,
+            'questionnaire_id' => 4,
+        ]);
+
+
+
+        /******
+            Cours d'histoire de la Musique 
+        *******/
+         Chapitre::create([ // id 7
             'no' => '1',
             'titre' => 'Au commencement...',
             'contenu' => 'Comme il n\'existait aucun moyen d\'enregistrer ni d\'écrire la musique, on ne sait pas depuis combien de temps elle existe.
@@ -66,7 +103,7 @@ class ChapitreTableSeeder extends Seeder
                         Leurs danses consistaient entièrement en mouvements du corps et des bras, lents ou endiablés, doux ou violents, selon le sentiment exprimé.
                         Ils utilisaient la voix.',
             'cours_id' => 4,
-            'questionnaire_id' => 4,
+            'questionnaire_id' => 5,
          ]);
     }
 }

@@ -70,7 +70,7 @@ class NextExerciceTableSeeder extends Seeder
         //Difficulté 1
         NextExercice::create([
             'exercice_id' => 7,
-            'exo_continue_id' => 5,
+            'exo_continue_id' => 4,
             'exo_continue_difficult_id' => 8,
             'exo_redo_simple_id' => 7,
             'exo_review_basics_id' => 4
@@ -79,7 +79,7 @@ class NextExerciceTableSeeder extends Seeder
         //Difficulté 2
         NextExercice::create([
             'exercice_id' => 8,
-            'exo_continue_id' => 5,
+            'exo_continue_id' => 4,
             'exo_continue_difficult_id' => 9,
             'exo_redo_simple_id' => 7,
             'exo_review_basics_id' => 4
@@ -88,7 +88,7 @@ class NextExerciceTableSeeder extends Seeder
         //Difficulté 3
         NextExercice::create([
             'exercice_id' => 9,
-            'exo_continue_id' => 5,
+            'exo_continue_id' => 4,
             'exo_continue_difficult_id' => 10,
             'exo_redo_simple_id' => 8,
             'exo_review_basics_id' => 4
@@ -97,7 +97,7 @@ class NextExerciceTableSeeder extends Seeder
         //Difficulté 4
         NextExercice::create([
             'exercice_id' => 10,
-            'exo_continue_id' => 5,
+            'exo_continue_id' => 4,
             'exo_continue_difficult_id' => 11,
             'exo_redo_simple_id' => 9,
             'exo_review_basics_id' => 4
@@ -106,7 +106,7 @@ class NextExerciceTableSeeder extends Seeder
         //Difficulté 5
         NextExercice::create([
             'exercice_id' => 11,
-            'exo_continue_id' => 5,
+            'exo_continue_id' => 4,
             'exo_continue_difficult_id' => 11,
             'exo_redo_simple_id' => 10,
             'exo_review_basics_id' => 4

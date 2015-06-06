@@ -60,7 +60,7 @@
                                     <div class="ch-info-front ch-img-3"></div>
                                     <div class="ch-info-back">
                                         <h3>Histoire</h3>
-                                        <p><a href="/chapitre/5">Commencer</a></p>
+                                        <p><a href="/chapitre/7">Commencer</a></p>
                                     </div>
                                 </div>
                             </div>

@@ -213,7 +213,7 @@ class ExerciceTableSeeder extends Seeder
             'type' => 'EcrirePartition',
             'difficulte' => 1,
             'ressource' => '<link rel="stylesheet" href="/css/styleddpartition.css">
-                            <script type="text/javascript" src="/djembe/js/interact.min.js"></script>
+                            <script type="text/javascript" src="/js/interact.min.js"></script>
                             <div class="col-md-12" id="game">
                             <div id="message" class="alert"></div>
                             <div id="lesNotes">
@@ -228,7 +228,7 @@ class ExerciceTableSeeder extends Seeder
                             <div id="zone7" class="dropzone n"></div>
                             <div id="zone8" class="dropzone b"></div>
                             <div id="zone9" class="dropzone n" style="position: relative;">
-                                <div style="position: absolute; top: -250px;"><img src="/djembe/images/cleDeSol.png"></div>
+                                <div style="position: absolute; top: -250px;"><img src="/images/cleDeSol.png"></div>
                             </div>
                             <div id="zone10" class="dropzone b"></div>
                             <div id="zone11" class="dropzone n"></div>
@@ -246,6 +246,33 @@ class ExerciceTableSeeder extends Seeder
         Exercice::create([ // id : 8
             'type' => 'EcrirePartition',
             'difficulte' => 2,
+            'ressource' => '<link rel="stylesheet" href="/css/styleddpartition.css">
+                            <script type="text/javascript" src="/js/interact.min.js"></script>
+                            <div class="col-md-12" id="game">
+                            <div id="message" class="alert"></div>
+                            <div id="lesNotes">
+                            <br/><br/>
+                            <div id="zone0" class="dropzone b"></div>
+                            <div id="zone1" class="dropzone nn"></div>
+                            <div id="zone2" class="dropzone b"></div>
+                            <div id="zone3" class="dropzone n"></div>
+                            <div id="zone4" class="dropzone b"></div>
+                            <div id="zone5" class="dropzone n"></div>
+                            <div id="zone6" class="dropzone b"></div>
+                            <div id="zone7" class="dropzone n"></div>
+                            <div id="zone8" class="dropzone b"></div>
+                            <div id="zone9" class="dropzone n" style="position: relative;">
+                                <div style="position: absolute; top: -250px;"><img src="/images/cleDeSol.png"></div>
+                            </div>
+                            <div id="zone10" class="dropzone b"></div>
+                            <div id="zone11" class="dropzone n"></div>
+                            <div id="zone12" class="dropzone b"></div>
+                            <div id="zone13" class="dropzone nn"></div>
+                            <div id="zone14" class="dropzone b"></div>
+                            <div id="zone15" class="dropzone nn"></div><br/><br/>
+                            </div>
+                            <button id="finish" class="btn btn-primary">J\'ai terminé !</button></div>',
+            'script' => '/js/ddpartition.js',
             'temps_moyen' => 60,
             'nbReponses' => 5,
         ]);
@@ -253,6 +280,33 @@ class ExerciceTableSeeder extends Seeder
         Exercice::create([ // id : 9
             'type' => 'EcrirePartition',
             'difficulte' => 3,
+            'ressource' => '<link rel="stylesheet" href="/css/styleddpartition.css">
+                            <script type="text/javascript" src="/js/interact.min.js"></script>
+                            <div class="col-md-12" id="game">
+                            <div id="message" class="alert"></div>
+                            <div id="lesNotes">
+                            <br/><br/>
+                            <div id="zone0" class="dropzone b"></div>
+                            <div id="zone1" class="dropzone nn"></div>
+                            <div id="zone2" class="dropzone b"></div>
+                            <div id="zone3" class="dropzone n"></div>
+                            <div id="zone4" class="dropzone b"></div>
+                            <div id="zone5" class="dropzone n"></div>
+                            <div id="zone6" class="dropzone b"></div>
+                            <div id="zone7" class="dropzone n"></div>
+                            <div id="zone8" class="dropzone b"></div>
+                            <div id="zone9" class="dropzone n" style="position: relative;">
+                                <div style="position: absolute; top: -250px;"><img src="/images/cleDeSol.png"></div>
+                            </div>
+                            <div id="zone10" class="dropzone b"></div>
+                            <div id="zone11" class="dropzone n"></div>
+                            <div id="zone12" class="dropzone b"></div>
+                            <div id="zone13" class="dropzone nn"></div>
+                            <div id="zone14" class="dropzone b"></div>
+                            <div id="zone15" class="dropzone nn"></div><br/><br/>
+                            </div>
+                            <button id="finish" class="btn btn-primary">J\'ai terminé !</button></div>',
+            'script' => '/js/ddpartition.js',
             'temps_moyen' => 60,
             'nbReponses' => 7,
         ]);
@@ -260,6 +314,33 @@ class ExerciceTableSeeder extends Seeder
         Exercice::create([ // id : 10
             'type' => 'EcrirePartition',
             'difficulte' => 4,
+            'ressource' => '<link rel="stylesheet" href="/css/styleddpartition.css">
+                            <script type="text/javascript" src="/js/interact.min.js"></script>
+                            <div class="col-md-12" id="game">
+                            <div id="message" class="alert"></div>
+                            <div id="lesNotes">
+                            <br/><br/>
+                            <div id="zone0" class="dropzone b"></div>
+                            <div id="zone1" class="dropzone nn"></div>
+                            <div id="zone2" class="dropzone b"></div>
+                            <div id="zone3" class="dropzone n"></div>
+                            <div id="zone4" class="dropzone b"></div>
+                            <div id="zone5" class="dropzone n"></div>
+                            <div id="zone6" class="dropzone b"></div>
+                            <div id="zone7" class="dropzone n"></div>
+                            <div id="zone8" class="dropzone b"></div>
+                            <div id="zone9" class="dropzone n" style="position: relative;">
+                                <div style="position: absolute; top: -250px;"><img src="/images/cleDeSol.png"></div>
+                            </div>
+                            <div id="zone10" class="dropzone b"></div>
+                            <div id="zone11" class="dropzone n"></div>
+                            <div id="zone12" class="dropzone b"></div>
+                            <div id="zone13" class="dropzone nn"></div>
+                            <div id="zone14" class="dropzone b"></div>
+                            <div id="zone15" class="dropzone nn"></div><br/><br/>
+                            </div>
+                            <button id="finish" class="btn btn-primary">J\'ai terminé !</button></div>',
+            'script' => '/js/ddpartition.js',
             'temps_moyen' => 60,
             'nbReponses' => 10,
         ]);
@@ -267,6 +348,33 @@ class ExerciceTableSeeder extends Seeder
         Exercice::create([ // id : 11
             'type' => 'EcrirePartition',
             'difficulte' => 5,
+            'ressource' => '<link rel="stylesheet" href="/css/styleddpartition.css">
+                            <script type="text/javascript" src="/js/interact.min.js"></script>
+                            <div class="col-md-12" id="game">
+                            <div id="message" class="alert"></div>
+                            <div id="lesNotes">
+                            <br/><br/>
+                            <div id="zone0" class="dropzone b"></div>
+                            <div id="zone1" class="dropzone nn"></div>
+                            <div id="zone2" class="dropzone b"></div>
+                            <div id="zone3" class="dropzone n"></div>
+                            <div id="zone4" class="dropzone b"></div>
+                            <div id="zone5" class="dropzone n"></div>
+                            <div id="zone6" class="dropzone b"></div>
+                            <div id="zone7" class="dropzone n"></div>
+                            <div id="zone8" class="dropzone b"></div>
+                            <div id="zone9" class="dropzone n" style="position: relative;">
+                                <div style="position: absolute; top: -250px;"><img src="/images/cleDeSol.png"></div>
+                            </div>
+                            <div id="zone10" class="dropzone b"></div>
+                            <div id="zone11" class="dropzone n"></div>
+                            <div id="zone12" class="dropzone b"></div>
+                            <div id="zone13" class="dropzone nn"></div>
+                            <div id="zone14" class="dropzone b"></div>
+                            <div id="zone15" class="dropzone nn"></div><br/><br/>
+                            </div>
+                            <button id="finish" class="btn btn-primary">J\'ai terminé !</button></div>',
+            'script' => '/js/ddpartition.js',
             'temps_moyen' => 60,
             'nbReponses' => 15,
         ]);
