@@ -150,7 +150,7 @@ class ExerciceTableSeeder extends Seeder
                             <audio id="si" src="/son/piano_si.mp3" preload="auto"></audio>',
             'script' => '/js/pie.js',
             'temps_moyen' => 5,
-            'nbReponses' => 5,
+            'nbReponses' => 3,
         ]);
 
         Exercice::create([ // id : 5
@@ -177,7 +177,7 @@ class ExerciceTableSeeder extends Seeder
                             <audio id="si" src="/son/piano_si.mp3" preload="auto"></audio>',
             'script' => '/js/pie.js',
             'temps_moyen' => 10,
-            'nbReponses' => 10,
+            'nbReponses' => 5,
         ]);
 
         Exercice::create([ // id : 6
@@ -204,7 +204,7 @@ class ExerciceTableSeeder extends Seeder
                             <audio id="si" src="/son/piano_si.mp3" preload="auto"></audio>',
             'script' => '/js/pie.js',
             'temps_moyen' => 15,
-            'nbReponses' => 10,
+            'nbReponses' => 7,
         ]);
 
 
@@ -213,7 +213,7 @@ class ExerciceTableSeeder extends Seeder
             'type' => 'EcrirePartition',
             'difficulte' => 1,
             'ressource' => '<link rel="stylesheet" href="/css/styleddpartition.css">
-                            <script type="text/javascript" src="/js/interact.min.js"></script>
+                            <script type="text/javascript" src="/djembe/js/interact.min.js"></script>
                             <div class="col-md-12" id="game">
                             <div id="message" class="alert"></div>
                             <div id="lesNotes">
@@ -228,7 +228,7 @@ class ExerciceTableSeeder extends Seeder
                             <div id="zone7" class="dropzone n"></div>
                             <div id="zone8" class="dropzone b"></div>
                             <div id="zone9" class="dropzone n" style="position: relative;">
-                                <div style="position: absolute; top: -250px;"><img src="/images/cleDeSol.png"></div>
+                                <div style="position: absolute; top: -250px;"><img src="/djembe/images/cleDeSol.png"></div>
                             </div>
                             <div id="zone10" class="dropzone b"></div>
                             <div id="zone11" class="dropzone n"></div>
@@ -302,7 +302,7 @@ class ExerciceTableSeeder extends Seeder
                                 </div>',
                             'script' => '/js/textatrou.js',
                 'temps_moyen' => 60,
-                'nbReponses' => 15,
+                'nbReponses' => 8,
             ]);
     }
 }

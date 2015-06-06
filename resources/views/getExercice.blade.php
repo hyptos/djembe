@@ -36,11 +36,12 @@
     <input type="hidden" id="idUser" name="idUser" value="{{ Auth::user()->id }}">
     <input type="hidden" id="idExercice" name="idExercice" value="{{ $exercice->id }}">
     <input type="hidden" id="idCours" name="idCours" value="1">
-</script>
+    </script>
     <script type="text/javascript" src="{{ $exercice->script }}"></script>
     <script type="text/javascript">
     $(function(){
         $('.exercice').hide().show(1000);
     });
     </script>
+
 @stop

@@ -14,6 +14,11 @@
 //welcome routes
 $app->get('/', 'App\Http\Controllers\WelcomeController@test');
 
+//connaissance
+$app->get('question', 'App\Http\Controllers\questionnaireController@test');
+$app->post('addCon', 'App\Http\Controllers\ConnaissanceController@addAverage');
+$app->get('getCon', 'App\Http\Controllers\ConnaissanceController@getCon');
+
 //test routes
 $app->get('exoTest', 'App\Http\Controllers\ExoTestController@test');
 $app->get('exoTest2', 'App\Http\Controllers\ExoTest2Controller@test');
