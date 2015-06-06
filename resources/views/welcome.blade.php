@@ -34,7 +34,7 @@
                                     <div class="ch-info-front ch-img-1"></div>
                                     <div class="ch-info-back">
                                         <h3>Solfège</h3>
-                                        <p><a href="/dashboardSolfege">Commencer</a></p>
+                                        <p><a href="/chapitre/1">Commencer</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
                                     <div class="ch-info-front ch-img-3"></div>
                                     <div class="ch-info-back">
                                         <h3>Histoire</h3>
-                                        <p><a href="/dashboardHistoire">Commencer</a></p>
+                                        <p><a href="/chapitre/5">Commencer</a></p>
                                     </div>
                                 </div>
                             </div>
