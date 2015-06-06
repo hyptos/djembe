@@ -97,22 +97,35 @@ function sendAnswerToFuzzy(nbErr, nbResponses, time){
           }
         }).done(function(mess){
             success(mess);
-            getNextExercices($('#idExercice').val()).done(function(res){
+            var choix = mess.choix;
+            var idExercice = parseInt($('#idExercice').val());
+            getNextExercices(idExercice).done(function(res){
                 var response = res[0];
-                $('#Revoir_cours').html(createA(response.exo_review_basics_id, 'Revoir le cours'));
-                $('#Plus_facile').html(createA(response.exo_redo_simple_id, 'Plus facile'));
-                $('#Recommencer').html(createA($('#idExercice').val(), 'Recommencer'));
-                $('#ContinuerHard').html(createA(response.exo_continue_difficult_id, 'Refaire en plus difficile !'));
-                $('#Continuer').html(createA(response.exo_continue_id,'Continuer'));
+                $('#Revoir_cours').html(createA(response.exo_review_basics_id, 'Revoir le cours', choix.indexOf('Revoir_cours')));
+                $('#Plus_facile').html(createA(response.exo_redo_simple_id, 'Plus facile', choix.indexOf('Plus_facile')));
+                $('#Recommencer').html(createA($('#idExercice').val(), 'Recommencer', choix.indexOf('Recommencer')));
+                $('#ContinuerHard').html(createA(response.exo_continue_difficult_id, 'Refaire en plus difficile !', choix.indexOf('ContinuerHard')));
+                $('#Continuer').html(createA(response.exo_continue_id, 'Continuer', choix.indexOf('Continuer')));
             });
         });
 }
 
-function createA(id, txt){
-    if(txt === "Revoir le cours" || txt === "Continuer")
-        return '<a class="btn btn-warning" href="/chapitre/'+id+'">'+ txt +'</a>';
+function createA(id, txt, index){
+
+    var retour = '<a class=';
+    if(index == 0)
+        retour += '"btn btn-success"'
     else
-        return '<a class="btn  btn-warning" href="/exercice/'+id+'">'+ txt +'</a>';
+        retour += '"btn btn-warning"'
+
+    if(txt === "Revoir le cours" || txt === "Continuer")
+        retour += ' href="/chapitre/';
+    else
+        retour += ' href="/exercice/';
+
+    retour += id+'">'+ txt +'</a>';
+
+    return retour;
 }
 
 
