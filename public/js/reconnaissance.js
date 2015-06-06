@@ -9,7 +9,8 @@ $('#find').on('click',function(e){
 });
 
 
-$(function() {
+$(
+	function() {
 	var e = random_solution(notes,1);
 	$('#find').attr("note", e[0].label);
 	changeColorButton(notes);
@@ -39,7 +40,6 @@ $('#sendAnswers').on('click',function(e){
 });
 
 function changeColorButton(notes){
-	console.log(notes);
 	$.each(notes,function(e){
 		var buttons = $('.rep');
 		for (var i = buttons.length - 1; i >= 0; i--) {

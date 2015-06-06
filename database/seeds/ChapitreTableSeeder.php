@@ -12,25 +12,38 @@ class ChapitreTableSeeder extends Seeder
         Chapitre::create([ // id 1
             'no' => '1',
             'titre' => 'Les sons',
-            'contenu' => 'Il existe différents sons en musique,
-                        peut être que tu les connais déjà : Do Ré Mi Fa Sol La Si.
-                        Amusons nous à les écouter et les différencier.',
+            'contenu' => 'Dans la vie de tous les jours, il y a plein de
+                        sons différents.
+                        Amusons nous à en écouter et différencier quelques un.',
             'cours_id' => 1,
             'questionnaire_id' => 1,
         ]);
 
         Chapitre::create([ // id 2
             'no' => '2',
-            'titre' => 'Les suites de sons',
-            'contenu' => 'Plus que des sons, la musique est composé de suite de sons.
-                          Amusons nous à rejouer des suites de sons',
+            'titre' => 'Les notes',
+            'contenu' => 'En musique, nous différençons 7 types de sons
+                        que nous nommons des notes. Il s\'agit de :
+                        Do Ré Mi Fa Sol La et Si. 
+                        Amusons nous avec.',
             'cours_id' => 1,
             'questionnaire_id' => 2,
         ]);
 
         Chapitre::create([ // id 3
+            'no' => '3',
+            'titre' => 'Les suites de notes',
+            'contenu' => 'Plus que des sons, la musique se compose à partir 
+                          de plusieurs notes jouées ensemble ou les unes après
+                          les autres.
+                          Amusons nous à rejouer des suites de notes',
+            'cours_id' => 1,
+            'questionnaire_id' => 3,
+        ]);
+
+        Chapitre::create([ // id 4
             'no' => '1',
-            'titre' => 'Lire les notes',
+            'titre' => 'La portée',
             'contenu' => 'En musique les sons s\'appellent des notes.
                           Comme tu le sais il en existe plusieurs :
                           Do Ré Mi Fa Sol La Si.
@@ -42,7 +55,7 @@ class ChapitreTableSeeder extends Seeder
             'questionnaire_id' => null,
         ]);
 
-         Chapitre::create([ // id 4
+         Chapitre::create([ // id 5
             'no' => '1',
             'titre' => 'Au commencement...',
             'contenu' => 'Comme il n\'existait aucun moyen d\'enregistrer ni d\'écrire la musique, on ne sait pas depuis combien de temps elle existe.
