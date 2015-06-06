@@ -1,6 +1,6 @@
 @section('header')
 
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/djembe/css/style.css">
 <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
   <div class="containerNavbar">
     <nav class="navbar navbar-default">
@@ -35,7 +35,7 @@
 </header>
 <div class="panel panel-default banniere" >
     <div class="panel-body">
-      <img src="/images/banniere.jpg" class="imgBanniere" />
+      <img src="/djembe/images/banniere.jpg" class="imgBanniere" />
     </div>
 </div>
 

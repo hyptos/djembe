@@ -1,7 +1,7 @@
 var tab = [];
 var numberOfClicks = 1;
 var contents = notes;
-var solution = random_solution(contents, 5);
+var solution = random_solution(contents, 3);
 var timeStart, timeEnd;
 var pie = new d3pie("pieChart", {
     "header": {
@@ -62,16 +62,16 @@ var pie = new d3pie("pieChart", {
             if(numberOfClicks === 1){
                 timeStart = Date.now();
             }
-            if(numberOfClicks === 5){
+            if(numberOfClicks === 3){
                 numberOfClicks = 0;
                 var currentdate = Date.now() - timeStart;
                 // On stocke en bdd le résultat
                 $.ajax({
-                  url: "http://djembe.com/fuzzy",
+                  url: "http://djembe.com/djembe/index.php/fuzzy",
                   method: "POST",
                   data: {
                     nbErrors:numberOfErrors(tab, solution),
-                    nbResponses:5,
+                    nbResponses:3,
                     time: currentdate/1000,
                     timeAvg:$('#timeAvg').val(),
                     idUser:$('#idUser').val(),

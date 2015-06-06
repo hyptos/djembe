@@ -14,6 +14,8 @@
 //welcome routes
 $app->get('/', 'App\Http\Controllers\WelcomeController@test');
 
+$app->get('question', 'App\Http\Controllers\questionnaireController@test');
+
 //test routes
 $app->get('exoTest', 'App\Http\Controllers\ExoTestController@test');
 $app->get('exoTest2', 'App\Http\Controllers\ExoTest2Controller@test');

@@ -14,6 +14,9 @@
     <link rel="stylesheet" type="text/css" href="/css/signup.css" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css' />
     <script type="text/javascript" src="/js/modernizr.custom.79639.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
     <!--[if lte IE 8]><style>.main{display:none;} .support-note .note-ie{display:block;}</style><![endif]-->
 @stop
 
@@ -28,27 +31,91 @@
 	    <p>On affiche les stats des learners</p>
 	@endif
 
-	<p>On affiche ses propres stats dasn tous les cas</p>
+	<p>On affiche ses propres stats dans tous les cas</p>
 
-<h2><span class="glyphicon glyphicon-stats" aria-hidden="true">&nbsp; Mes statistiques</h2>
-<hr>
-<table class="table table-striped">
-	<tr>
-		<th>id</th>
-		<th>avancement</th>
-		<th>reussite</th>
-		<th>temps</th>
-		<th>Jour</th>
-	</tr>
-	@foreach ($user->stats as $stat)
-	<tr>
-		    <td>{{ $stat->id }}</td>
-			<td>{{ $stat->avancement }}</td>
-			<td>{{ $stat->reussite }}</td>
-			<td>{{ $stat->temps }}</td>
-			<td>{{ $stat->created_at}} </td>
-	</tr>
-	@endforeach
-</table>
+<div class="bs-example">
+    <ul class="nav nav-tabs" id="myTab">
+        <li><a data-toggle="tab" href="#sectionA">Solfège</a></li>
+        <li><a data-toggle="tab" href="#sectionB">Instruments</a></li>
+        <li><a data-toggle="tab" href="#sectionC">Histoire</a></li>
+    </ul>
+    <div class="tab-content">
+        <div id="sectionA" class="tab-pane fade in active">
+            <h3>Solfège</h3>
+            <h2><span class="glyphicon glyphicon-stats" aria-hidden="true">&nbsp; Mes statistiques</h2>
+            <hr>
+            <table class="table table-striped">
+            	<tr>
+            		<th>id</th>
+            		<th>avancement</th>
+            		<th>reussite</th>
+            		<th>temps</th>
+            		<th>Jour</th>
+            	</tr>
+            	@foreach ($user->stats as $stat)
+            	   @if ($stat->cours->type == 'solfege')
+                        <tr>
+                            <td>{{ $stat->id }}</td>
+                            <td>{{ $stat->avancement }}</td>
+                            <td>{{ $stat->reussite }}</td>
+                            <td>{{ $stat->temps }}</td>
+                            <td>{{ $stat->created_at}} </td>
+                        </tr>
+                    @endif
+            	@endforeach
+            </table>
+        </div>
+        <div id="sectionB" class="tab-pane fade">
+            <h3>Instruments</h3>
+            <h2><span class="glyphicon glyphicon-stats" aria-hidden="true">&nbsp; Mes statistiques</h2>
+            <hr>
+            <table class="table table-striped">
+            	<tr>
+            		<th>id</th>
+            		<th>avancement</th>
+            		<th>reussite</th>
+            		<th>temps</th>
+            		<th>Jour</th>
+            	</tr>
+            	@foreach ($user->stats as $stat)
+                    @if ($stat->cours->type == 'instruments')
+                        <tr>
+                                <td>{{ $stat->id }}</td>
+                                <td>{{ $stat->avancement }}</td>
+                                <td>{{ $stat->reussite }}</td>
+                                <td>{{ $stat->temps }}</td>
+                                <td>{{ $stat->created_at}} </td>
+                        </tr>
+                    @endif
+            	@endforeach
+            </table>
+        </div>
+        <div id="sectionC" class="tab-pane fade">
+            <h3>Instruments</h3>
+            <h2><span class="glyphicon glyphicon-stats" aria-hidden="true">&nbsp; Mes statistiques</h2>
+            <hr>
+            <table class="table table-striped">
+            	<tr>
+            		<th>id</th>
+            		<th>avancement</th>
+            		<th>reussite</th>
+            		<th>temps</th>
+            		<th>Jour</th>
+            	</tr>
+            	@foreach ($user->stats as $stat)
+                    @if ($stat->cours->type == 'histoire')
+                        <tr>
+                                <td>{{ $stat->id }}</td>
+                                <td>{{ $stat->avancement }}</td>
+                                <td>{{ $stat->reussite }}</td>
+                                <td>{{ $stat->temps }}</td>
+                                <td>{{ $stat->created_at}} </td>
+                        </tr>
+                    @endif
+            	@endforeach
+            </table>
+        </div>
+    </div>
+</div>
 
 @stop

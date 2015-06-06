@@ -40,13 +40,13 @@ class ExerciceTableSeeder extends Seeder
                             <button class="btn btn-warning rep">la</button>
                             <input note="si" name="answer" type="radio">
                             <button class="btn btn-warning rep">si</button>
-                            <audio id="do" src="/son/piano_do.mp3" preload="auto"></audio>
-                            <audio id="re" src="/son/piano_re.mp3" preload="auto"></audio>
-                            <audio id="mi" src="/son/piano_mi.mp3" preload="auto"></audio>
-                            <audio id="fa" src="/son/piano_fa.mp3" preload="auto"></audio>
-                            <audio id="sol" src="/son/piano_sol.mp3" preload="auto"></audio>
-                            <audio id="la" src="/son/piano_la.mp3" preload="auto"></audio>
-                            <audio id="si" src="/son/piano_si.mp3" preload="auto"></audio>
+                            <audio id="do" src="/djembe/son/piano_do.mp3" preload="auto"></audio>
+                            <audio id="re" src="/djembe/son/piano_re.mp3" preload="auto"></audio>
+                            <audio id="mi" src="/djembe/son/piano_mi.mp3" preload="auto"></audio>
+                            <audio id="fa" src="/djembe/son/piano_fa.mp3" preload="auto"></audio>
+                            <audio id="sol" src="/djembe/son/piano_sol.mp3" preload="auto"></audio>
+                            <audio id="la" src="/djembe/son/piano_la.mp3" preload="auto"></audio>
+                            <audio id="si" src="/djembe/son/piano_si.mp3" preload="auto"></audio>
                     </p>
 <a href="#" id="sendAnswers" class="btn btn-primary">J\'ai fini</a>
                     </div>',
@@ -68,13 +68,13 @@ class ExerciceTableSeeder extends Seeder
                                 </div>
                             </div>
 
-                            <audio id="do" src="/son/piano_do.mp3" preload="auto"></audio>
-                            <audio id="re" src="/son/piano_re.mp3" preload="auto"></audio>
-                            <audio id="mi" src="/son/piano_mi.mp3" preload="auto"></audio>
-                            <audio id="fa" src="/son/piano_fa.mp3" preload="auto"></audio>
-                            <audio id="sol" src="/son/piano_sol.mp3" preload="auto"></audio>
-                            <audio id="la" src="/son/piano_la.mp3" preload="auto"></audio>
-                            <audio id="si" src="/son/piano_si.mp3" preload="auto"></audio>',
+                            <audio id="do" src="/djembe/son/piano_do.mp3" preload="auto"></audio>
+                            <audio id="re" src="/djembe/son/piano_re.mp3" preload="auto"></audio>
+                            <audio id="mi" src="/djembe/son/piano_mi.mp3" preload="auto"></audio>
+                            <audio id="fa" src="/djembe/son/piano_fa.mp3" preload="auto"></audio>
+                            <audio id="sol" src="/djembe/son/piano_sol.mp3" preload="auto"></audio>
+                            <audio id="la" src="/djembe/son/piano_la.mp3" preload="auto"></audio>
+                            <audio id="si" src="/djembe/son/piano_si.mp3" preload="auto"></audio>',
             'script' => '/js/pie.js',
             'temps_moyen' => 3,
             'nbReponses' => 3,
@@ -84,21 +84,21 @@ class ExerciceTableSeeder extends Seeder
             'type' => 'ReconnaitreSuiteNotes',
             'difficulte' => 2,
             'temps_moyen' => 5,
-            'nbReponses' => 5,
+            'nbReponses' => 3,
         ]);
 
         Exercice::create([ // id : 4
             'type' => 'ReconnaitreSuiteNotes',
             'difficulte' => 3,
             'temps_moyen' => 10,
-            'nbReponses' => 10,
+            'nbReponses' => 5,
         ]);
 
         Exercice::create([ // id : 5
             'type' => 'ReconnaitreSuiteNotes',
             'difficulte' => 4,
             'temps_moyen' => 15,
-            'nbReponses' => 10,
+            'nbReponses' => 7,
         ]);
 
 
@@ -107,7 +107,7 @@ class ExerciceTableSeeder extends Seeder
             'type' => 'LirePartition',
             'difficulte' => 1,
             'ressource' => '<link rel="stylesheet" href="/css/styleddpartition.css">
-                            <script type="text/javascript" src="/js/interact.min.js"></script>
+                            <script type="text/javascript" src="/djembe/js/interact.min.js"></script>
                             <div class="col-md-12" id="game">
                             <div id="message" class="alert"></div>
                             <div id="lesNotes">
@@ -122,7 +122,7 @@ class ExerciceTableSeeder extends Seeder
                             <div id="zone7" class="dropzone n"></div>
                             <div id="zone8" class="dropzone b"></div>
                             <div id="zone9" class="dropzone n" style="position: relative;">
-                                <div style="position: absolute; top: -250px;"><img src="/images/cleDeSol.png"></div>
+                                <div style="position: absolute; top: -250px;"><img src="/djembe/images/cleDeSol.png"></div>
                             </div>
                             <div id="zone10" class="dropzone b"></div>
                             <div id="zone11" class="dropzone n"></div>
@@ -195,7 +195,7 @@ class ExerciceTableSeeder extends Seeder
                                 </div>',
                             'script' => '/js/textatrou.js',
                 'temps_moyen' => 60,
-                'nbReponses' => 15,
+                'nbReponses' => 8,
             ]);
     }
 }
