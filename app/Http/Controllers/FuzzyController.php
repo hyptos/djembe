@@ -182,16 +182,19 @@ class FuzzyController extends Controller
             $res['choix'] = ['Recommencer'];
 
             /* ---- On regarde le conseil défini dans fuzzy ---- */
-            if ($res['conseil'] < 0.25) {
-                $res['conseil'] = "Tu fais encore quelques erreurs.
-                 Essai d'aller un peu moins vite.";
-            } elseif ($res['conseil'] < 0.75) {
-                $res['conseil'] = "Tu fais encore quelques erreurs.
-                 Recommence tu va y arriver.";
-            } else {
-                $res['conseil'] = "C'est bien tu fais peu d'erreurs,
-                mais tu prends encore un peu trop ton temps.
-                M0aintenant essai d'aller un peu plus vite.";
+            if(array_key_exists('conseil',$res))
+            {
+                if ($res['conseil'] < 0.25) {
+                    $res['conseil'] = "Tu fais encore quelques erreurs.
+                     Essai d'aller un peu moins vite.";
+                } elseif ($res['conseil'] < 0.75) {
+                    $res['conseil'] = "Tu fais encore quelques erreurs.
+                     Recommence tu va y arriver.";
+                } else {
+                    $res['conseil'] = "C'est bien tu fais peu d'erreurs,
+                    mais tu prends encore un peu trop ton temps.
+                    M0aintenant essai d'aller un peu plus vite.";
+                }
             }
         } elseif ($note < 77.5) {
             $res['smiley'] = '/images/good.png';

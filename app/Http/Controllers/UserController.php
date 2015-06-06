@@ -152,14 +152,14 @@ class UserController extends Controller
         $user->teach    = $request->input('teach') == "on" ? 1 : 0;
 
         if (User::where('email', '=', $user->email)->exists()) {
-            return view('signup', ['message' => 'wesh', 'user' => $user]);
+            return view('signup', ['message' => 'Ton mail existe déjà', 'user' => $user]);
         }
 
         $user->save();
 
         Auth::login($user);
 
-        return redirect('/');
+        return redirect('/question');//view
     }
 
     /**

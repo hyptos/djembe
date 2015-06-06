@@ -141,9 +141,19 @@ function getFuzzyNote(note, idExercice){
                 var smiley = this.smiley;
                 notes.each(function( index ) {
                     if($( this ).attr('data') === idExercice){
-                        $(this).append('<img src="'+smiley+'">')
+                        $(this).html('<img src="'+smiley+'">');
                     }
                 });
             });
         });
+}
+
+function getConnaissance(){
+    return $.ajax({
+        url: "/getCon",
+        method: "GET",
+        data: {
+            _token: $('#token').val()
+        }
+    });
 }

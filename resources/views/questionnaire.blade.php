@@ -21,137 +21,135 @@
 
 @section('content')
 
-<div id="parti" class="container">
-  <h2>Un petit quizz pour commencer:</h2>
-    <div class="form-group">
-      <p>Afin de mieux te connaitre, nous allons te poser des questions sur la musique, dès que tu es prêt, clique sur C'est parti</p>
+<div class="form-bottom">
+<form role="form" action="addCon" method="post" class="registration-form">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <div id="parti" class="form-group">
+      <h2>Un petit quizz pour commencer:</h2>
+        <div class="form-group">
+          <p>Afin de mieux te connaitre, nous allons te poser des questions sur la musique, dès que tu es prêt, clique sur C'est parti</p>
+        </div>
+        <a id="parti_b" href="#">Suivant</a>
     </div>
-    <button id="parti_b" type="button">C'est parti</button>
-</div>
 
-<div id="solfege1" class="container">
-  <h2>Question 1</h2>
-    <div class="form-group">
-      <p>attend avis antoine²</p>
+    <div id="solfege1" class="form-group">
+      <h2>Question 1</h2>
+        <div class="form-group">
+          <p>attend avis antoine²</p>
+        </div>
+        <a id="solfege1_b" href="#">Suivant</a>
     </div>
-    <button id="solfege1_b" class="btn btn-default">Suivant</button>
-</div>
-<div id="solfege2" class="container">
-  <h2>Question 2</h2>
-    <div class="form-group">
-      <p>attend avis antoine²</p>
+    <div id="solfege2" class="form-group">
+      <h2>Question 2</h2>
+        <div class="form-group">
+          <p>attend avis antoine²</p>
+        </div>
+        <a id="solfege2_b" href="#">Suivant</a>
     </div>
-    <button id="solfege2_b" class="btn btn-default">Suivant</button>
-</div>
 
-<div id="instru1" class="container">
-  <h2>Question 3</h2>
-    <div class="form-group">
-      <p>De quelle famille d'instruments appartient la guitare?</p>
-              <div class="radio">
-                <label><input type="radio" name="guitare" value="vent">Vent</label>
-              </div>
-              <div class="radio">
-                <label><input type="radio" name="guitare" value="percussion">Percussion</label>
-              </div>
-              <div class="radio">
-                <label><input type="radio" name="guitare" value="corde">Corde</label>
-              </div>
+    <div id="instru1" class="form-group">
+      <h2>Question 3</h2>
+        <div class="form-group">
+          <p>De quelle famille d'instruments appartient la guitare?</p>
+                  <div class="radio">
+                    <label><input type="radio" name="guitare" value="vent">Vent</label>
+                  </div>
+                  <div class="radio">
+                    <label><input type="radio" name="guitare" value="percussion">Percussion</label>
+                  </div>
+                  <div class="radio">
+                    <label><input type="radio" name="guitare" value="corde">Corde</label>
+                  </div>
+        </div>
+         <a id="instru1_b" href="#">Suivant</a>
     </div>
-    <button id="instru1_b" class="btn btn-default">Suivant</button>
-</div>
 
-<div id="instru2" class="container">
-    <h2>Question 4</h2>
-    <div class="form-group">
-        <p>De quelle famille d'instruments appartient la flûte?</p>
-        <div class="radio">
-          <label><input type="radio" name="flute" value="vent">Vent</label>
+    <div id="instru2" class="form-group">
+        <h2>Question 4</h2>
+        <div class="form-group">
+            <p>De quelle famille d'instruments appartient la flûte?</p>
+            <div class="radio">
+              <label><input type="radio" name="flute" value="vent">Vent</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="flute" value="percussion">Percussion</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="flute" value="corde">Corde</label>
+            </div>
         </div>
-        <div class="radio">
-          <label><input type="radio" name="flute" value="percussion">Percussion</label>
-        </div>
-        <div class="radio">
-          <label><input type="radio" name="flute" value="corde">Corde</label>
-        </div>
+        <a id="instru2_b" href="#">Suivant</a>
     </div>
-    <button id="instru2_b" class="btn btn-default">Suivant</button>
-</div>
-<div id="instru3" class="container">
-  <h2>Question 5</h2>
-    <div class="form-group">
-      <p>De quelle famille d'instruments appartient le piano?</p>
-        <div class="radio">
-          <label><input type="radio" name="piano" value="vent">Vent</label>
+    <div id="instru3" class="form-group">
+      <h2>Question 5</h2>
+        <div class="form-group">
+          <p>De quelle famille d'instruments appartient le piano?</p>
+            <div class="radio">
+              <label><input type="radio" name="piano" value="vent">Vent</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="piano" value="percussion">Percussion</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="piano" value="corde">Corde</label>
+            </div>
         </div>
-        <div class="radio">
-          <label><input type="radio" name="piano" value="percussion">Percussion</label>
-        </div>
-        <div class="radio">
-          <label><input type="radio" name="piano" value="corde">Corde</label>
-        </div>
+        <a id="instru3_b" href="#">Suivant</a>
     </div>
-    <button id="instru3_b" class="btn btn-default">Suivant</button>
-</div>
 
-<div id="hist1" class="container">
-  <h2>Question 6</h2>
-    <div class="form-group">
-      <p>Quel musique a été composée par Mozart?</p>
-        <div class="radio">
-          <label><input type="radio" name="mozart" value="miss">Miss Parfaite</label>
+    <div id="hist1" class="form-group">
+      <h2>Question 6</h2>
+        <div class="form-group">
+          <p>Quel musique a été composée par Mozart?</p>
+            <div class="radio">
+              <label><input type="radio" name="mozart" value="miss">Miss Parfaite</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="mozart"value="requiem">Requiem</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="mozart" value="lettre">Lettre à Elise</label>
+            </div>
         </div>
-        <div class="radio">
-          <label><input type="radio" name="mozart"value="requiem">Requiem</label>
+        <a id="hist1_b" href="#">Suivant</a>
+    </div>
+
+    <div id="hist2" class="form-group">
+      <h2>Question 7</h2>
+        <div class="form-group">
+          <p>Quel musique a été composée par Beethovven?</p>
+                  <div class="radio">
+                    <label><input type="radio" name="beethovven" value="miss">Miss Parfaite</label>
+                  </div>
+                  <div class="radio">
+                    <label><input type="radio" name="beethovven" value="requiem">Requiem</label>
+                  </div>
+                  <div class="radio">
+                    <label><input type="radio" name="beethovven" value="lettre">Lettre à Elise</label>
+                  </div>
         </div>
-        <div class="radio">
-          <label><input type="radio" name="mozart" value="lettre">Lettre à Elise</label>
+        <a id="hist2_b" href="#">Suivant</a>
+    </div>
+
+    <div id="hist3" class="form-group">
+      <h2>Question 8</h2>
+        <div class="form-group">
+          <p>Qui a chanté "Qui a le droit? "?</p>
+                  <div class="radio">
+                    <label><input type="radio" name="patrick" value="johnny">Johnny Halliday</label>
+                  </div>
+                  <div class="radio">
+                    <label><input type="radio" name="patrick" value="bruel">Patrick Bruel</label>
+                  </div>
+                  <div class="radio">
+                    <label><input type="radio" name="patrick" value="kendji">Kendji Girac</label>
+                  </div>
         </div>
+        <button type="submit" class="btn btn-primary btn-large">Terminé</button>
     </div>
-    <button id="hist1_b" class="btn btn-default">Suivant</button>
-</div>
 
-<div id="hist2" class="container">
-  <h2>Question 7</h2>
-    <div class="form-group">
-      <p>Quel musique a été composée par Beethovven?</p>
-              <div class="radio">
-                <label><input type="radio" name="beethovven" value="miss">Miss Parfaite</label>
-              </div>
-              <div class="radio">
-                <label><input type="radio" name="beethovven" value="requiem">Requiem</label>
-              </div>
-              <div class="radio">
-                <label><input type="radio" name="beethovven" value="lettre">Lettre à Elise</label>
-              </div>
-    </div>
-    <button id="hist2_b" class="btn btn-default">Suivant</button>
-</div>
 
-<div id="hist3" class="container">
-  <h2>Question 8</h2>
-    <div class="form-group">
-      <p>Qui a chanté "Qui a le droit? "?</p>
-              <div class="radio">
-                <label><input type="radio" name="patrick" value="johnny">Johnny Halliday</label>
-              </div>
-              <div class="radio">
-                <label><input type="radio" name="patrick" value="bruel">Patrick Bruel</label>
-              </div>
-              <div class="radio">
-                <label><input type="radio" name="patrick" value="kendji">Kendji Girac</label>
-              </div>
-    </div>
-    <button id="hist3_b" class="btn btn-default">Suivant</button>
-</div>
-
-<div id="termine" class="container">
-  <h2>Finiii^^</h2>
-    <div class="form-group">
-      <p>c'est fini :)</p>
-    </div>
-    <div id="res"></div>
-    <button id="termine" class="btn btn-default">Accueil</button>
+</form>
 </div>
 
 @stop

@@ -12,7 +12,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="/js/utility.js"></script>
     <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/css/signup.css" />
+    <link rel="stylesheet" type="text/css" href="/djembe/css/signup.css" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css' />
     <script type="text/javascript" src="/js/modernizr.custom.79639.js"></script>
 
@@ -65,16 +65,18 @@
 
 <?php
 
-function getMoyenne($user){
+function getMoyenne($user,$type){
 	$result = array();
 	foreach ($user->stats as $stat) {
-	  $id = $stat->exercice_id;
-	  $val = 0;
-	  if (isset($result[$id])) {
-	     $result[$id][] = $stat->reussite;
-	  } else {
-	     $result[$id] = array($stat->reussite);
-	  }
+	    if ($stat->cours->type == $type){
+          $id = $stat->exercice_id;
+          $val = 0;
+          if (isset($result[$id])) {
+             $result[$id][] = $stat->reussite;
+          } else {
+             $result[$id] = array($stat->reussite);
+          }
+      }
 	}
 
 
@@ -83,40 +85,96 @@ function getMoyenne($user){
 		$val = 0;
 		foreach ($id as $nb => $reussite){
 			$val += $reussite;
-			$total[$key] = array($nb => $val);
+			$total[$key] = array($nb+1 => $val);
 		}
 	}
 
 	return $total;
 }
 
-$total = getMoyenne($user);
+$totalS = getMoyenne($user,'solfege');
+$totalI = getMoyenne($user,'instruments');
+$totalH = getMoyenne($user,'histoire');
+
 ?>
-@foreach ($total as $key => $value)
-		<p> <a href="/exercice/{{$key}}">Exercice n°{{$key}}</a>
-	@foreach ($value as $k => $v)
-		<span class="note" data="{{$key}}" ></span></p>
-	@endforeach
-@endforeach
+
+<div class="bs-example">
+    <ul class="nav nav-tabs" id="myTab">
+        <li><a data-toggle="tab" href="#sectionA">Solfège</a></li>
+        <li><a data-toggle="tab" href="#sectionB">Instruments</a></li>
+        <li><a data-toggle="tab" href="#sectionC">Histoire</a></li>
+    </ul>
+    <div class="tab-content">
+        <div id="sectionA" class="tab-pane fade in active">
+            <h3>Solfège</h3>
+            <h2><span class="glyphicon glyphicon-stats" aria-hidden="true">&nbsp; Mes statistiques</h2>
+            <div class="progress">
+              <div id="barSolfege" class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
+                <span class="sr-only">60% Complete (warning)</span>
+              </div>
+            </div>
+           @foreach ($totalS as $key => $value)
+           		<p> <a href="/exercice/{{$key}}">Exercice n°{{$key}}</a>
+           	@foreach ($value as $k => $v)
+           		<span class="note" data="{{$key}}" >{{$v/$k}}</span></p>
+           	@endforeach
+           @endforeach
 
 
-<input type="hidden" id="token" name="_token" value="{{ csrf_token() }}">
+        </div>
+        <div id="sectionB" class="tab-pane fade">
+            <h3>Instruments</h3>
+            <h2><span class="glyphicon glyphicon-stats" aria-hidden="true">&nbsp; Mes statistiques</h2>
+            <div class="progress">
+              <div id="barInstru" class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
+                <span class="sr-only">60% Complete (warning)</span>
+              </div>
+            </div>
+            @foreach ($totalI as $key => $value)
+                    <p> <a href="/exercice/{{$key}}">Exercice n°{{$key}}</a>
+                @foreach ($value as $k => $v)
+                    <span class="note" data="{{$key}}" >{{$v/$k}}</span></p>
+                @endforeach
+            @endforeach
 
-@unless (Auth::check())
-    Il faut se connecter.
-@endunless
 
+        </div>
+        <div id="sectionC" class="tab-pane fade">
+            <h3>Instruments</h3>
+            <h2><span class="glyphicon glyphicon-stats" aria-hidden="true">&nbsp; Mes statistiques</h2>
+            <div class="progress">
+              <div id="barHist" class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
+                <span class="sr-only">60% Complete (warning)</span>
+              </div>
+            </div>
+           @foreach ($totalH as $key => $value)
+           		<p> <a href="/exercice/{{$key}}">Exercice n°{{$key}}</a>
+           	@foreach ($value as $k => $v)
+           		<span class="note" data="{{$key}}" >{{$v/$k}}</span></p>
+           	@endforeach
+           @endforeach
+
+
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript">
-	$(function() {
-  		var notes = $('.note');
-  		notes.each(function( index ) {
-  			var smiley;
-		  	getFuzzyNote($( this ).text(), $( this ).attr('data'));
-		});
-  	});
+           	$(function() {
+             		var notes = $('.note');
+             		notes.each(function( index ) {
+                        getFuzzyNote($( this ).text(), $( this ).attr('data'));
+           		    });
+             	});
+             	getConnaissance().done(function(response){
+             	    var res = response[0];
+                    $('#barSolfege').css('width',res.solfege_moyen+'%');
+                    $('#barInstru').css('width',res.instruments_moyen+'%');
+                    $('#barHist').css('width',res.histoire_moyen+'%');
+             	});
 </script>
 
+<input type="hidden" id="token" name="_token" value="{{ csrf_token() }}">
 
 @stop
 

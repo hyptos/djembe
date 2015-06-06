@@ -15,6 +15,10 @@ class CreateConnaissanceTable extends Migration {
 		Schema::create('connaissance', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->integer('user_id')->unique();
+			$table->integer('solfege_moyen');
+			$table->integer('instruments_moyen');
+			$table->integer('histoire_moyen');
 			$table->timestamps();
 		});
 	}
