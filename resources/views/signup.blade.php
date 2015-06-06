@@ -37,19 +37,29 @@
         </div>
         <div class="form-bottom">
             <form role="form" action="signup" method="post" class="registration-form">
-
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
             	<div class="form-group">
             		<label class="sr-only" for="form-first-name">First name</label>
-                	<input type="text" name="name" placeholder="First name..." class="form-first-name form-control" id="form-first-name">
+                    @if (!isset($user))
+                	   <input type="text" name="name" placeholder="First name..." class="form-first-name form-control" id="form-first-name">
+                    @else
+                        <input type="text" name="name" placeholder="{{$user->name}}" class="form-first-name form-control" id="form-first-name">
+                    @endif
                 </div>
+                @if (!isset($message))
                 <div class="form-group">
                 	<label class="sr-only" for="form-email">Email</label>
                 	<input type="text" name="email" placeholder="email" class="form-email form-control" id="form-email">
                 </div>
+                @else
+                <div class="form-group has-error">
+                  <label class="control-label" for="inputError1">Email</label>
+                  <input type="text" class="form-control" id="email" placeholder="{{$user->email}}" name="email">
+                </div>
+                @endif
                 <div class="form-group">
                 	<label class="sr-only" for="form-password">Mot de passe</label>
-                	<input type="text" name="password" placeholder="mot de passe" class="form-password form-control" id="form-password ">
+                	<input type="password" name="password" placeholder="mot de passe" class="form-password form-control" id="form-password ">
                 </div>
                   <div class="checkbox">
                     <label>

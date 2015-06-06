@@ -151,6 +151,10 @@ class UserController extends Controller
         $user->password = bcrypt($request->input('password'));
         $user->teach    = $request->input('teach') == "on" ? 1 : 0;
 
+        if (User::where('email', '=', $user->email)->exists()) {
+            return view('signup', ['message' => 'wesh', 'user' => $user]);
+        }
+
         $user->save();
 
         Auth::login($user);
