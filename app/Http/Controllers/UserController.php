@@ -159,7 +159,7 @@ class UserController extends Controller
 
         Auth::login($user);
 
-        return redirect('/question');//view
+        return redirect('/question');
     }
 
     /**
