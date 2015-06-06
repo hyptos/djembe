@@ -150,7 +150,7 @@ class ExerciceTableSeeder extends Seeder
                             <audio id="si" src="/son/piano_si.mp3" preload="auto"></audio>',
             'script' => '/js/pie.js',
             'temps_moyen' => 5,
-            'nbReponses' => 3,
+            'nbReponses' => 5,
         ]);
 
         Exercice::create([ // id : 5
@@ -177,7 +177,7 @@ class ExerciceTableSeeder extends Seeder
                             <audio id="si" src="/son/piano_si.mp3" preload="auto"></audio>',
             'script' => '/js/pie.js',
             'temps_moyen' => 10,
-            'nbReponses' => 5,
+            'nbReponses' => 7,
         ]);
 
         Exercice::create([ // id : 6
@@ -204,7 +204,7 @@ class ExerciceTableSeeder extends Seeder
                             <audio id="si" src="/son/piano_si.mp3" preload="auto"></audio>',
             'script' => '/js/pie.js',
             'temps_moyen' => 15,
-            'nbReponses' => 7,
+            'nbReponses' => 10,
         ]);
 
 
