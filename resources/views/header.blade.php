@@ -35,7 +35,7 @@
 </header>
 <div class="panel panel-default banniere" >
     <div class="panel-body">
-      <img src="/djembe/images/banniere.jpg" class="imgBanniere" />
+      <img src="/images/banniere.jpg" class="imgBanniere" />
     </div>
 </div>
 
