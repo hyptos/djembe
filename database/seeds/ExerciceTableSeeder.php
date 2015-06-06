@@ -106,7 +106,7 @@ class ExerciceTableSeeder extends Seeder
                                 <div class="col-md-12">
                                     <div id="game" class="text-center">
                                         <div id="pieChart"></div>
-                                        <button class="btn btn-primary btn-lg" id="beginGame">
+                                        <button class="btn btn-default btn-lg" id="beginGame">
                                         <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
                                         Jouer</button>
                                         <div id="message" class="alert"></div>
@@ -133,7 +133,7 @@ class ExerciceTableSeeder extends Seeder
                                 <div class="col-md-12">
                                     <div id="game" class="text-center">
                                         <div id="pieChart"></div>
-                                        <button class="btn btn-primary btn-lg" id="beginGame">
+                                        <button class="btn btn-default btn-lg" id="beginGame">
                                         <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
                                         Jouer</button>
                                         <div id="message" class="alert"></div>
@@ -160,7 +160,7 @@ class ExerciceTableSeeder extends Seeder
                                 <div class="col-md-12">
                                     <div id="game" class="text-center">
                                         <div id="pieChart"></div>
-                                        <button class="btn btn-primary btn-lg" id="beginGame">
+                                        <button class="btn btn-default btn-lg" id="beginGame">
                                         <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
                                         Jouer</button>
                                         <div id="message" class="alert"></div>
@@ -187,7 +187,7 @@ class ExerciceTableSeeder extends Seeder
                                 <div class="col-md-12">
                                     <div id="game" class="text-center">
                                         <div id="pieChart"></div>
-                                        <button class="btn btn-primary btn-lg" id="beginGame">
+                                        <button class="btn btn-default btn-lg" id="beginGame">
                                         <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
                                         Jouer</button>
                                         <div id="message" class="alert"></div>
