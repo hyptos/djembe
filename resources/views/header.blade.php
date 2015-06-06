@@ -1,6 +1,6 @@
 @section('header')
 
-<link rel="stylesheet" href="/djembe/css/style.css">
+<link rel="stylesheet" href="/css/style.css">
 <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
   <div class="containerNavbar">
     <nav class="navbar navbar-default">
