@@ -27,19 +27,19 @@ class ExerciceTableSeeder extends Seeder
                             <br>
 
                             <input note="do" name="answer" type="radio">
-                            <button class="btn btn-warning rep">do</button>
+                            <button class="btn rep">do</button>
                             <input note="re" name="answer" type="radio">
-                            <button class="btn btn-warning rep">re</button>
+                            <button class="btn rep">re</button>
                             <input note="mi" name="answer" type="radio">
-                            <button class="btn btn-warning rep">mi</button>
+                            <button class="btn rep">mi</button>
                             <input note="fa" name="answer" type="radio">
-                            <button class="btn btn-warning rep">fa</button>
+                            <button class="btn rep">fa</button>
                             <input note="sol" name="answer" type="radio">
-                            <button class="btn btn-warning rep">sol</button>
+                            <button class="btn rep">sol</button>
                             <input note="la" name="answer" type="radio">
-                            <button class="btn btn-warning rep">la</button>
+                            <button class="btn rep">la</button>
                             <input note="si" name="answer" type="radio">
-                            <button class="btn btn-warning rep">si</button>
+                            <button class="btn rep">si</button>
                             <audio id="do" src="/son/piano_do.mp3" preload="auto"></audio>
                             <audio id="re" src="/son/piano_re.mp3" preload="auto"></audio>
                             <audio id="mi" src="/son/piano_mi.mp3" preload="auto"></audio>

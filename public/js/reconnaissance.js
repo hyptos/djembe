@@ -41,8 +41,12 @@ $('#sendAnswers').on('click',function(e){
 function changeColorButton(notes){
 	console.log(notes);
 	$.each(notes,function(e){
-
-		if(this.label == ''){
+		var buttons = $('.rep');
+		for (var i = buttons.length - 1; i >= 0; i--) {
+			if(this.label == buttons[i].innerHTML){
+				console.log('match');
+				$(buttons[i]).css('background-color',this.color);
+			}
 		}
 	});
 	console.log();
