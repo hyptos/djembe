@@ -55,7 +55,7 @@ class ChapitreTableSeeder extends Seeder
 
                           [img de portée]',
             'cours_id' => 2,
-            'questionnaire_id' => 4,
+            'questionnaire_id' => null,
         ]);
 
         Chapitre::create([ // id 5

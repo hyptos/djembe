@@ -29,7 +29,7 @@ class QuestionnaireTableSeeder extends Seeder
 
         Questionnaire::create([ // id 4 : Ecrire sur un Partition
             'nbExos' => 1,
-            'chapitre_id' => 4,
+            'chapitre_id' => 6,
             'cours_id' => 2,
         ]);
         
