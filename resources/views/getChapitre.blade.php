@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/js/utility.js"></script>
     <link rel="shortcut icon" href="../favicon.ico">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css' />
     <script type="text/javascript" src="/js/modernizr.custom.79639.js"></script>
@@ -39,6 +40,12 @@
         <p>Pas d'exercice de disponible pour ce chapitre.</p>
     @endif
 </div>
+
+<script type="text/javascript">
+    $(function() {
+        animateArrowChapter();
+    });
+</script>
 @stop
 
 
