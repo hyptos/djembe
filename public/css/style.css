@@ -3,6 +3,12 @@ body {
 	color: #EA8716;*/
 }
 
+.navbar,.navbar-default {
+	border:none;
+	background: white;
+	box-shadow: none;
+}
+
 a {
 	color: #EA8716;
 }
