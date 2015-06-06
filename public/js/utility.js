@@ -57,13 +57,13 @@ function success(mess){
     var content = '<p>Tu as fais ' + mess.error + ' erreurs !</p>';
     var conseil = '<p>';
     for (var i = mess.choix.length - 1; i >= 0; i--) {
-        conseil += '<a class="btn btn-warning"' +
-            'href="#">' + mess.choix[i] + '</a>&nbsp;';
+        conseil += '<div id="' + mess.choix[i] + '"' +
+            '></div>&nbsp;';
     };
     conseil += '</p>';
     content += '<p>'+mess.conseil+'</p><p>'+ conseil +'</p><br/><img src='+mess.smiley+'>';
     $('#game').addClass('text-center');
-    $('#game').addClass('alert').fadeIn(1000).html(content);
+    $('#game').addClass('alert').html(content).fadeIn(1000);
 }
 
 function getIndexForShuffled(tab, note){
@@ -83,7 +83,7 @@ function openAndPlay(note){
 
 function sendAnswerToFuzzy(nbErr, nbResponses, time){
     return $.ajax({
-          url: "http://djembe.com/fuzzy",
+          url: "/fuzzy",
           method: "POST",
           data: {
             nbErrors:nbErr,
@@ -97,5 +97,53 @@ function sendAnswerToFuzzy(nbErr, nbResponses, time){
           }
         }).done(function(mess){
             success(mess);
+            getNextExercices($('#idExercice').val()).done(function(res){
+                var response = res[0];
+                $('#Revoir_cours').html(createA(response.exo_review_basics_id, 'Revoir le cours'));
+                $('#Plus_facile').html(createA(response.exo_redo_simple_id, 'Plus facile'));
+                $('#Recommencer').html(createA($('#idExercice').val(), 'Recommencer'));
+                $('#ContinuerHard').html(createA(response.exo_continue_difficult_id, 'Refaire en plus difficile !'));
+                $('#Continuer').html(createA(response.exo_continue_id,'Continuer'));
+            });
+        });
+}
+
+function createA(id, txt){
+    if(txt === "Revoir le cours" || txt === "Continuer")
+        return '<a class="btn btn-warning" href="/chapitre/'+id+'">'+ txt +'</a>';
+    else
+        return '<a class="btn  btn-warning" href="/exercice/'+id+'">'+ txt +'</a>';
+}
+
+
+function getNextExercices(idExercice){
+    return $.ajax({
+          url: "/nextExercices",
+          method: "POST",
+          data: {
+            idExercice:idExercice,
+            _token: $('#token').val()
+          }
+        });
+}
+
+function getFuzzyNote(note, idExercice){
+    return $.ajax({
+          url: "/fuzzyNote",
+          method: "POST",
+          data: {
+            note:note,
+            _token: $('#token').val()
+          }
+        }).done(function(response){
+            $(response).each(function(index){
+                var notes = $('.note');
+                var smiley = this.smiley;
+                notes.each(function( index ) {
+                    if($( this ).attr('data') === idExercice){
+                        $(this).append('<img src="'+smiley+'">')
+                    }
+                });
+            });
         });
 }

@@ -9,7 +9,7 @@ class ChapitreTableSeeder extends Seeder
 {
     public function run()
     {
-        Chapitre::create([
+        Chapitre::create([ // id 1
             'no' => '1',
             'titre' => 'Les sons',
             'contenu' => 'Il existe différents sons en musique,
@@ -19,7 +19,7 @@ class ChapitreTableSeeder extends Seeder
             'questionnaire_id' => 1,
         ]);
 
-        Chapitre::create([
+        Chapitre::create([ // id 2
             'no' => '2',
             'titre' => 'Les suites de sons',
             'contenu' => 'Plus que des sons, la musique est composé de suite de sons.
@@ -28,7 +28,7 @@ class ChapitreTableSeeder extends Seeder
             'questionnaire_id' => 2,
         ]);
 
-        Chapitre::create([
+        Chapitre::create([ // id 3
             'no' => '1',
             'titre' => 'Lire les notes',
             'contenu' => 'En musique les sons s\'appellent des notes.
@@ -41,7 +41,8 @@ class ChapitreTableSeeder extends Seeder
             'cours_id' => 2,
             'questionnaire_id' => null,
         ]);
-         Chapitre::create([
+
+         Chapitre::create([ // id 4
             'no' => '1',
             'titre' => 'Au commencement...',
             'contenu' => 'Comme il n\'existait aucun moyen d\'enregistrer ni d\'écrire la musique, on ne sait pas depuis combien de temps elle existe.

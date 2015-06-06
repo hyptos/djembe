@@ -13,7 +13,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Djembe</a>
+      <a class="navbar-brand logo" href="/"><img src='/images/Djembe.png' height='59' /></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

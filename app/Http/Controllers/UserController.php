@@ -22,13 +22,17 @@ class UserController extends Controller
      */
     public function showProfile($id = null)
     {
+        $learners = array();
         if (isset($id)) {
             $user = User::find($id);
         } else {
             $user = Auth::user();
+            foreach ($user->teachTo as $value) {
+                $learners[] = User::find($value->learner_id);
+            }
         }
 
-        return view('user', ['user' => $user]);
+        return view('user', ['user' => $user, 'learners' => $learners]);
     }
 
     /**
@@ -144,12 +148,18 @@ class UserController extends Controller
         $user           = new User();
         $user->name     = $request->input('name');
         $user->email    = $request->input('email');
-        $user->password = $request->input('password');
-        $user->teach    = $request->input('teach');
+        $user->password = bcrypt($request->input('password'));
+        $user->teach    = $request->input('teach') == "on" ? 1 : 0;
+
+        if (User::where('email', '=', $user->email)->exists()) {
+            return view('signup', ['message' => 'wesh', 'user' => $user]);
+        }
 
         $user->save();
 
-        return response()->json(['type' => 'success', 'message' => 'user created']);
+        Auth::login($user);
+
+        return redirect('/');
     }
 
     /**
@@ -162,42 +172,5 @@ class UserController extends Controller
     {
         $u1->learnFrom()->save($u2);
         return 'OK';
-    }
-
-    /**
-     * test fonction.
-     *
-     * @param  User u1, User u2
-     * @return Response
-    */
-    public function test()
-    {
-        $stat = new Stats();
-
-        $stat->temps = '10';
-        $stat->reussite = '50';
-        $stat->avancement = '100';
-
-        $user = User::find(3);
-        $cours = Cours::find(2);
-
-        $stat->user_id = $user->id;
-        $stat->cours_id = $cours->id;
-        $stat->save();
-
-
-        return 'ok';
-
-    }
-
-    /**
-     * pie fonction.
-     *
-     * @param  none
-     * @return Response
-    */
-    public function pie()
-    {
-        return view('exoPieGame');
     }
 }

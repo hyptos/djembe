@@ -1,7 +1,7 @@
 var tab = [];
 var numberOfClicks = 1;
 var contents = notes;
-var solution = random_solution(contents, 3);
+var solution = random_solution(contents, $('#nbResponses').val());
 var timeStart, timeEnd;
 var pie = new d3pie("pieChart", {
     "header": {
@@ -62,30 +62,15 @@ var pie = new d3pie("pieChart", {
             if(numberOfClicks === 1){
                 timeStart = Date.now();
             }
-            if(numberOfClicks === 3){
+            if(numberOfClicks === $('#nbResponses').val()){
                 numberOfClicks = 0;
                 var currentdate = Date.now() - timeStart;
                 // On stocke en bdd le résultat
-                $.ajax({
-                  url: "http://djembe.com/djembe/index.php/fuzzy",
-                  method: "POST",
-                  data: {
-                    nbErrors:numberOfErrors(tab, solution),
-                    nbResponses:3,
-                    time: currentdate/1000,
-                    timeAvg:$('#timeAvg').val(),
-                    idUser:$('#idUser').val(),
-                    idCours:$('#idCours').val(),
-                    idExercice:$('#idExercice').val(),
-                    _token: $('#token').val()
-                  }
-                }).done(function(mess){
-                    success(mess);
+                sendAnswerToFuzzy(numberOfErrors(tab, solution),$('#nbResponses').val(),currentdate).complete(function(){
                     if(numberOfErrors(tab, solution) !== 0){
                         tab = [];
                     }
                 });
-
             }
             numberOfClicks++;
         }

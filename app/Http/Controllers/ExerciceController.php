@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Exercice;
+use App\Models\NextExercice;
 use Auth;
 
 class ExerciceController extends Controller
@@ -36,5 +37,17 @@ class ExerciceController extends Controller
     {
         $exercices = Exercice::all();
         return view('getAllExercices', ['exercices' => $exercices]);
+    }
+
+    /* fonction qui affiche tous les exercices.
+     *
+     * @param  none
+     * @return Response json
+    */
+    public function getNextExercices(Request $request)
+    {
+        $idExercice  = $request->input('idExercice');
+        $next = NextExercice::where('exercice_id', '=', $idExercice)->get();
+        return  response()->json($next);
     }
 }

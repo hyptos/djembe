@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/js/utility.js"></script>
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" type="text/css" href="/css/signup.css" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css' />
@@ -28,94 +29,95 @@
     <p>{{ $user->teach == 1 ? 'Prof' : 'pas prof' }}</p>
 
 	@if ($user->teach == 1)
-	    <p>On affiche les stats des learners</p>
+		<h2><span class="glyphicon glyphicon-stats" aria-hidden="true">&nbsp; Liste des élèves</h2>
+
+
+		<table class="table">
+		<tr>
+			<th>
+				Nom
+			</th>
+			<th>
+				Exercice
+			</th>
+			<th>
+				Moyenne
+			</th>
+		</tr>
+    	@foreach ($learners as $v)
+	    	@foreach ($v->stats as $s)
+    		<tr>
+    			<td><a href="/user/{{$v->id}}"> {{$v->name}}</a></td>
+	    		<td>
+	    			{{$s->exercice_id}}
+	    		</td>
+	    		<td>
+	    			{{$s->reussite}}
+	    		</td>
+			</tr>
+			@endforeach
+		@endforeach
+		</table>
 	@endif
 
-	<p>On affiche ses propres stats dans tous les cas</p>
+<h2><span class="glyphicon glyphicon-stats" aria-hidden="true">&nbsp; Mes statistiques</h2>
+<hr>
 
-<div class="bs-example">
-    <ul class="nav nav-tabs" id="myTab">
-        <li><a data-toggle="tab" href="#sectionA">Solfège</a></li>
-        <li><a data-toggle="tab" href="#sectionB">Instruments</a></li>
-        <li><a data-toggle="tab" href="#sectionC">Histoire</a></li>
-    </ul>
-    <div class="tab-content">
-        <div id="sectionA" class="tab-pane fade in active">
-            <h3>Solfège</h3>
-            <h2><span class="glyphicon glyphicon-stats" aria-hidden="true">&nbsp; Mes statistiques</h2>
-            <hr>
-            <table class="table table-striped">
-            	<tr>
-            		<th>id</th>
-            		<th>avancement</th>
-            		<th>reussite</th>
-            		<th>temps</th>
-            		<th>Jour</th>
-            	</tr>
-            	@foreach ($user->stats as $stat)
-            	   @if ($stat->cours->type == 'solfege')
-                        <tr>
-                            <td>{{ $stat->id }}</td>
-                            <td>{{ $stat->avancement }}</td>
-                            <td>{{ $stat->reussite }}</td>
-                            <td>{{ $stat->temps }}</td>
-                            <td>{{ $stat->created_at}} </td>
-                        </tr>
-                    @endif
-            	@endforeach
-            </table>
-        </div>
-        <div id="sectionB" class="tab-pane fade">
-            <h3>Instruments</h3>
-            <h2><span class="glyphicon glyphicon-stats" aria-hidden="true">&nbsp; Mes statistiques</h2>
-            <hr>
-            <table class="table table-striped">
-            	<tr>
-            		<th>id</th>
-            		<th>avancement</th>
-            		<th>reussite</th>
-            		<th>temps</th>
-            		<th>Jour</th>
-            	</tr>
-            	@foreach ($user->stats as $stat)
-                    @if ($stat->cours->type == 'instruments')
-                        <tr>
-                                <td>{{ $stat->id }}</td>
-                                <td>{{ $stat->avancement }}</td>
-                                <td>{{ $stat->reussite }}</td>
-                                <td>{{ $stat->temps }}</td>
-                                <td>{{ $stat->created_at}} </td>
-                        </tr>
-                    @endif
-            	@endforeach
-            </table>
-        </div>
-        <div id="sectionC" class="tab-pane fade">
-            <h3>Instruments</h3>
-            <h2><span class="glyphicon glyphicon-stats" aria-hidden="true">&nbsp; Mes statistiques</h2>
-            <hr>
-            <table class="table table-striped">
-            	<tr>
-            		<th>id</th>
-            		<th>avancement</th>
-            		<th>reussite</th>
-            		<th>temps</th>
-            		<th>Jour</th>
-            	</tr>
-            	@foreach ($user->stats as $stat)
-                    @if ($stat->cours->type == 'histoire')
-                        <tr>
-                                <td>{{ $stat->id }}</td>
-                                <td>{{ $stat->avancement }}</td>
-                                <td>{{ $stat->reussite }}</td>
-                                <td>{{ $stat->temps }}</td>
-                                <td>{{ $stat->created_at}} </td>
-                        </tr>
-                    @endif
-            	@endforeach
-            </table>
-        </div>
-    </div>
-</div>
+<?php
+
+function getMoyenne($user){
+	$result = array();
+	foreach ($user->stats as $stat) {
+	  $id = $stat->exercice_id;
+	  $val = 0;
+	  if (isset($result[$id])) {
+	     $result[$id][] = $stat->reussite;
+	  } else {
+	     $result[$id] = array($stat->reussite);
+	  }
+	}
+
+
+	$total = array();
+	foreach($result as $key => $id){
+		$val = 0;
+		foreach ($id as $nb => $reussite){
+			$val += $reussite;
+			$total[$key] = array($nb => $val);
+		}
+	}
+
+	return $total;
+}
+
+$total = getMoyenne($user);
+?>
+@foreach ($total as $key => $value)
+		<p> <a href="/exercice/{{$key}}">Exercice n°{{$key}}</a>
+	@foreach ($value as $k => $v)
+		<span class="note" data="{{$key}}" ></span></p>
+	@endforeach
+@endforeach
+
+
+<input type="hidden" id="token" name="_token" value="{{ csrf_token() }}">
+
+@unless (Auth::check())
+    Il faut se connecter.
+@endunless
+
+
+<script type="text/javascript">
+	$(function() {
+  		var notes = $('.note');
+  		notes.each(function( index ) {
+  			var smiley;
+		  	getFuzzyNote($( this ).text(), $( this ).attr('data'));
+		});
+  	});
+</script>
+
 
 @stop
+
+

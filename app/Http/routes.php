@@ -47,6 +47,7 @@ $app->get('enseigne', 'App\Http\Controllers\UserController@enseigne');
 
 //fuzzy routes
 $app->post('fuzzy', 'App\Http\Controllers\FuzzyController@evaluate');
+$app->post('fuzzyNote', 'App\Http\Controllers\FuzzyController@ajaxNoteConseil');
 
 // cours routes
 $app->get('cours/{id}', 'App\Http\Controllers\CoursController@get');
@@ -58,6 +59,7 @@ $app->get('chapitre/{id}', 'App\Http\Controllers\ChapitreController@get');
 $app->get('exercice/{id}', 'App\Http\Controllers\ExerciceController@get');
 $app->get('textatrou', 'App\Http\Controllers\Exercices\TextATrouController@get');
 $app->post('textatrou', 'App\Http\Controllers\Exercices\TextATrouController@post');
+$app->post('nextExercices', 'App\Http\Controllers\ExerciceController@getNextExercices');
 
 // test routes
 $app->get('test', 'App\Http\Controllers\UserController@test');

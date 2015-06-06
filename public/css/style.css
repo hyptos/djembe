@@ -3,6 +3,12 @@ body {
 	color: #EA8716;*/
 }
 
+.navbar,.navbar-default {
+	border:none;
+	background: white;
+	box-shadow: none;
+}
+
 a {
 	color: #EA8716;
 }
@@ -13,6 +19,11 @@ a:hover {
 
 a:focus {
 	color: #B66B15;
+}
+
+.logo {
+	padding: 0px;
+	padding-left: 10px;
 }
 
 .banniere {
@@ -35,6 +46,7 @@ a:focus {
 .navbar {
 	max-width: 90%;
 	margin: auto;
+	height: 60px;
 }
 
 

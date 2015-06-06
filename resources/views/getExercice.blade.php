@@ -30,7 +30,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.4/d3.min.js"></script>
 
     <input type="hidden" id="token" name="_token" value="{{ csrf_token() }}">
-    <input type="hidden" id="nbResponses" name="nbResponses" value="{{ $exercice->nbResponses }}">
+    <input type="hidden" id="nbResponses" name="nbResponses" value="{{ $exercice->nbReponses }}">
     <input type="hidden" id="timeAvg" name="timeAvg" value="60">
     <input type="hidden" id="idUser" name="idUser" value="{{ Auth::user()->id }}">
     <input type="hidden" id="idExercice" name="idExercice" value="{{ $exercice->id }}">

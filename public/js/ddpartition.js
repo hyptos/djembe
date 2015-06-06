@@ -156,19 +156,5 @@ $("body").on("click", "#finish", function() {
 	if(res.length === 0) {
 		nbErr = 4;
 	}
-	$.ajax({
-		url: "http://djembe.com/fuzzy",
-		method: "POST",
-		data: {
-			nbErrors:nbErr,
-			nbResponses:4,
-			time: timeEnd/1000,
-			timeAvg:$('#timeAvg').val(),
-			idUser:$('#idUser').val(),
-			idCours:$('#idCours').val(),
-			_token: $('#token').val()
-		}
-    }).done(function(mess){
-        success(mess);
-    });
+	sendAnswerToFuzzy(nbErr, $('#nbResponses').val(),timeEnd);
 });
