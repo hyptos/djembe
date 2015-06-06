@@ -108,9 +108,6 @@ class FuzzyController extends Controller
         $fuzzy->SetRealInput('taux_err', $nbErrors*100 / $nbResponses);
         $fuzzy->SetRealInput('vitesse', $time);
 
-
-
-
         /* ------
         on lance le calcul en logique floue et
         récupère les valeurs qui nous interesse
@@ -186,10 +183,10 @@ class FuzzyController extends Controller
 
             /* ---- On regarde le conseil défini dans fuzzy ---- */
             if ($res['conseil'] < 0.25) {
-                $res['conseil'] .= "Tu fais encore quelques erreurs.
+                $res['conseil'] = "Tu fais encore quelques erreurs.
                  Essai d'aller un peu moins vite.";
             } elseif ($res['conseil'] < 0.75) {
-                $res['conseil'] .= "Tu fais encore quelques erreurs.
+                $res['conseil'] = "Tu fais encore quelques erreurs.
                  Recommence tu va y arriver.";
             } else {
                 $res['conseil'] = "C'est bien tu fais peu d'erreurs,

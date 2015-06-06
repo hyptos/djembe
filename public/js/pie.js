@@ -1,7 +1,7 @@
 var tab = [];
 var numberOfClicks = 1;
 var contents = notes;
-var solution = random_solution(contents, 3);
+var solution = random_solution(contents, $('#nbResponses').val());
 var timeStart, timeEnd;
 var pie = new d3pie("pieChart", {
     "header": {
@@ -62,11 +62,11 @@ var pie = new d3pie("pieChart", {
             if(numberOfClicks === 1){
                 timeStart = Date.now();
             }
-            if(numberOfClicks === 3){
+            if(numberOfClicks === $('#nbResponses').val()){
                 numberOfClicks = 0;
                 var currentdate = Date.now() - timeStart;
                 // On stocke en bdd le résultat
-                sendAnswerToFuzzy(numberOfErrors(tab, solution),3,currentdate).complete(function(){
+                sendAnswerToFuzzy(numberOfErrors(tab, solution),$('#nbResponses').val(),currentdate).complete(function(){
                     if(numberOfErrors(tab, solution) !== 0){
                         tab = [];
                     }

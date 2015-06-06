@@ -31,7 +31,7 @@ $('#sendAnswers').on('click',function(e){
 		$('#message').html(content);
 	} else {
 		//requete ajax
-		sendAnswerToFuzzy(nbErr, 1, time);
+		sendAnswerToFuzzy(nbErr, $('#nbResponses').val(), time);
 		getNextExercices($('#idExercice').val());
 		getFuzzyNote(12);
 	}
