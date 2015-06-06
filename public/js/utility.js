@@ -57,8 +57,8 @@ function success(mess){
     var content = '<p>Tu as fais ' + mess.error + ' erreurs !</p>';
     var conseil = '<p>';
     for (var i = mess.choix.length - 1; i >= 0; i--) {
-        conseil += '<a id="' + mess.choix[i] + '" class="btn btn-warning next"' +
-            'href="#"></a>&nbsp;';
+        conseil += '<div id="' + mess.choix[i] + '"' +
+            '></div>&nbsp;';
     };
     conseil += '</p>';
     content += '<p>'+mess.conseil+'</p><p>'+ conseil +'</p><br/><img src='+mess.smiley+'>';
@@ -99,8 +99,6 @@ function sendAnswerToFuzzy(nbErr, nbResponses, time){
             success(mess);
             getNextExercices($('#idExercice').val()).done(function(res){
                 var response = res[0];
-                console.log(response);
-
                 $('#Revoir_cours').html(createA(response.exo_review_basics_id, 'Revoir le cours'));
                 $('#Plus_facile').html(createA(response.exo_redo_simple_id, 'Plus facile'));
                 $('#Recommencer').html(createA($('#idExercice').val(), 'Recommencer'));
@@ -112,9 +110,9 @@ function sendAnswerToFuzzy(nbErr, nbResponses, time){
 
 function createA(id, txt){
     if(txt === "Revoir le cours" || txt === "Continuer")
-        return '<a class="btn" href="/chapitre/'+id+'">'+ txt +'</a>';
+        return '<a class="btn btn-warning" href="/chapitre/'+id+'">'+ txt +'</a>';
     else
-        return '<a class="btn" href="/exercice/'+id+'">'+ txt +'</a>';
+        return '<a class="btn  btn-warning" href="/exercice/'+id+'">'+ txt +'</a>';
 }
 
 

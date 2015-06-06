@@ -108,7 +108,7 @@ class FuzzyController extends Controller
         $fuzzy->SetRealInput('taux_err', $nbErrors*100 / $nbResponses);
         $fuzzy->SetRealInput('vitesse', $time);
 
-        
+
 
 
         /* ------
@@ -117,26 +117,26 @@ class FuzzyController extends Controller
         ------ */
         $res = $fuzzy->calcFuzzy();
 
-        if($res['note'] < 0.0)
+        if ($res['note'] < 0.0) {
             $res['note'] = 0.0;
-        else if($res['note'] > 100.0)
+        } else if ($res['note'] > 100.0) {
             $res['note'] = 100.0;
+        }
 
-        if($nbResponses == 1){
-            if($nbErrors >= 1){
+        if ($nbResponses == 1) {
+            if ($nbErrors >= 1) {
                 $res['conseil'] = "Hmm, ce n'est pas encore ça.
                  Veux tu réessayer l'exercice ?";
                 $res['smiley'] = '/images/bad.png';
-            }
-            else{
+            } else {
                 $res['conseil'] = "C'est très bien ! Prêt pour la suite ?";
                 $res['smiley'] = '/images/good.png';
             }
 
             $res['choix'] = ['Recommencer', 'Continuer'];
-        }
-        else
+        } else {
             $res = $this->noteConseil($res, $res['note']);
+        }
 
         $res['error'] = $nbErrors;
         // Sauvegarde en base des résultats
@@ -183,7 +183,7 @@ class FuzzyController extends Controller
         elseif ($note < 62.5) {
             $res['smiley'] = '/images/medium.png';
             $res['choix'] = ['Recommencer'];
-            
+
             /* ---- On regarde le conseil défini dans fuzzy ---- */
             if ($res['conseil'] < 0.25) {
                 $res['conseil'] .= "Tu fais encore quelques erreurs.
