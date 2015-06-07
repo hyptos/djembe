@@ -18,7 +18,70 @@ class ChapitreTableSeeder extends Seeder
             'titre' => 'Les sons',
             'contenu' => 'Dans la vie de tous les jours, il y a plein de
                         sons différents.<br/>
-                        Amusons nous à en écouter et différencier quelques un.',
+
+                        <audio id="do" src="/son/piano_do.mp3" preload="auto"></audio>
+                        <audio id="re" src="/son/piano_re.mp3" preload="auto"></audio>
+                        <audio id="mi" src="/son/piano_mi.mp3" preload="auto"></audio>
+                        <audio id="fa" src="/son/piano_fa.mp3" preload="auto"></audio>
+                        <audio id="sol" src="/son/piano_sol.mp3" preload="auto"></audio>
+                        <audio id="la" src="/son/piano_la.mp3" preload="auto"></audio>
+                        <audio id="si" src="/son/piano_si.mp3" preload="auto"></audio>
+
+                        <button id="find" class="btn btn-default btn-lg son" note="si">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button>
+                        <button id="find" class="btn btn-default btn-lg son" note="do">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button>
+                        <button id="find" class="btn btn-default btn-lg son" note="re">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button>
+                        <button id="find" class="btn btn-default btn-lg son" note="sol">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button><br/>
+                        <button id="find" class="btn btn-default btn-lg son" note="fa">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button>
+                        <button id="find" class="btn btn-default btn-lg son" note="si">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button>
+                        <button id="find" class="btn btn-default btn-lg son" note="mi">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button>
+                        <button id="find" class="btn btn-default btn-lg son" note="sol">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button><br/>
+                        <button id="find" class="btn btn-default btn-lg son" note="la">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button>
+                        <button id="find" class="btn btn-default btn-lg son" note="fa">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button>
+                        <button id="find" class="btn btn-default btn-lg son" note="si">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button>
+                        <button id="find" class="btn btn-default btn-lg son" note="do">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button><br/>
+                        <button id="find" class="btn btn-default btn-lg son" note="re">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button>
+                        <button id="find" class="btn btn-default btn-lg son" note="sol">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button>
+                        <button id="find" class="btn btn-default btn-lg son" note="la">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button>
+                        <button id="find" class="btn btn-default btn-lg son" note="do">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button><br/>
+
+                        <script type="text/javascript">
+                        $(\'.son\').on(\'click\',function(e){
+                            openAndPlay($(e.target).attr(\'note\'));
+                        });
+                        </script>
+                        ',
             'cours_id' => 1,
             'questionnaire_id' => 1,
         ]);
