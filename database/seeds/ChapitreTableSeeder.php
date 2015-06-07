@@ -200,23 +200,75 @@ class ChapitreTableSeeder extends Seeder
 
         Chapitre::create([ // id 7
             'no' => '4',
-            'titre' => 'Le rythme dans la peau',
+            'titre' => 'Le rythme',
             'contenu' => '
-est-ce que tu as le rythme dans la peau ?
+Maintenant que tu sais nommer les notes se trouvant
+sur une partition, nous allons apprendre comment lire
+le rythme écrit sur une partition.<br/>
+            ',
+            'cours_id' => 2,
+            'questionnaire_id' => null,
+        ]);
+
+        Chapitre::create([ // id 7
+            'no' => '5',
+            'titre' => 'Le rythme - les temps',
+            'contenu' => '
+Pour savoir quand jouer une note se trouvant sur une
+partition nous utilisons ce que l\'on appelle un
+métronome.<br/>
+Les "ticks" de celui-ci nous permet de connaitre 
+la valeur de ce que l\'on appelle "un temps".<br/>
+
 <audio id="tick" src="/son/tick.wav" preload="auto"></audio>
 <div id="metronome"><div id="metronome_container"></div></div>
 <a href="#" class="btn btn-default" id="stop">stop</a>
             ',
             'cours_id' => 2,
-            'questionnaire_id' => 3,
+            'questionnaire_id' => null,
         ]);
 
+
+        Chapitre::create([ // id 9
+            'no' => '6',
+            'titre' => 'Le rythme - les durées',
+            'contenu' => '
+Un "temps" est le temps que l\'on attend après avoir
+jouer une "noire" avant de jouer tout autres notes.<br/>
+
+<img src="/images/temps.png" alt="temps" />
+            ',
+            'cours_id' => 2,
+            'questionnaire_id' => null,
+        ]);
+
+        Chapitre::create([ // id 10
+            'no' => '7',
+            'titre' => 'Le rythme - les valeurs des notes',
+            'contenu' => '
+Puisque une "noire" est égale à un "temps" de métronome,
+alors il nous faut un moyen pour savoir s\'il faut
+attendre plus ou moins qu\'un "temps" après une note.<br/>
+
+Pour cela il existe plusieurs types de notes :<br/>
+la blanche = 2 temps, la noire = 1 temps, 
+la croche = un demi temps, la double croche =
+un quart de temps. <br/>
+
+<img src="/images/blanche.png" alt="blanche" />
+<img src="/images/noire.png" alt="noire" />
+<img src="/images/croche.png" alt="croche" />
+<img src="/images/double_croche.png" alt="double_croche" />
+            ',
+            'cours_id' => 2,
+            'questionnaire_id' => null,
+        ]);
 
 
         /******
             Cours d'histoire de la Musique
         *******/
-         Chapitre::create([ // id 8
+         Chapitre::create([ // id 11
             'no' => '1',
             'titre' => 'Au commencement...',
             'contenu' => 'Comme il n\'existait aucun moyen d\'enregistrer ni d\'écrire la musique, on ne sait pas depuis combien de temps elle existe.

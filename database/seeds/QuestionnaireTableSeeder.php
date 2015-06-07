@@ -29,7 +29,7 @@ class QuestionnaireTableSeeder extends Seeder
         
         Questionnaire::create([ // id 4 : texte à trou
             'nbExos' => 1,
-            'chapitre_id' => 7,
+            'chapitre_id' => 11,
             'cours_id' => 4,
         ]);
     }
