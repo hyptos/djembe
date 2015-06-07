@@ -17,7 +17,7 @@ class ChapitreTableSeeder extends Seeder
             'no' => '1',
             'titre' => 'Les sons',
             'contenu' => 'Dans la vie de tous les jours, il y a plein de
-                        sons différents.<br/>
+                        sons différents : <br/>
 
                         <audio id="accordeon" src="/son/accordeon.mp3" preload="auto"></audio>
                         <audio id="bird" src="/son/bird.mp3" preload="auto"></audio>
@@ -93,7 +93,7 @@ class ChapitreTableSeeder extends Seeder
                         </script>
                         ',
             'cours_id' => 1,
-            'questionnaire_id' => 1,
+            'questionnaire_id' => null,
         ]);
 
         Chapitre::create([ // id 2
@@ -132,7 +132,7 @@ class ChapitreTableSeeder extends Seeder
 
                         <br/>Amusons nous maintenant à les différencier et les reconnaîtres.',
             'cours_id' => 1,
-            'questionnaire_id' => 2,
+            'questionnaire_id' => 1,
         ]);
 
         Chapitre::create([ // id 3
@@ -143,7 +143,7 @@ class ChapitreTableSeeder extends Seeder
                           les autres.<br/>
                           Amusons nous à rejouer des suites de notes',
             'cours_id' => 1,
-            'questionnaire_id' => 3,
+            'questionnaire_id' => 2,
         ]);
 
         Chapitre::create([ // id 4
@@ -195,7 +195,7 @@ class ChapitreTableSeeder extends Seeder
 
                             Amusons nous maintenant à placer des notes sur une portée.',
             'cours_id' => 2,
-            'questionnaire_id' => 4,
+            'questionnaire_id' => 3,
         ]);
 
 
@@ -214,7 +214,7 @@ class ChapitreTableSeeder extends Seeder
                         Leurs danses consistaient entièrement en mouvements du corps et des bras, lents ou endiablés, doux ou violents, selon le sentiment exprimé.
                         Ils utilisaient la voix.',
             'cours_id' => 4,
-            'questionnaire_id' => 5,
+            'questionnaire_id' => 4,
          ]);
     }
 }

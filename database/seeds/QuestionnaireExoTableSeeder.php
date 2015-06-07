@@ -16,21 +16,16 @@ class QuestionnaireExoTableSeeder extends Seeder
 
         QuestionnaireExo::create([
             'questionnaire_id' => 2,
-            'exercice_id' => 2,
-        ]);
-
-        QuestionnaireExo::create([
-            'questionnaire_id' => 3,
             'exercice_id' => 3,
         ]);
 
         QuestionnaireExo::create([
-            'questionnaire_id' => 4,
+            'questionnaire_id' => 3,
             'exercice_id' => 7,
         ]);
         
         QuestionnaireExo::create([
-            'questionnaire_id' => 5,
+            'questionnaire_id' => 4,
             'exercice_id' => 12,
         ]);
     }
