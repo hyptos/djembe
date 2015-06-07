@@ -30,7 +30,7 @@
 </div>
 
 <div class="col-md-4 text-center">
-    @if(isset($exercices))
+    @if(isset($exercices) && !empty($exercices))
             @foreach ($exercices as $exercice)
                 @foreach ($exercice as $exo)
                         <h1><a href="/exercice/{{ $exo->id }}">
