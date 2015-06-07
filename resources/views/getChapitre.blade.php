@@ -61,4 +61,5 @@
 @stop
 
 
+@include('footer')
 

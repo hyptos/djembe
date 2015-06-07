@@ -23,6 +23,12 @@
 
 @section('content')
 <div class="exercice">
+	<table>
+		<tr>
+			<td><img src='/images/DjembeMascotte.png' style='max-width: 200px;' /></td>
+			<td><div class='arrow_box'><br/>Tu as besoin de revoir ton cours ? C'est ici !<br/><br/></div></td>
+		</tr>
+	</table>
     {!!html_entity_decode($exercice->ressource)!!}
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.4/d3.min.js"></script>
@@ -40,5 +46,6 @@
         $('.exercice').hide().show(1000);
     });
     </script>
-
 @stop
+
+@include('footer')

@@ -216,6 +216,7 @@ class ExerciceTableSeeder extends Seeder
                             <script type="text/javascript" src="/js/interact.min.js"></script>
                             <div class="col-md-12" id="game">
                             <div id="message" class="alert"></div>
+							Poses les notes à leur place sur la portée.<br/>
                             <div id="lesNotes">
                             <br/><br/>
                             <div id="zone0" class="dropzone b"></div>

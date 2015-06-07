@@ -78,3 +78,33 @@ footer {
 .nextExo{
 	top:4px;
 }
+
+.arrow_box {
+	position: relative;
+	background: #FEFDE4;
+	border: 4px solid #FEB351;
+	padding: 5px;
+}
+.arrow_box:after, .arrow_box:before {
+	right: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box:after {
+	border-color: rgba(136, 183, 213, 0);
+	border-right-color: #FEFDE4;
+	border-width: 20px;
+	margin-top: -20px;
+}
+.arrow_box:before {
+	border-color: rgba(194, 225, 245, 0);
+	border-right-color: #FEB351;
+	border-width: 26px;
+	margin-top: -26px;
+}
