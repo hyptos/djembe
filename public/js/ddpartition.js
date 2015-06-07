@@ -71,7 +71,7 @@ interact('.dropzone').dropzone({
 	}
 });
 
-var tabNote = random_solution(notes, 4, true);
+var tabNote = random_solution(notes, $('#nbResponses').val(), false);
 
 function insertNotes(element, index, array) {
 	console.log(element.label);

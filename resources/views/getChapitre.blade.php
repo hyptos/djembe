@@ -37,7 +37,9 @@
                 @endforeach
             @endforeach
     @else
-        <p>Pas d'exercice de disponible pour ce chapitre.</p>
+        <h1><a href="/chapitre/{{ $chapitre->id + 1}}">
+            Suivant <span class="glyphicon glyphicon-arrow-right nextExo" aria-hidden="true"></span>
+        </a></h1>
     @endif
 </div>
 

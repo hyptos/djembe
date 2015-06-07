@@ -174,7 +174,7 @@ function getConnaissance(){
 
 function animateArrowChapter(){
     console.log('hey arrow');
-    $('body').on('click', function(e){
+    $('.nextExo').on('click', function(e){
         e.preventDefault();
         $( ".container" ).animate({ "margin-left": "+=2000px" }, "slow", function(){
             $(this).remove();

@@ -9,21 +9,33 @@ class QuestionnaireTableSeeder extends Seeder
 {
     public function run()
     {
-        Questionnaire::create([
+        Questionnaire::create([ // id 1 : une note sans les noms
             'nbExos' => 1,
             'chapitre_id' => 1,
             'cours_id' => 1,
         ]);
 
-        Questionnaire::create([
+        Questionnaire::create([ // id 2  : une note avec les noms
             'nbExos' => 1,
             'chapitre_id' => 2,
             'cours_id' => 1,
         ]);
-        
-        Questionnaire::create([
+
+        Questionnaire::create([ // id 3 : suite de notes
             'nbExos' => 1,
-            'chapitre_id' => 4,
+            'chapitre_id' => 3,
+            'cours_id' => 1,
+        ]);
+
+        Questionnaire::create([ // id 4 : Ecrire sur un Partition
+            'nbExos' => 1,
+            'chapitre_id' => 6,
+            'cours_id' => 2,
+        ]);
+        
+        Questionnaire::create([ // id 5 : texte à trou
+            'nbExos' => 1,
+            'chapitre_id' => 7,
             'cours_id' => 4,
         ]);
     }

@@ -29,7 +29,7 @@
         <div class="form-group">
           <p>Afin de mieux te connaitre, nous allons te poser des questions sur la musique, dès que tu es prêt, clique sur C'est parti</p>
         </div>
-        <a id="parti_b" href="#">Suivant</a>
+        <a class="btn btn-warning btn-lg" id="parti_b" href="#">C'est parti</a>
     </div>
 
     <div id="solfege1" class="form-group">
@@ -37,14 +37,14 @@
         <div class="form-group">
           <p>attend avis antoine²</p>
         </div>
-        <a id="solfege1_b" href="#">Suivant</a>
+        <a class="btn btn-warning btn-lg" id="solfege1_b" href="#">Suivant</a>
     </div>
     <div id="solfege2" class="form-group">
       <h2>Question 2</h2>
         <div class="form-group">
           <p>attend avis antoine²</p>
         </div>
-        <a id="solfege2_b" href="#">Suivant</a>
+        <a class="btn btn-warning btn-lg" id="solfege2_b" href="#">Suivant</a>
     </div>
 
     <div id="instru1" class="form-group">
@@ -61,7 +61,7 @@
                     <label><input type="radio" name="guitare" value="corde">Corde</label>
                   </div>
         </div>
-         <a id="instru1_b" href="#">Suivant</a>
+         <a class="btn btn-warning btn-lg" id="instru1_b" href="#">Suivant</a>
     </div>
 
     <div id="instru2" class="form-group">
@@ -78,7 +78,7 @@
               <label><input type="radio" name="flute" value="corde">Corde</label>
             </div>
         </div>
-        <a id="instru2_b" href="#">Suivant</a>
+        <a class="btn btn-warning btn-lg" id="instru2_b" href="#">Suivant</a>
     </div>
     <div id="instru3" class="form-group">
       <h2>Question 5</h2>
@@ -94,7 +94,7 @@
               <label><input type="radio" name="piano" value="corde">Corde</label>
             </div>
         </div>
-        <a id="instru3_b" href="#">Suivant</a>
+        <a class="btn btn-warning btn-lg" id="instru3_b" href="#">Suivant</a>
     </div>
 
     <div id="hist1" class="form-group">
@@ -111,7 +111,7 @@
               <label><input type="radio" name="mozart" value="lettre">Lettre à Elise</label>
             </div>
         </div>
-        <a id="hist1_b" href="#">Suivant</a>
+        <a class="btn btn-warning btn-lg" id="hist1_b" href="#">Suivant</a>
     </div>
 
     <div id="hist2" class="form-group">
@@ -128,7 +128,7 @@
                     <label><input type="radio" name="beethovven" value="lettre">Lettre à Elise</label>
                   </div>
         </div>
-        <a id="hist2_b" href="#">Suivant</a>
+        <a class="btn btn-warning btn-lg" id="hist2_b" href="#">Suivant</a>
     </div>
 
     <div id="hist3" class="form-group">
@@ -145,7 +145,7 @@
                     <label><input type="radio" name="patrick" value="kendji">Kendji Girac</label>
                   </div>
         </div>
-        <button type="submit" class="btn btn-primary btn-large">Terminé</button>
+        <button type="submit" class="btn btn-warning btn-lg">Terminé</button>
     </div>
 
 
