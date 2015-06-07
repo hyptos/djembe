@@ -23,10 +23,7 @@
 
 @section('content')
 <div class="exercice">
-	<h1>Exercice n°{{ $exercice->id }}</h1>
-    <p>Cet exercice est de difficulte : {{ $exercice->difficulte }}.</p>
     {!!html_entity_decode($exercice->ressource)!!}
-	<p>Cet exercice est de type : {{ $exercice->type }}.</p>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.4/d3.min.js"></script>
 

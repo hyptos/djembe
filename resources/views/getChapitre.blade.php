@@ -23,7 +23,7 @@
 
 @section('content')
 <div class="col-md-2">
-@if ($chapitre->id - 1 != 0)
+@if ($chapitre->id != 1 && $chapitre->id != 7)
             <h1><a href="/chapitre/{{ $chapitre->id - 1}}">
             <span class="glyphicon glyphicon-arrow-left nextExo" aria-hidden="true"></span> Precedent
         </a></h1>
