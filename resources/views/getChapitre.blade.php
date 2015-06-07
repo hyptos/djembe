@@ -22,6 +22,13 @@
 @include('header')
 
 @section('content')
+<div class="col-md-2">
+@if ($chapitre->id - 1 != 0)
+            <h1><a href="/chapitre/{{ $chapitre->id - 1}}">
+            <span class="glyphicon glyphicon-arrow-left nextExo" aria-hidden="true"></span> Precedent
+        </a></h1>
+@endif
+</div>
 <div class="col-md-8 text-center">
     <h1>
         <span class="glyphicon glyphicon-book" aria-hidden="true"></span> &nbsp; {{ $chapitre->titre }}
@@ -29,7 +36,6 @@
     <h3>{!!html_entity_decode($chapitre->contenu)!!}</h3>
 </div>
 
-<div class="col-md-4 text-center">
     @if(isset($exercices) && !empty($exercices))
             @foreach ($exercices as $exercice)
                 @foreach ($exercice as $exo)
@@ -39,11 +45,13 @@
                 @endforeach
             @endforeach
     @else
+</script>
+<div class="col-md-2 text-center">
         <h1><a href="/chapitre/{{ $chapitre->id + 1}}">
             Suivant <span class="glyphicon glyphicon-arrow-right nextExo" aria-hidden="true"></span>
         </a></h1>
+        </div>
     @endif
-</div>
 
 <script type="text/javascript">
     $(function() {
