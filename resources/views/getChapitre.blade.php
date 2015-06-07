@@ -22,9 +22,9 @@
 @section('content')
 <div class="col-md-8 text-center">
     <h1>
-        <span class="glyphicon glyphicon-book" aria-hidden="true"></span> &nbsp; {{ $chapitre->no }} - {{ $chapitre->titre }}
+        <span class="glyphicon glyphicon-book" aria-hidden="true"></span> &nbsp; {{ $chapitre->titre }}
     </h1>
-    <p>{{ $chapitre->contenu }}.</p>
+    <h3>{!!html_entity_decode($chapitre->contenu)!!}</h3>
 </div>
 
 <div class="col-md-4 text-center">

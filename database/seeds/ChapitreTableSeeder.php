@@ -17,7 +17,7 @@ class ChapitreTableSeeder extends Seeder
             'no' => '1',
             'titre' => 'Les sons',
             'contenu' => 'Dans la vie de tous les jours, il y a plein de
-                        sons différents.
+                        sons différents.<br/>
                         Amusons nous à en écouter et différencier quelques un.',
             'cours_id' => 1,
             'questionnaire_id' => 1,
@@ -27,8 +27,8 @@ class ChapitreTableSeeder extends Seeder
             'no' => '2',
             'titre' => 'Les notes',
             'contenu' => 'En musique, nous différençons 7 types de sons
-                        que nous nommons des notes. Il s\'agit de :
-                        Do Ré Mi Fa Sol La et Si. 
+                        que nous nommons des notes.<br/> Il s\'agit de :
+                        Do Ré Mi Fa Sol La et Si.<br/>
                         Amusons nous avec.',
             'cours_id' => 1,
             'questionnaire_id' => 2,
@@ -39,7 +39,7 @@ class ChapitreTableSeeder extends Seeder
             'titre' => 'Les suites de notes',
             'contenu' => 'Plus que des sons, la musique se compose à partir 
                           de plusieurs notes jouées ensemble ou les unes après
-                          les autres.
+                          les autres.<br/>
                           Amusons nous à rejouer des suites de notes',
             'cours_id' => 1,
             'questionnaire_id' => 3,
@@ -48,12 +48,12 @@ class ChapitreTableSeeder extends Seeder
         Chapitre::create([ // id 4
             'no' => '1',
             'titre' => 'Lire et Ecrire la Musique - La portée',
-            'contenu' => 'Pour pourvoir partager la musique
+            'contenu' => 'Pour pouvoir partager la musique
                             aux gens qui nous entourent nous
                             écrivons les notes sur ce que l\'on
-                            appelle une portée.
+                            appelle une portée.<br/>
 
-                          [img de portée]',
+                          <img src="/images/portee.png" alt="Portee" />',
             'cours_id' => 2,
             'questionnaire_id' => null,
         ]);
@@ -61,11 +61,17 @@ class ChapitreTableSeeder extends Seeder
         Chapitre::create([ // id 5
             'no' => '2',
             'titre' => 'Lire et Ecrire la Musique - Les notes',
-            'contenu' => 'Les notes sur une portée sont représentées
-                            par des ronds posés sur ou entre les lignes
-                            de la portée.<br/>
+            'contenu' => 'Sur une portée une note est représentée
+                        par un rond, appellé "tête", qui peut être
+                        accompagné par un trait, appellé "queue".<br/>
 
-                            [img de portée avec notes]',
+                        <img src="/images/note.png" alt="Note" /><br/>
+
+                        C\'est en posant plusieurs notes les unes après les
+                        autres sur la portée que nous obtenons ce que l\'on 
+                        appelle une partition.<br/>
+
+                        <img src="/images/partition.png" alt="Partition" />',
             'cours_id' => 2,
             'questionnaire_id' => null,
         ]);
@@ -76,13 +82,17 @@ class ChapitreTableSeeder extends Seeder
             'contenu' => 'Pour savoir où doit être placée une note, nous
                             utilisons ce que l\'on appelle une Clef de Sol.<br/>
 
+                            <img src="/images/cleDeSol.jpg" alt="clef de sol" /><br/>
+
                             Celle ci est placée au début de la portée et indique
-                            sur qu\'elle ligne de la portée est placé le sol.<br/>
+                            sur quelle ligne de la portée est placé le sol.<br/>
 
                             Puis en suivant le code : Do Ré Mi Fa Sol La Si Do,
-                            nous pouvons savoir où écrire les autres notes.
+                            nous pouvons savoir où écrire les autres notes.<br/>
 
-                            [img de portée DoReMiFaSolLaSi]',
+                            <img src="/images/note_repere.png" alt="note_repere" /><br/>
+
+                            Amusons nous maintenant à placer des notes sur une portée.',
             'cours_id' => 2,
             'questionnaire_id' => 4,
         ]);
