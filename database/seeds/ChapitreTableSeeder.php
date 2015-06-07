@@ -27,9 +27,37 @@ class ChapitreTableSeeder extends Seeder
             'no' => '2',
             'titre' => 'Les notes',
             'contenu' => 'En musique, nous différençons 7 types de sons
-                        que nous nommons des notes.<br/> Il s\'agit de :
-                        Do Ré Mi Fa Sol La et Si.<br/>
-                        Amusons nous avec.',
+                        que nous nommons des notes.<br/> 
+                        Il s\'agit de :<br/>
+
+                        
+                        <audio id="do" src="/son/piano_do.mp3" preload="auto"></audio>
+                        <audio id="re" src="/son/piano_re.mp3" preload="auto"></audio>
+                        <audio id="mi" src="/son/piano_mi.mp3" preload="auto"></audio>
+                        <audio id="fa" src="/son/piano_fa.mp3" preload="auto"></audio>
+                        <audio id="sol" src="/son/piano_sol.mp3" preload="auto"></audio>
+                        <audio id="la" src="/son/piano_la.mp3" preload="auto"></audio>
+                        <audio id="si" src="/son/piano_si.mp3" preload="auto"></audio>
+
+                        <button class="btn rep">do</button>
+                        <button class="btn rep">re</button>
+                        <button class="btn rep">mi</button>
+                        <button class="btn rep">fa</button>
+                        <button class="btn rep">sol</button>
+                        <button class="btn rep">la</button>
+                        et
+                        <button class="btn rep">si</button>
+
+                        <script type="text/javascript">
+                        $(function(){
+                            changeColorButton(notes);
+                        });
+                        $(\'.rep\').on(\'click\',function(e){
+                            openAndPlay(e.target.innerHTML);
+                        });
+                        </script>
+
+                        <br/>Amusons nous maintenant à les différencier et les reconnaîtres.',
             'cours_id' => 1,
             'questionnaire_id' => 2,
         ]);
@@ -85,7 +113,7 @@ class ChapitreTableSeeder extends Seeder
                             <img src="/images/cleDeSol.jpg" alt="clef de sol" /><br/>
 
                             Celle ci est placée au début de la portée et indique
-                            sur quelle ligne de la portée est placé le sol.<br/>
+                            sur quelle ligne de la portée est placé la note Sol.<br/>
 
                             Puis en suivant le code : Do Ré Mi Fa Sol La Si Do,
                             nous pouvons savoir où écrire les autres notes.<br/>
