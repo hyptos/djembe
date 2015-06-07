@@ -149,12 +149,12 @@ $("body").on("click", "#finish", function() {
 		    default:
         		nbErr++;
 		}
-		if(res.length < 4) {
-			nbErr += 4 - res.length;
+		if(res.length < $('#nbResponses').val()) {
+			nbErr += $('#nbResponses').val() - res.length;
 		}
 	});
 	if(res.length === 0) {
-		nbErr = 4;
+		nbErr = $('#nbResponses').val();
 	}
 	sendAnswerToFuzzy(nbErr, $('#nbResponses').val(),timeEnd);
 });
