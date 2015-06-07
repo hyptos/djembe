@@ -13,6 +13,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="/js/utility.js"></script>
     <script src="/js/d3pie.min.js"></script>
+    <script src="/js/raph.js"></script>
+    <script src="/js/metronome.js"></script>
     <link rel="shortcut icon" href="../favicon.ico">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css' />
     <script type="text/javascript" src="/js/modernizr.custom.79639.js"></script>
@@ -56,6 +58,21 @@
 <script type="text/javascript">
     $(function() {
         animateArrowChapter();
+
+        var m = metronome({
+            len: 200,
+            angle: 20,
+            paper: "metronome_container",
+            tick: openAndPlay('tick'),
+            complete: console.log('done'),
+            path: "/son/tick.wav"
+        });
+
+        m.start(120, 50);
+        $('#stop').on('click',function(e){
+            e.preventDefault();
+            m.stop();
+        })
     });
 </script>
 @stop
