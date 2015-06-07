@@ -22,7 +22,7 @@
 @include('header')
 
 @section('content')
-    <!--<div class="jumbotron">Bienvenue sur Djembe, pour commencer choisi un thème </div>-->
+    @if(Auth::check())
     <div class="themes">
         <div class="container">
             <section>
@@ -71,7 +71,79 @@
             </section>
         </div>
     </div>
+    @else
+        <div class="row">
+    <div class="col-sm-6 form-box">
+        <div class="form-top">
+            <div class="form-top-left">
+                <h3>Connecte toi</h3>
+            </div>
+            <div class="form-top-right">
+                <i class="fa fa-pencil"></i>
+            </div>
+        </div>
+        <div class="form-bottom">
+            <form role="form" action="login" method="post" class="registration-form">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <div class="form-group">
+                    <label class="sr-only" for="form-email">Email</label>
+                    <input type="text" name="email" placeholder="email" class="form-email form-control" id="form-email">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="form-password">Mot de passe</label>
+                    <input type="password" name="password" placeholder="mot de passe" class="form-password form-control" id="form-password ">
+                </div>
+                <button type="submit" class="btn btn-primary btn-large">Je me connecte</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-sm-6 form-box">
+        <div class="form-top">
+            <div class="form-top-left">
+                <h3>Enregistre toi</h3>
+            </div>
+            <div class="form-top-right">
+                <i class="fa fa-pencil"></i>
+            </div>
+        </div>
+        <div class="form-bottom">
+            <form role="form" action="signup" method="post" class="registration-form">
+            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                <div class="form-group">
+                    <label class="sr-only" for="form-first-name">First name</label>
+                    @if (!isset($user))
+                       <input type="text" name="name" placeholder="First name..." class="form-first-name form-control" id="form-first-name">
+                    @else
+                        <input type="text" name="name" placeholder="{{$user->name}}" class="form-first-name form-control" id="form-first-name">
+                    @endif
+                </div>
+                @if (!isset($message))
+                <div class="form-group">
+                    <label class="sr-only" for="form-email">Email</label>
+                    <input type="text" name="email" placeholder="email" class="form-email form-control" id="form-email">
+                </div>
+                @else
+                <div class="form-group has-error">
+                  <label class="control-label" for="inputError1">Email</label>
+                  <input type="text" class="form-control" id="email" placeholder="{{$user->email}}" name="email">
+                </div>
+                @endif
+                <div class="form-group">
+                    <label class="sr-only" for="form-password">Mot de passe</label>
+                    <input type="password" name="password" placeholder="mot de passe" class="form-password form-control" id="form-password ">
+                </div>
+                  <div class="checkbox">
+                    <label>
+                      <input type="radio" name="teach" class="signup"> Professeur
+                    </label>
+                  </div>
 
+                <button type="submit" class="btn btn-primary btn-large">Je m'enregistre</button>
+            </form>
+        </div>
+    </div>
+</div>
+    @endif
 @stop
 
 @include('footer')
