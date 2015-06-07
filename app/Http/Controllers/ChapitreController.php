@@ -40,4 +40,16 @@ class ChapitreController extends Controller
         $chapitres = Chapitre::all();
         return view('getAllChapitres', ['chapitres' => $chapitres]);
     }
+
+    /* fonction qui affiche tous les chapitre.
+     *
+     * @param  none
+     * @return Response
+    */
+    public function getChapitreContent(Request $request)
+    {
+        $id = $request->input('idChapitre');
+        $chapitre = Chapitre::find($id);
+        return  response()->json($chapitre);
+    }
 }

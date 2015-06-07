@@ -188,10 +188,43 @@ function changeColorButton(notes){
         var buttons = $('.rep');
         for (var i = buttons.length - 1; i >= 0; i--) {
             if(this.label == buttons[i].innerHTML){
-                console.log('match');
                 $(buttons[i]).css('background-color',this.color);
             }
         }
     });
     console.log();
 }
+
+function getChapitre(){
+    return $.ajax({
+        url: "/getChapitre",
+        method: "POST",
+        data: {
+            idExercice: $('#idExercice').val(),
+            _token: $('#token').val()
+        }
+    });
+}
+
+function getChapitreContent(idChapitre){
+    return $.ajax({
+        url: "/getChapitreContent",
+        method: "POST",
+        data: {
+            idChapitre: idChapitre,
+            _token: $('#token').val()
+        }
+    });
+}
+
+$(function(){
+    $('#indice').on('click', function(e){
+        e.preventDefault();
+        getChapitre().done(function(response){
+            console.log(response);
+            getChapitreContent(response.chapitre_id).done(function(res){
+                console.log(res);
+            });
+        });
+    });
+});
