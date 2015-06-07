@@ -60,3 +60,6 @@
 </script>
 @stop
 
+
+@include('footer')
+

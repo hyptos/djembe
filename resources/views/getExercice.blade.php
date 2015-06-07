@@ -47,5 +47,3 @@
     });
     </script>
 @stop
-
-@include('footer')
