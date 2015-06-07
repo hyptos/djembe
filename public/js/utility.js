@@ -221,7 +221,6 @@ $(function(){
     $('#indice').on('click', function(e){
         e.preventDefault();
         getChapitre().done(function(response){
-            console.log(response);
             getChapitreContent(response.chapitre_id).done(function(res){
                 console.log(res);
             });

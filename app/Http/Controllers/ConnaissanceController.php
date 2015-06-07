@@ -42,8 +42,14 @@ class ConnaissanceController extends Controller
         if ($request->input('flute') == "vent"){
             $instru_res+=30;
         }
-         if ($request->input('piano') == "corde"){
+        if ($request->input('piano') == "corde"){
             $instru_res+=40;
+        }
+        if ($request->input('note1') == "re"){
+            $solfege_res+=40;
+        }
+        if ($request->input('note2') == "1_2"){
+            $solfege_res+=40;
         }
         //récupération score instruments
         $hist_res =0;
