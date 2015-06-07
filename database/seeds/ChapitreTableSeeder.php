@@ -19,60 +19,70 @@ class ChapitreTableSeeder extends Seeder
             'contenu' => 'Dans la vie de tous les jours, il y a plein de
                         sons différents.<br/>
 
-                        <audio id="do" src="/son/piano_do.mp3" preload="auto"></audio>
-                        <audio id="re" src="/son/piano_re.mp3" preload="auto"></audio>
-                        <audio id="mi" src="/son/piano_mi.mp3" preload="auto"></audio>
-                        <audio id="fa" src="/son/piano_fa.mp3" preload="auto"></audio>
-                        <audio id="sol" src="/son/piano_sol.mp3" preload="auto"></audio>
-                        <audio id="la" src="/son/piano_la.mp3" preload="auto"></audio>
-                        <audio id="si" src="/son/piano_si.mp3" preload="auto"></audio>
+                        <audio id="accordeon" src="/son/accordeon.mp3" preload="auto"></audio>
+                        <audio id="bird" src="/son/bird.mp3" preload="auto"></audio>
+                        <audio id="cat" src="/son/cat.mp3" preload="auto"></audio>
+                        <audio id="dog" src="/son/dog.mp3" preload="auto"></audio>
+                        <audio id="piano" src="/son/piano_sol.mp3" preload="auto"></audio>
+                        <audio id="french_cor" src="/son/french_cor.mp3" preload="auto"></audio>
+                        <audio id="grelots" src="/son/grelots.mp3" preload="auto"></audio>
+                        <audio id="djembe" src="/son/djembe.mp3" preload="auto"></audio>
 
-                        <button id="find" class="btn btn-default btn-lg son" note="si">
+                        <audio id="guitar" src="/son/guitar.mp3" preload="auto"></audio>
+                        <audio id="ocarina" src="/son/ocarina.mp3" preload="auto"></audio>
+                        <audio id="piccolo" src="/son/piccolo.mp3" preload="auto"></audio>
+                        <audio id="shaker" src="/son/shaker.mp3" preload="auto"></audio>
+                        <audio id="sneeze" src="/son/sneeze.mp3" preload="auto"></audio>
+                        <audio id="violon" src="/son/violon.mp3" preload="auto"></audio>
+                        <audio id="whisle" src="/son/whisle.mp3" preload="auto"></audio>
+                        <audio id="saxophone" src="/son/sexy_saxo.MP3" preload="auto"></audio>
+
+                        <button id="find" class="btn btn-default btn-lg son" note="djembe">
                             <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
                         </button>
-                        <button id="find" class="btn btn-default btn-lg son" note="do">
+                        <button id="find" class="btn btn-default btn-lg son" note="dog">
                             <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
                         </button>
-                        <button id="find" class="btn btn-default btn-lg son" note="re">
+                        <button id="find" class="btn btn-default btn-lg son" note="accordeon">
                             <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
                         </button>
-                        <button id="find" class="btn btn-default btn-lg son" note="sol">
+                        <button id="find" class="btn btn-default btn-lg son" note="piano">
                             <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
                         </button><br/>
-                        <button id="find" class="btn btn-default btn-lg son" note="fa">
+                        <button id="find" class="btn btn-default btn-lg son" note="sneeze">
                             <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
                         </button>
-                        <button id="find" class="btn btn-default btn-lg son" note="si">
+                        <button id="find" class="btn btn-default btn-lg son" note="saxophone">
                             <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
                         </button>
-                        <button id="find" class="btn btn-default btn-lg son" note="mi">
+                        <button id="find" class="btn btn-default btn-lg son" note="grelots">
                             <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
                         </button>
-                        <button id="find" class="btn btn-default btn-lg son" note="sol">
+                        <button id="find" class="btn btn-default btn-lg son" note="cat">
                             <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
                         </button><br/>
-                        <button id="find" class="btn btn-default btn-lg son" note="la">
+                        <button id="find" class="btn btn-default btn-lg son" note="piccolo">
                             <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
                         </button>
-                        <button id="find" class="btn btn-default btn-lg son" note="fa">
+                        <button id="find" class="btn btn-default btn-lg son" note="guitar">
                             <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
                         </button>
-                        <button id="find" class="btn btn-default btn-lg son" note="si">
+                        <button id="find" class="btn btn-default btn-lg son" note="whisle">
                             <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
                         </button>
-                        <button id="find" class="btn btn-default btn-lg son" note="do">
+                        <button id="find" class="btn btn-default btn-lg son" note="violon">
                             <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
                         </button><br/>
-                        <button id="find" class="btn btn-default btn-lg son" note="re">
+                        <button id="find" class="btn btn-default btn-lg son" note="french_cor">
                             <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
                         </button>
-                        <button id="find" class="btn btn-default btn-lg son" note="sol">
+                        <button id="find" class="btn btn-default btn-lg son" note="bird">
                             <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
                         </button>
-                        <button id="find" class="btn btn-default btn-lg son" note="la">
+                        <button id="find" class="btn btn-default btn-lg son" note="shaker">
                             <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
                         </button>
-                        <button id="find" class="btn btn-default btn-lg son" note="do">
+                        <button id="find" class="btn btn-default btn-lg son" note="ocarina">
                             <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
                         </button><br/>
 
