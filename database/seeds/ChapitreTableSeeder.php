@@ -11,7 +11,7 @@ class ChapitreTableSeeder extends Seeder
     {
 
         /******
-            Cours de solfège 
+            Cours de solfège
         *******/
         Chapitre::create([ // id 1
             'no' => '1',
@@ -100,10 +100,10 @@ class ChapitreTableSeeder extends Seeder
             'no' => '2',
             'titre' => 'Les notes',
             'contenu' => 'En musique, nous différençons 7 types de sons
-                        que nous nommons des notes.<br/> 
+                        que nous nommons des notes.<br/>
                         Il s\'agit de :<br/>
 
-                        
+
                         <audio id="do" src="/son/piano_do.mp3" preload="auto"></audio>
                         <audio id="re" src="/son/piano_re.mp3" preload="auto"></audio>
                         <audio id="mi" src="/son/piano_mi.mp3" preload="auto"></audio>
@@ -138,7 +138,7 @@ class ChapitreTableSeeder extends Seeder
         Chapitre::create([ // id 3
             'no' => '3',
             'titre' => 'Les suites de notes',
-            'contenu' => 'Plus que des sons, la musique se compose à partir 
+            'contenu' => 'Plus que des sons, la musique se compose à partir
                           de plusieurs notes jouées ensemble ou les unes après
                           les autres.<br/>
                           Amusons nous à rejouer des suites de notes',
@@ -169,7 +169,7 @@ class ChapitreTableSeeder extends Seeder
                         <img src="/images/note.png" alt="Note" /><br/>
 
                         C\'est en posant plusieurs notes les unes après les
-                        autres sur la portée que nous obtenons ce que l\'on 
+                        autres sur la portée que nous obtenons ce que l\'on
                         appelle une partition.<br/>
 
                         <img src="/images/partition.png" alt="Partition" />',
@@ -198,12 +198,25 @@ class ChapitreTableSeeder extends Seeder
             'questionnaire_id' => 3,
         ]);
 
+        Chapitre::create([ // id 7
+            'no' => '4',
+            'titre' => 'Le rythme dans la peau',
+            'contenu' => '
+est-ce que tu as le rythme dans la peau ?
+<audio id="tick" src="/son/tick.wav" preload="auto"></audio>
+<div id="metronome"><div id="metronome_container"></div></div>
+<a href="#" class="btn btn-default" id="stop">stop</a>
+            ',
+            'cours_id' => 2,
+            'questionnaire_id' => 3,
+        ]);
+
 
 
         /******
-            Cours d'histoire de la Musique 
+            Cours d'histoire de la Musique
         *******/
-         Chapitre::create([ // id 7
+         Chapitre::create([ // id 8
             'no' => '1',
             'titre' => 'Au commencement...',
             'contenu' => 'Comme il n\'existait aucun moyen d\'enregistrer ni d\'écrire la musique, on ne sait pas depuis combien de temps elle existe.

@@ -38,7 +38,7 @@
     <input type="hidden" id="timeAvg" name="timeAvg" value="60">
     <input type="hidden" id="idUser" name="idUser" value="{{ Auth::user()->id }}">
     <input type="hidden" id="idExercice" name="idExercice" value="{{ $exercice->id }}">
-    <input type="hidden" id="idCours" name="idCours" value="1">
+    <input type="hidden" id="idCours" name="idCours" value="{{ $exercice->cours_id }}">
     </script>
     <script type="text/javascript" src="{{ $exercice->script }}"></script>
     <script type="text/javascript">
