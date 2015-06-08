@@ -24,9 +24,7 @@
 @include('header')
 @section('content')
 @section('content')
-    <p>{{$user->name}}</p>
-    <p>{{$user->email}}</p>
-    <p>{{ $user->teach == 1 ? 'Prof' : 'pas prof' }}</p>
+    <p><h1>{{$user->name}} ({{ $user->teach == 1 ? 'Professeur' : 'Apprenant' }})</h1></p>
 
 	@if ($user->teach == 1)
 		<h2><span class="glyphicon glyphicon-stats" aria-hidden="true">&nbsp; Liste des élèves</h2>
@@ -60,7 +58,7 @@
 		</table>
 	@endif
 
-<h2><span class="glyphicon glyphicon-stats" aria-hidden="true">&nbsp; Mes statistiques</h2>
+<h2><span class="glyphicon glyphicon-stats" aria-hidden="true">&nbsp; Base de connaissances</h2>
 <hr>
 
 <?php
@@ -106,13 +104,12 @@ $totalH = getMoyenne($user,'histoire');
     </ul>
     <div class="tab-content">
         <div id="sectionA" class="tab-pane fade in active">
-            <h3>Solfège</h3>
-            <h2><span class="glyphicon glyphicon-stats" aria-hidden="true">&nbsp; Mes statistiques</h2>
             <div class="progress">
               <div id="barSolfege" class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
                 <span class="sr-only">60% Complete (warning)</span>
               </div>
             </div>
+            <h3><span class="glyphicon glyphicon-stats" aria-hidden="true">&nbsp; Mes statistiques</h3>
            @foreach ($totalS as $key => $value)
            		<p> <a href="/exercice/{{$key}}">Exercice n°{{$key}}</a>
            	@foreach ($value as $k => $v)
@@ -123,13 +120,12 @@ $totalH = getMoyenne($user,'histoire');
 
         </div>
         <div id="sectionB" class="tab-pane fade">
-            <h3>Instruments</h3>
-            <h2><span class="glyphicon glyphicon-stats" aria-hidden="true">&nbsp; Mes statistiques</h2>
             <div class="progress">
               <div id="barInstru" class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
                 <span class="sr-only">60% Complete (warning)</span>
               </div>
             </div>
+            <h3><span class="glyphicon glyphicon-stats" aria-hidden="true">&nbsp; Mes statistiques</h3>
             @foreach ($totalI as $key => $value)
                     <p> <a href="/exercice/{{$key}}">Exercice n°{{$key}}</a>
                 @foreach ($value as $k => $v)
@@ -140,13 +136,12 @@ $totalH = getMoyenne($user,'histoire');
 
         </div>
         <div id="sectionC" class="tab-pane fade">
-            <h3>Instruments</h3>
-            <h2><span class="glyphicon glyphicon-stats" aria-hidden="true">&nbsp; Mes statistiques</h2>
             <div class="progress">
               <div id="barHist" class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
                 <span class="sr-only">60% Complete (warning)</span>
               </div>
             </div>
+            <h3><span class="glyphicon glyphicon-stats" aria-hidden="true">&nbsp; Mes statistiques</h3>
            @foreach ($totalH as $key => $value)
            		<p> <a href="/exercice/{{$key}}">Exercice n°{{$key}}</a>
            	@foreach ($value as $k => $v)
