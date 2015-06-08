@@ -4,7 +4,7 @@ $('.rep').on('click',function(e){
 	openAndPlay(e.target.innerHTML);
 });
 
-$('#find').on('click',function(e){
+$('#findExo1').on('click',function(e){
 	openAndPlay($('#find').attr("note"));
 });
 
