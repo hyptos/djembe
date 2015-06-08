@@ -221,9 +221,8 @@ $(function(){
     $('#indice').on('click', function(e){
         e.preventDefault();
         getChapitre().done(function(response){
-            getChapitreContent(response.chapitre_id).done(function(res){
-                console.log(res);
-            });
+            $('#idCours').val(res.cours_id);
+            //ICI CAROLE
         });
     });
 });
