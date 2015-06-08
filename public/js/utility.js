@@ -173,14 +173,14 @@ function getConnaissance(){
 }
 
 function animateArrowChapter(){
-    $('.nextExo').on('click', function(e){
+    $('.precExo').on('click', function(e){
         e.preventDefault();
         $( ".container" ).animate({ "margin-left": "+=2000px" }, "slow", function(){
             $(this).remove();
             window.location = e.target.href;
         });
     });
-    $('.precExo').on('click', function(e){
+    $('.nextExo').on('click', function(e){
         e.preventDefault();
         $( ".container" ).animate({ "margin-left": "-=2000px" }, "slow", function(){
             $(this).remove();
