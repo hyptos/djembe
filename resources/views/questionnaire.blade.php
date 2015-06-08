@@ -36,7 +36,7 @@
       <h2>Question 1</h2>
         <div class="form-group">
           <p>Quelle est cette note ?</p>
-                  <img src="/images/resol.jpg">
+                  <img src="/images/re.png">
                   <div class="radio">
                     <label><input type="radio" name="note1" value="mi">mi</label>
                   </div>
@@ -53,7 +53,7 @@
       <h2>Question 2</h2>
         <div class="form-group">
            <p>Quelle est la durée de cette note ?</p>
-                  <img src="/images/duree.gif">
+                  <img src="/images/croche.png">
                   <div class="radio">
                     <label><input type="radio" name="note2" value="1">1 temps</label>
                   </div>

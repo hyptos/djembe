@@ -50,4 +50,7 @@
         })
     });
     </script>
+</div>
 @stop
+
+@include('footer')
