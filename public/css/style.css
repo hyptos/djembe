@@ -66,6 +66,7 @@ a:focus {
 .container {
 	width: 80%;
 	background-color: #F2EFEA;
+	padding: 5px;
 }
 
 footer {

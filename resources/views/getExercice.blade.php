@@ -46,4 +46,7 @@
         $('.exercice').hide().show(1000);
     });
     </script>
+</div>
 @stop
+
+@include('footer')
