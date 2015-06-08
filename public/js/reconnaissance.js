@@ -5,14 +5,14 @@ $('.rep').on('click',function(e){
 });
 
 $('#findExo1').on('click',function(e){
-	openAndPlay($('#find').attr("note"));
+	openAndPlay($('#findExo1').attr("note"));
 });
 
 
 $(
 	function() {
 	var e = random_solution(notes,1);
-	$('#find').attr("note", e[0].label);
+	$('#findExo1').attr("note", e[0].label);
 	changeColorButton(notes);
 });
 
