@@ -20,7 +20,7 @@ $('#sendAnswers').on('click',function(e){
 	var time = Date.now() - timeStart;
 	// calcul du nombre d'erreur
 
-	var response = $('#find').attr('note');
+	var response = $('#findExo1').attr('note');
 	var answerUser = $('input[name=answer]:checked').attr('note');
 
 	var nbErr = 0;

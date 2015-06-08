@@ -173,10 +173,16 @@ function getConnaissance(){
 }
 
 function animateArrowChapter(){
-    console.log('hey arrow');
     $('.nextExo').on('click', function(e){
         e.preventDefault();
         $( ".container" ).animate({ "margin-left": "+=2000px" }, "slow", function(){
+            $(this).remove();
+            window.location = e.target.href;
+        });
+    });
+    $('.precExo').on('click', function(e){
+        e.preventDefault();
+        $( ".container" ).animate({ "margin-left": "-=2000px" }, "slow", function(){
             $(this).remove();
             window.location = e.target.href;
         });

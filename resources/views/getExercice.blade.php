@@ -23,7 +23,7 @@
 
 @section('content')
 <div class="exercice">
- 
+
 	<div id="oModal" class="oModal">
 	  <div>
 		<header>
@@ -59,6 +59,7 @@
     <script type="text/javascript" src="{{ $exercice->script }}"></script>
     <script type="text/javascript">
     $(function(){
+        animateArrowChapter();
         $('.exercice').hide().show(1000);
         getChapitre().done(function(response){
             $('#idCours').val(response.cours_id);

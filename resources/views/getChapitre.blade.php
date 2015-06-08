@@ -26,8 +26,8 @@
 @section('content')
 <div class="col-md-2">
 @if ($chapitre->id != 1 && $chapitre->id != 7)
-            <h1><a href="/chapitre/{{ $chapitre->id - 1}}">
-            <span class="glyphicon glyphicon-arrow-left nextExo" aria-hidden="true"></span> Precedent
+            <h1><a class="precExo" href="/chapitre/{{ $chapitre->id - 1}}">
+            <span class="glyphicon glyphicon-arrow-left " aria-hidden="true"></span> Precedent
         </a></h1>
 @endif
 </div>
@@ -41,15 +41,15 @@
     @if(isset($exercices) && !empty($exercices))
             @foreach ($exercices as $exercice)
                 @foreach ($exercice as $exo)
-                        <h1><a href="/exercice/{{ $exo->id }}">
-                            Suivant <span class="glyphicon glyphicon-arrow-right nextExo" aria-hidden="true"></span>
+                        <h1><a class="nextExo" href="/exercice/{{ $exo->id }}">
+                            Suivant <span class="glyphicon glyphicon-arrow-right " aria-hidden="true"></span>
                         </a></h1>
                 @endforeach
             @endforeach
     @else
 </script>
 <div class="col-md-2 text-center">
-        <h1><a href="/chapitre/{{ $chapitre->id + 1}}">
+        <h1><a class="nextExo" href="/chapitre/{{ $chapitre->id + 1}}">
             Suivant <span class="glyphicon glyphicon-arrow-right nextExo" aria-hidden="true"></span>
         </a></h1>
         </div>
