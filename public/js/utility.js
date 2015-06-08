@@ -216,13 +216,3 @@ function getChapitreContent(idChapitre){
         }
     });
 }
-
-$(function(){
-    $('#indice').on('click', function(e){
-        e.preventDefault();
-        getChapitre().done(function(response){
-            $('#idCours').val(res.cours_id);
-            //ICI CAROLE
-        });
-    });
-});

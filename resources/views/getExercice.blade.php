@@ -23,10 +23,26 @@
 
 @section('content')
 <div class="exercice">
+ 
+	<div id="oModal" class="oModal">
+	  <div>
+		<header>
+		  <a href="#fermer" title="Fermer la fenetre" class="droite"><img src='/images/close.png' width='25'/></a>
+		   <h2>Relis ton cours</h2>
+		 </header>
+		 <section>
+		  <p id='contenuCours'>Ton cours est ici. </p>
+		 <section>
+		 <footer class="cf">
+		  <a href="#fermer" class="btn droite" title="Fermer la fenetre">Fermer la fenetre</a>
+		 </footer>
+	  </div>
+	</div>
+
 	<table>
 		<tr>
 			<td><img src='/images/DjembeMascotte.png' style='max-width: 200px;' /></td>
-			<td><div class='arrow_box'><br/>Tu as besoin de revoir ton cours ? <a href="#" id="indice" class="btn btn-default">C'est ici !</a><br/><br/></div></td>
+			<td><div class='arrow_box'><br/>Tu as besoin de revoir ton cours ? <a href="#oModal" id="indice" class="btn btn-default">C'est ici !</a><br/><br/></div></td>
 		</tr>
 	</table>
     {!!html_entity_decode($exercice->ressource)!!}
@@ -46,6 +62,7 @@
         $('.exercice').hide().show(1000);
         getChapitre().done(function(response){
             $('#idCours').val(response.cours_id);
+			$('#contenuCours').html(response.contenu);
         });
     });
     </script>
