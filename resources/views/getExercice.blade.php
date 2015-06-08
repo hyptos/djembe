@@ -136,9 +136,8 @@
     $(function(){
         $('.exercice').hide().show(1000);
         getChapitre().done(function(response){
-            console.log(response);
             $('#idCours').val(response.cours_id);
-        })
+        });
     });
     </script>
 </div>
