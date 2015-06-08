@@ -23,81 +23,6 @@
 
 @section('content')
 <div class="exercice">
-<style>
-/* CSS */
-.cf:before,
-.cf:after {
-  content:"";
-  display:table;
-}
-.cf:after {
-  clear:both;
-}
-.droite {
-  float:right;
-}
- 
-.oModal {
-  position: fixed;
-  z-index: 99999;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.8);
-  opacity:0;
-  -webkit-transition: opacity 400ms ease-in;
-  -moz-transition: opacity 400ms ease-in;
-  transition: opacity 400ms ease-in;
-  pointer-events: none;
-}
- 
-.oModal:target {
-  opacity:1;
-  pointer-events: auto;
-}
- 
-.oModal:target > div {
-  margin: 10% auto;
-  transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  -webkit-transition: all 0.4s ease-in-out;
-}
- 
-.oModal > div {
-  max-width: 600px;
-  position: relative;
-  margin: 1% auto;
-  padding: 8px 8px 8px 8px;
-  border-radius: 5px;
-  background: #eee;
-  transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  -webkit-transition: all 0.4s ease-in-out;
-}
- 
-.oModal > div header,.oModal > div footer {
-  border-bottom: 1px solid #e7e7e7;
-  border-radius: 5px 5px 0 0;
-}
-.oModal .footer {
-  border:none;
-  border-top: 1px solid #e7e7e7;
-  border-radius: 0 0 5px 5px;
-}
- 
-.oModal > div h2 {
-  margin:0;
-}
- 
-.oModal > div .btn {
-  float:right;
-}
- 
-.oModal > div section,.oModal > div > header, .oModal > div > footer {
-  padding:15px;
-}
-</style>
  
 	<div id="oModal" class="oModal">
 	  <div>
@@ -106,7 +31,7 @@
 		   <h2>Relis ton cours</h2>
 		 </header>
 		 <section>
-		  <p>Ton cours est ici. </p>
+		  <p id='contenuCours'>Ton cours est ici. </p>
 		 <section>
 		 <footer class="cf">
 		  <a href="#fermer" class="btn droite" title="Fermer la fenetre">Fermer la fenetre</a>
@@ -137,6 +62,8 @@
         $('.exercice').hide().show(1000);
         getChapitre().done(function(response){
             $('#idCours').val(response.cours_id);
+			console.log(response);
+			$('#contenuCours').html(response.contenu);
         });
     });
     </script>
