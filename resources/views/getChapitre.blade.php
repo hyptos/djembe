@@ -37,7 +37,7 @@
     </h1>
     <h3>{!!html_entity_decode($chapitre->contenu)!!}</h3>
 </div>
-
+@if ($chapitre->id != 10)
     @if(isset($exercices) && !empty($exercices))
             @foreach ($exercices as $exercice)
                 @foreach ($exercice as $exo)
@@ -54,7 +54,7 @@
         </a></h1>
         </div>
     @endif
-
+@endif
 <script type="text/javascript">
     $(function() {
         animateArrowChapter();
