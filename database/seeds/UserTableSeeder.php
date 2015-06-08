@@ -19,6 +19,13 @@ class UserTableSeeder extends Seeder
             'teach' => false
         ]);
 
+        User::create([
+            'name' => 'Stephanie',
+            'email' => 'stephanie@univ.fr',
+            'password' => $password,
+            'teach' => true
+        ]);
+
         $faker = Faker::create();
 
         foreach (range(1, 100) as $index)
