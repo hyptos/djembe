@@ -20,7 +20,7 @@ class ExerciceTableSeeder extends Seeder
                             <h3>Quel est cette note ?</h3>
                             <p>Ecoute la note de couleur blanche et retrouve celle qui lui correpond parmi les notes. Tu peux les écouter en cliquant sur leurs noms.</p>
                             <p>
-                            <button id="find" class="btn btn-default btn-lg" note="si">
+                            <button id="findExo1" class="btn btn-default btn-lg" note="si">
                                 <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
                             </button>
                             <br>
@@ -64,7 +64,7 @@ class ExerciceTableSeeder extends Seeder
                             <h3>Quel est cette note ?</h3>
                             <p>Ecoute la note de couleur blanche et retrouve celle qui lui correpond parmi les notes. Tu peux les écouter en cliquant sur leurs noms.</p>
                             <p>
-                            <button id="find" class="btn btn-default btn-lg" note="si">
+                            <button id="findExo1" class="btn btn-default btn-lg" note="si">
                                 <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
                             </button>
                             <br>
