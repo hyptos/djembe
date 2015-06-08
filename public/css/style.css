@@ -182,3 +182,7 @@ footer {
 .oModal > div section,.oModal > div > header, .oModal > div > footer {
   padding:15px;
 }
+
+.nav navbar-nav navbar-right {
+	background-color: white;
+}
