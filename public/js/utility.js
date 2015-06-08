@@ -223,6 +223,7 @@ $(function(){
         getChapitre().done(function(response){
             getChapitreContent(response.chapitre_id).done(function(res){
                 console.log(res);
+                $('#idCours').val(res.cours_id);
             });
         });
     });

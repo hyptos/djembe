@@ -61,7 +61,14 @@ class ExerciceController extends Controller
     {
         $idExercice = $request->input('idExercice');
         $exercice   = Exercice::find($idExercice);
-        $q          = Questionnaire::find($exercice->questionnaireExo[0]->questionnaire_id);
-        return  response()->json($q);
+        echo '<pre>';
+        print_r($exercice);
+        echo '</pre>';
+        if (empty($exercice->questionnaireExo)) {
+            $q          = Questionnaire::find($exercice->questionnaireExo[0]->questionnaire_id);
+            return  response()->json($q);
+        } else {
+            return '';
+        }
     }
 }
