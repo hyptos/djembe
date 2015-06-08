@@ -19,13 +19,6 @@ $app->get('question', 'App\Http\Controllers\questionnaireController@test');
 $app->post('addCon', 'App\Http\Controllers\ConnaissanceController@addAverage');
 $app->get('getCon', 'App\Http\Controllers\ConnaissanceController@getCon');
 
-//test routes
-$app->get('exoTest', 'App\Http\Controllers\ExoTestController@test');
-$app->get('exoTest2', 'App\Http\Controllers\ExoTest2Controller@test');
-
-//testson routes
-$app->get('son', 'App\Http\Controllers\sonController@test');
-
 //Users routes
 $app->get('users', 'App\Http\Controllers\UserController@getAllProfile');
 $app->get('dashboardSolfege', 'App\Http\Controllers\CoursController@dashboardSolfege');
@@ -57,13 +50,18 @@ $app->get('cours/{id}', 'App\Http\Controllers\CoursController@get');
 
 // chapitres routes
 $app->get('chapitre/{id}', 'App\Http\Controllers\ChapitreController@get');
+$app->post('getChapitreContent', 'App\Http\Controllers\ChapitreController@getChapitreContent');
 
 // exercices routes
 $app->get('exercice/{id}', 'App\Http\Controllers\ExerciceController@get');
 $app->get('textatrou', 'App\Http\Controllers\Exercices\TextATrouController@get');
 $app->post('textatrou', 'App\Http\Controllers\Exercices\TextATrouController@post');
 $app->post('nextExercices', 'App\Http\Controllers\ExerciceController@getNextExercices');
+$app->post('getChapitre', 'App\Http\Controllers\ExerciceController@getChapitre');
 
 // test routes
 $app->get('test', 'App\Http\Controllers\UserController@test');
 $app->get('pie', 'App\Http\Controllers\UserController@pie');
+$app->get('exoTest', 'App\Http\Controllers\ExoTestController@test');
+$app->get('exoTest2', 'App\Http\Controllers\ExoTest2Controller@test');
+$app->get('son', 'App\Http\Controllers\sonController@test');

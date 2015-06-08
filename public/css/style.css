@@ -66,6 +66,7 @@ a:focus {
 .container {
 	width: 80%;
 	background-color: #F2EFEA;
+	padding: 5px;
 }
 
 footer {
@@ -77,4 +78,111 @@ footer {
 
 .nextExo{
 	top:4px;
+}
+
+.arrow_box {
+	position: relative;
+	background: #FEFDE4;
+	border: 4px solid #FEB351;
+	padding: 5px;
+}
+.arrow_box:after, .arrow_box:before {
+	right: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box:after {
+	border-color: rgba(136, 183, 213, 0);
+	border-right-color: #FEFDE4;
+	border-width: 20px;
+	margin-top: -20px;
+}
+.arrow_box:before {
+	border-color: rgba(194, 225, 245, 0);
+	border-right-color: #FEB351;
+	border-width: 26px;
+	margin-top: -26px;
+}
+
+.cf:before,
+.cf:after {
+  content:"";
+  display:table;
+}
+.cf:after {
+  clear:both;
+}
+.droite {
+  float:right;
+}
+ 
+.oModal {
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  opacity:0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
+}
+ 
+.oModal:target {
+  opacity:1;
+  pointer-events: auto;
+}
+ 
+.oModal:target > div {
+  margin: 10% auto;
+  transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+}
+ 
+.oModal > div {
+  max-width: 600px;
+  position: relative;
+  margin: 1% auto;
+  padding: 8px 8px 8px 8px;
+  border-radius: 5px;
+  background: #eee;
+  transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+}
+ 
+.oModal > div header,.oModal > div footer {
+  border-bottom: 1px solid #e7e7e7;
+  border-radius: 5px 5px 0 0;
+}
+.oModal .footer {
+  border:none;
+  border-top: 1px solid #e7e7e7;
+  border-radius: 0 0 5px 5px;
+}
+ 
+.oModal > div h2 {
+  margin:0;
+}
+ 
+.oModal > div .btn {
+  float:right;
+}
+ 
+.oModal > div section,.oModal > div > header, .oModal > div > footer {
+  padding:15px;
+}
+
+.nav navbar-nav navbar-right {
+	background-color: white;
 }

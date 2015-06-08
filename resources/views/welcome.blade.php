@@ -60,7 +60,7 @@
                                     <div class="ch-info-front ch-img-3"></div>
                                     <div class="ch-info-back">
                                         <h3>Histoire</h3>
-                                        <p><a href="/chapitre/7">Commencer</a></p>
+                                        <p><a href="/chapitre/11">Commencer</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -134,7 +134,7 @@
                 </div>
                   <div class="checkbox">
                     <label>
-                      <input type="radio" name="teach" class="signup"> Professeur
+                      <input type="checkbox" name="teach" class="signup"> Professeur
                     </label>
                   </div>
 

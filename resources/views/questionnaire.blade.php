@@ -35,14 +35,34 @@
     <div id="solfege1" class="form-group">
       <h2>Question 1</h2>
         <div class="form-group">
-          <p>attend avis antoine²</p>
+          <p>Quelle est cette note ?</p>
+                  <img src="/images/re.png">
+                  <div class="radio">
+                    <label><input type="radio" name="note1" value="mi">mi</label>
+                  </div>
+                  <div class="radio">
+                    <label><input type="radio" name="note1" value="re">re</label>
+                  </div>
+                  <div class="radio">
+                    <label><input type="radio" name="note1" value="do">do</label>
+                  </div>
         </div>
         <a class="btn btn-warning btn-lg" id="solfege1_b" href="#">Suivant</a>
     </div>
     <div id="solfege2" class="form-group">
       <h2>Question 2</h2>
         <div class="form-group">
-          <p>attend avis antoine²</p>
+           <p>Quelle est la durée de cette note ?</p>
+                  <img src="/images/croche.png">
+                  <div class="radio">
+                    <label><input type="radio" name="note2" value="1">1 temps</label>
+                  </div>
+                  <div class="radio">
+                    <label><input type="radio" name="note2" value="1_2">1/2 temps</label>
+                  </div>
+                  <div class="radio">
+                    <label><input type="radio" name="note2" value="1_4">1/4 temps</label>
+                  </div>
         </div>
         <a class="btn btn-warning btn-lg" id="solfege2_b" href="#">Suivant</a>
     </div>

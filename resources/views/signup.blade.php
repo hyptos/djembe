@@ -63,7 +63,7 @@
                 </div>
                   <div class="checkbox">
                     <label>
-                      <input type="radio" name="teach" class="signup"> Professeur
+                      <input type="checkbox" name="teach" class="signup"> Professeur
                     </label>
                   </div>
 

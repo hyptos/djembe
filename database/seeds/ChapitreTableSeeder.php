@@ -11,49 +11,150 @@ class ChapitreTableSeeder extends Seeder
     {
 
         /******
-            Cours de solfège 
+            Cours de solfège
         *******/
         Chapitre::create([ // id 1
             'no' => '1',
             'titre' => 'Les sons',
             'contenu' => 'Dans la vie de tous les jours, il y a plein de
-                        sons différents.
-                        Amusons nous à en écouter et différencier quelques un.',
+                        sons différents : <br/>
+
+                        <audio id="accordeon" src="/son/accordeon.mp3" preload="auto"></audio>
+                        <audio id="bird" src="/son/bird.mp3" preload="auto"></audio>
+                        <audio id="cat" src="/son/cat.mp3" preload="auto"></audio>
+                        <audio id="dog" src="/son/dog.mp3" preload="auto"></audio>
+                        <audio id="piano" src="/son/piano_sol.mp3" preload="auto"></audio>
+                        <audio id="french_cor" src="/son/french_cor.mp3" preload="auto"></audio>
+                        <audio id="grelots" src="/son/grelots.mp3" preload="auto"></audio>
+                        <audio id="djembe" src="/son/djembe.mp3" preload="auto"></audio>
+
+                        <audio id="guitar" src="/son/guitar.mp3" preload="auto"></audio>
+                        <audio id="ocarina" src="/son/ocarina.mp3" preload="auto"></audio>
+                        <audio id="piccolo" src="/son/piccolo.mp3" preload="auto"></audio>
+                        <audio id="shaker" src="/son/shaker.mp3" preload="auto"></audio>
+                        <audio id="sneeze" src="/son/sneeze.mp3" preload="auto"></audio>
+                        <audio id="violon" src="/son/violon.mp3" preload="auto"></audio>
+                        <audio id="whisle" src="/son/whisle.mp3" preload="auto"></audio>
+                        <audio id="saxophone" src="/son/sexy_saxo.MP3" preload="auto"></audio>
+
+                        <button id="find" class="btn btn-default btn-lg son" note="djembe">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button>
+                        <button id="find" class="btn btn-default btn-lg son" note="dog">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button>
+                        <button id="find" class="btn btn-default btn-lg son" note="accordeon">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button>
+                        <button id="find" class="btn btn-default btn-lg son" note="piano">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button><br/>
+                        <button id="find" class="btn btn-default btn-lg son" note="sneeze">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button>
+                        <button id="find" class="btn btn-default btn-lg son" note="saxophone">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button>
+                        <button id="find" class="btn btn-default btn-lg son" note="grelots">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button>
+                        <button id="find" class="btn btn-default btn-lg son" note="cat">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button><br/>
+                        <button id="find" class="btn btn-default btn-lg son" note="piccolo">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button>
+                        <button id="find" class="btn btn-default btn-lg son" note="guitar">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button>
+                        <button id="find" class="btn btn-default btn-lg son" note="whisle">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button>
+                        <button id="find" class="btn btn-default btn-lg son" note="violon">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button><br/>
+                        <button id="find" class="btn btn-default btn-lg son" note="french_cor">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button>
+                        <button id="find" class="btn btn-default btn-lg son" note="bird">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button>
+                        <button id="find" class="btn btn-default btn-lg son" note="shaker">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button>
+                        <button id="find" class="btn btn-default btn-lg son" note="ocarina">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                        </button><br/>
+
+                        <script type="text/javascript">
+                        $(\'.son\').on(\'click\',function(e){
+                            openAndPlay($(e.target).attr(\'note\'));
+                        });
+                        </script>
+                        ',
             'cours_id' => 1,
-            'questionnaire_id' => 1,
+            'questionnaire_id' => null,
         ]);
 
         Chapitre::create([ // id 2
             'no' => '2',
             'titre' => 'Les notes',
             'contenu' => 'En musique, nous différençons 7 types de sons
-                        que nous nommons des notes. Il s\'agit de :
-                        Do Ré Mi Fa Sol La et Si. 
-                        Amusons nous avec.',
+                        que nous nommons des notes.<br/>
+                        Il s\'agit de :<br/>
+
+
+                        <audio id="do" src="/son/piano_do.mp3" preload="auto"></audio>
+                        <audio id="re" src="/son/piano_re.mp3" preload="auto"></audio>
+                        <audio id="mi" src="/son/piano_mi.mp3" preload="auto"></audio>
+                        <audio id="fa" src="/son/piano_fa.mp3" preload="auto"></audio>
+                        <audio id="sol" src="/son/piano_sol.mp3" preload="auto"></audio>
+                        <audio id="la" src="/son/piano_la.mp3" preload="auto"></audio>
+                        <audio id="si" src="/son/piano_si.mp3" preload="auto"></audio>
+
+                        <button class="btn rep">do</button>
+                        <button class="btn rep">re</button>
+                        <button class="btn rep">mi</button>
+                        <button class="btn rep">fa</button>
+                        <button class="btn rep">sol</button>
+                        <button class="btn rep">la</button>
+                        et
+                        <button class="btn rep">si</button>
+
+                        <script type="text/javascript">
+                        $(function(){
+                            changeColorButton(notes);
+                        });
+                        $(\'.rep\').on(\'click\',function(e){
+                            openAndPlay(e.target.innerHTML);
+                        });
+                        </script>
+
+                        <br/>Amusons nous maintenant à les différencier et les reconnaîtres.',
             'cours_id' => 1,
-            'questionnaire_id' => 2,
+            'questionnaire_id' => 1,
         ]);
 
         Chapitre::create([ // id 3
             'no' => '3',
             'titre' => 'Les suites de notes',
-            'contenu' => 'Plus que des sons, la musique se compose à partir 
+            'contenu' => 'Plus que des sons, la musique se compose à partir
                           de plusieurs notes jouées ensemble ou les unes après
-                          les autres.
+                          les autres.<br/>
                           Amusons nous à rejouer des suites de notes',
             'cours_id' => 1,
-            'questionnaire_id' => 3,
+            'questionnaire_id' => 2,
         ]);
 
         Chapitre::create([ // id 4
             'no' => '1',
             'titre' => 'Lire et Ecrire la Musique - La portée',
-            'contenu' => 'Pour pourvoir partager la musique
+            'contenu' => 'Pour pouvoir partager la musique
                             aux gens qui nous entourent nous
                             écrivons les notes sur ce que l\'on
-                            appelle une portée.
+                            appelle une portée.<br/>
 
-                          [img de portée]',
+                          <img src="/images/portee.png" alt="Portee" />',
             'cours_id' => 2,
             'questionnaire_id' => null,
         ]);
@@ -61,11 +162,17 @@ class ChapitreTableSeeder extends Seeder
         Chapitre::create([ // id 5
             'no' => '2',
             'titre' => 'Lire et Ecrire la Musique - Les notes',
-            'contenu' => 'Les notes sur une portée sont représentées
-                            par des ronds posés sur ou entre les lignes
-                            de la portée.<br/>
+            'contenu' => 'Sur une portée une note est représentée
+                        par un rond, appellé "tête", qui peut être
+                        accompagné par un trait, appellé "queue".<br/>
 
-                            [img de portée avec notes]',
+                        <img src="/images/note.png" alt="Note" /><br/>
+
+                        C\'est en posant plusieurs notes les unes après les
+                        autres sur la portée que nous obtenons ce que l\'on
+                        appelle une partition.<br/>
+
+                        <img src="/images/partition.png" alt="Partition" />',
             'cours_id' => 2,
             'questionnaire_id' => null,
         ]);
@@ -76,23 +183,92 @@ class ChapitreTableSeeder extends Seeder
             'contenu' => 'Pour savoir où doit être placée une note, nous
                             utilisons ce que l\'on appelle une Clef de Sol.<br/>
 
+                            <img src="/images/cleDeSol.jpg" alt="clef de sol" /><br/>
+
                             Celle ci est placée au début de la portée et indique
-                            sur qu\'elle ligne de la portée est placé le sol.<br/>
+                            sur quelle ligne de la portée est placé la note Sol.<br/>
 
                             Puis en suivant le code : Do Ré Mi Fa Sol La Si Do,
-                            nous pouvons savoir où écrire les autres notes.
+                            nous pouvons savoir où écrire les autres notes.<br/>
 
-                            [img de portée DoReMiFaSolLaSi]',
+                            <img src="/images/note_repere.png" alt="note_repere" /><br/>
+
+                            Amusons nous maintenant à placer des notes sur une portée.',
             'cours_id' => 2,
-            'questionnaire_id' => 4,
+            'questionnaire_id' => 3,
+        ]);
+
+        Chapitre::create([ // id 7
+            'no' => '4',
+            'titre' => 'Le rythme',
+            'contenu' => '
+Maintenant que tu sais nommer les notes se trouvant
+sur une partition, nous allons apprendre comment lire
+le rythme écrit sur une partition.<br/>
+            ',
+            'cours_id' => 3,
+            'questionnaire_id' => null,
+        ]);
+
+        Chapitre::create([ // id 7
+            'no' => '5',
+            'titre' => 'Le rythme - les temps',
+            'contenu' => '
+Pour savoir quand jouer une note se trouvant sur une
+partition nous utilisons ce que l\'on appelle un
+métronome.<br/>
+Les "ticks" de celui-ci nous permet de connaitre
+la valeur de ce que l\'on appelle "un temps".<br/>
+
+<audio id="tick" src="/son/tick.wav" preload="auto"></audio>
+<div id="metronome"><div id="metronome_container"></div></div>
+<a href="#" class="btn btn-default" id="stop">stop</a>
+            ',
+            'cours_id' => 3,
+            'questionnaire_id' => null,
         ]);
 
 
+        Chapitre::create([ // id 9
+            'no' => '6',
+            'titre' => 'Le rythme - les durées',
+            'contenu' => '
+Un "temps" est le temps que l\'on attend après avoir
+jouer une "noire" avant de jouer tout autres notes.<br/>
+
+<img src="/images/temps.png" alt="temps" />
+            ',
+            'cours_id' => 3,
+            'questionnaire_id' => null,
+        ]);
+
+        Chapitre::create([ // id 10
+            'no' => '7',
+            'titre' => 'Le rythme - les valeurs des notes',
+            'contenu' => '
+Puisque une "noire" est égale à un "temps" de métronome,
+alors il nous faut un moyen pour savoir s\'il faut
+attendre plus ou moins qu\'un "temps" après une note.<br/>
+
+Pour cela il existe plusieurs types de notes :<br/>
+la blanche = 2 temps, la noire = 1 temps,
+la croche = un demi temps, la double croche =
+un quart de temps. <br/>
+
+<img src="/images/blanche.png" alt="blanche" />
+<img src="/images/noire.png" alt="noire" />
+<img src="/images/croche.png" alt="croche" />
+<img src="/images/double_croche.png" alt="double_croche" />
+            ',
+            'cours_id' => 3,
+            'questionnaire_id' => null,
+        ]);
+
 
         /******
-            Cours d'histoire de la Musique 
+            Cours d'histoire de la Musique
         *******/
-         Chapitre::create([ // id 7
+         Chapitre::create([ // id 11
             'no' => '1',
             'titre' => 'Au commencement...',
             'contenu' => 'Comme il n\'existait aucun moyen d\'enregistrer ni d\'écrire la musique, on ne sait pas depuis combien de temps elle existe.
@@ -103,7 +279,7 @@ class ChapitreTableSeeder extends Seeder
                         Leurs danses consistaient entièrement en mouvements du corps et des bras, lents ou endiablés, doux ou violents, selon le sentiment exprimé.
                         Ils utilisaient la voix.',
             'cours_id' => 4,
-            'questionnaire_id' => 5,
+            'questionnaire_id' => 4,
          ]);
     }
 }

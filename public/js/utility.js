@@ -173,12 +173,52 @@ function getConnaissance(){
 }
 
 function animateArrowChapter(){
-    console.log('hey arrow');
-    $('.nextExo').on('click', function(e){
+    $('.precExo').on('click', function(e){
         e.preventDefault();
         $( ".container" ).animate({ "margin-left": "+=2000px" }, "slow", function(){
             $(this).remove();
             window.location = e.target.href;
         });
+    });
+    $('.nextExo').on('click', function(e){
+        e.preventDefault();
+        $( ".container" ).animate({ "margin-left": "-=2000px" }, "slow", function(){
+            $(this).remove();
+            window.location = e.target.href;
+        });
+    });
+}
+
+function changeColorButton(notes){
+    $.each(notes,function(e){
+        var buttons = $('.rep');
+        for (var i = buttons.length - 1; i >= 0; i--) {
+            if(this.label == buttons[i].innerHTML){
+                $(buttons[i]).css('background-color',this.color);
+            }
+        }
+    });
+    console.log();
+}
+
+function getChapitre(){
+    return $.ajax({
+        url: "/getChapitre",
+        method: "POST",
+        data: {
+            idExercice: $('#idExercice').val(),
+            _token: $('#token').val()
+        }
+    });
+}
+
+function getChapitreContent(idChapitre){
+    return $.ajax({
+        url: "/getChapitreContent",
+        method: "POST",
+        data: {
+            idChapitre: idChapitre,
+            _token: $('#token').val()
+        }
     });
 }

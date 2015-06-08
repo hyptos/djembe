@@ -13,7 +13,7 @@ class NextExerciceTableSeeder extends Seeder
         //Difficulté 1
         NextExercice::create([
             'exercice_id' => 1,
-            'exo_continue_id' => 2,
+            'exo_continue_id' => 3,
             'exo_continue_difficult_id' => 1,
             'exo_redo_simple_id' => 1,
             'exo_review_basics_id' => 1

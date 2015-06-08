@@ -23,10 +23,30 @@
 
 @section('content')
 <div class="exercice">
-	<h1>Exercice n°{{ $exercice->id }}</h1>
-    <p>Cet exercice est de difficulte : {{ $exercice->difficulte }}.</p>
-    {!!html_entity_decode($exercice->ressource)!!}
-	<p>Cet exercice est de type : {{ $exercice->type }}.</p>
+
+	<div id="oModal" class="oModal">
+	  <div>
+		<header>
+		  <a href="#fermer" title="Fermer la fenetre" class="droite"><img src='/images/close.png' width='25'/></a>
+		   <h2>Relis ton cours</h2>
+		 </header>
+		 <section>
+		  <p id='contenuCours'>Ton cours est ici. </p>
+		 <section>
+		 <footer class="cf">
+		  <a href="#fermer" class="btn droite" title="Fermer la fenetre">Fermer la fenetre</a>
+		 </footer>
+	  </div>
+	</div>
+
+	<div class='col-md-2'>
+		<img src='/images/DjembeMascotte.png' style='max-width: 200px;' />
+	</div>
+	<div class='col-md-4'>
+		<div class='arrow_box'><br/>Tu as besoin de revoir ton cours ? <a href="#oModal" id="indice" class="btn btn-default">C'est ici !</a><br/><br/></div>
+	</div>
+			
+		{!!html_entity_decode($exercice->ressource)!!}
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.4/d3.min.js"></script>
 
@@ -35,13 +55,20 @@
     <input type="hidden" id="timeAvg" name="timeAvg" value="60">
     <input type="hidden" id="idUser" name="idUser" value="{{ Auth::user()->id }}">
     <input type="hidden" id="idExercice" name="idExercice" value="{{ $exercice->id }}">
-    <input type="hidden" id="idCours" name="idCours" value="1">
+    <input type="hidden" id="idCours" name="idCours" value="">
     </script>
     <script type="text/javascript" src="{{ $exercice->script }}"></script>
     <script type="text/javascript">
     $(function(){
+        animateArrowChapter();
         $('.exercice').hide().show(1000);
+        getChapitre().done(function(response){
+            $('#idCours').val(response.cours_id);
+			$('#contenuCours').html(response.contenu);
+        });
     });
     </script>
-
+</div>
 @stop
+
+@include('footer')

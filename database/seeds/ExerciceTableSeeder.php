@@ -17,10 +17,10 @@ class ExerciceTableSeeder extends Seeder
             'nbReponses' => 1,
             'ressource' => '<div class="col-md-12 text-center" id="game">
                             <p id="message"></p>
-                            <h3>Quel est cette note ?</h3>
-                            <p>Ecoute la note de couleur blanche et retrouve celle qui lui correpond parmi les notes. Tu peux les écouter en cliquant sur leurs noms.</p>
+                            <h3>Quelle est cette note ?</h3>
+                            <p>Ecoute la note de couleur blanche et retrouve celle qui lui correpond parmi les notes. Tu peux les écouter en cliquant sur leur nom.</p>
                             <p>
-                            <button id="find" class="btn btn-default btn-lg" note="si">
+                            <button id="findExo1" class="btn btn-default btn-lg" note="si">
                                 <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
                             </button>
                             <br>
@@ -61,10 +61,10 @@ class ExerciceTableSeeder extends Seeder
             'nbReponses' => 1,
             'ressource' => '<div class="col-md-12 text-center" id="game">
                             <p id="message"></p>
-                            <h3>Quel est cette note ?</h3>
-                            <p>Ecoute la note de couleur blanche et retrouve celle qui lui correpond parmi les notes. Tu peux les écouter en cliquant sur leurs noms.</p>
+                            <h3>Quelle est cette note ?</h3>
+                            <p>Ecoute la note de couleur blanche et retrouve celle qui lui correpond parmi les notes. Tu peux les écouter en cliquant sur leur nom.</p>
                             <p>
-                            <button id="find" class="btn btn-default btn-lg" note="si">
+                            <button id="findExo1" class="btn btn-default btn-lg" note="si">
                                 <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
                             </button>
                             <br>
@@ -216,6 +216,7 @@ class ExerciceTableSeeder extends Seeder
                             <script type="text/javascript" src="/js/interact.min.js"></script>
                             <div class="col-md-12" id="game">
                             <div id="message" class="alert"></div>
+							Poses les notes à leur place sur la portée.<br/><br/>
                             <div id="lesNotes">
                             <br/><br/>
                             <div id="zone0" class="dropzone b"></div>
@@ -250,6 +251,7 @@ class ExerciceTableSeeder extends Seeder
                             <script type="text/javascript" src="/js/interact.min.js"></script>
                             <div class="col-md-12" id="game">
                             <div id="message" class="alert"></div>
+							Poses les notes à leur place sur la portée.<br/><br/>
                             <div id="lesNotes">
                             <br/><br/>
                             <div id="zone0" class="dropzone b"></div>
@@ -284,6 +286,7 @@ class ExerciceTableSeeder extends Seeder
                             <script type="text/javascript" src="/js/interact.min.js"></script>
                             <div class="col-md-12" id="game">
                             <div id="message" class="alert"></div>
+							Poses les notes à leur place sur la portée.<br/><br/>
                             <div id="lesNotes">
                             <br/><br/>
                             <div id="zone0" class="dropzone b"></div>
@@ -318,6 +321,7 @@ class ExerciceTableSeeder extends Seeder
                             <script type="text/javascript" src="/js/interact.min.js"></script>
                             <div class="col-md-12" id="game">
                             <div id="message" class="alert"></div>
+							Poses les notes à leur place sur la portée.<br/><br/>
                             <div id="lesNotes">
                             <br/><br/>
                             <div id="zone0" class="dropzone b"></div>
@@ -341,8 +345,8 @@ class ExerciceTableSeeder extends Seeder
                             </div>
                             <button id="finish" class="btn btn-primary">J\'ai terminé !</button></div>',
             'script' => '/js/ddpartition.js',
-            'temps_moyen' => 60,
-            'nbReponses' => 10,
+            'temps_moyen' => 40,
+            'nbReponses' => 7,
         ]);
 
         Exercice::create([ // id : 11
@@ -352,6 +356,7 @@ class ExerciceTableSeeder extends Seeder
                             <script type="text/javascript" src="/js/interact.min.js"></script>
                             <div class="col-md-12" id="game">
                             <div id="message" class="alert"></div>
+							Poses les notes à leur place sur la portée.<br/><br/>
                             <div id="lesNotes">
                             <br/><br/>
                             <div id="zone0" class="dropzone b"></div>
@@ -375,8 +380,8 @@ class ExerciceTableSeeder extends Seeder
                             </div>
                             <button id="finish" class="btn btn-primary">J\'ai terminé !</button></div>',
             'script' => '/js/ddpartition.js',
-            'temps_moyen' => 60,
-            'nbReponses' => 15,
+            'temps_moyen' => 30,
+            'nbReponses' => 7,
         ]);
 
         Exercice::create([ // id : 12
