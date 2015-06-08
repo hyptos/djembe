@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Exercice;
+use App\Models\Chapitre;
 use App\Models\NextExercice;
 use App\Models\Questionnaire;
 use Auth;
@@ -60,15 +61,8 @@ class ExerciceController extends Controller
     public function getChapitre(Request $request)
     {
         $idExercice = $request->input('idExercice');
-        $exercice   = Exercice::find($idExercice);
-        echo '<pre>';
-        print_r($exercice);
-        echo '</pre>';
-        if (empty($exercice->questionnaireExo)) {
-            $q          = Questionnaire::find($exercice->questionnaireExo[0]->questionnaire_id);
-            return  response()->json($q);
-        } else {
-            return '';
-        }
+        $nexercice   = NextExercice::find($idExercice);
+        $chap   = Chapitre::find($nexercice->exo_review_basics_id);
+        return  response()->json($chap);
     }
 }
