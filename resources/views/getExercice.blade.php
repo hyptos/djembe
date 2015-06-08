@@ -39,13 +39,14 @@
 	  </div>
 	</div>
 
-	<table>
-		<tr>
-			<td><img src='/images/DjembeMascotte.png' style='max-width: 200px;' /></td>
-			<td><div class='arrow_box'><br/>Tu as besoin de revoir ton cours ? <a href="#oModal" id="indice" class="btn btn-default">C'est ici !</a><br/><br/></div></td>
-		</tr>
-	</table>
-    {!!html_entity_decode($exercice->ressource)!!}
+	<div class='col-md-2'>
+		<img src='/images/DjembeMascotte.png' style='max-width: 200px;' />
+	</div>
+	<div class='col-md-4'>
+		<div class='arrow_box'><br/>Tu as besoin de revoir ton cours ? <a href="#oModal" id="indice" class="btn btn-default">C'est ici !</a><br/><br/></div>
+	</div>
+			
+		{!!html_entity_decode($exercice->ressource)!!}
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.4/d3.min.js"></script>
 
