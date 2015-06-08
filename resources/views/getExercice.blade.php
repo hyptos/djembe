@@ -62,7 +62,6 @@
         $('.exercice').hide().show(1000);
         getChapitre().done(function(response){
             $('#idCours').val(response.cours_id);
-			console.log(response);
 			$('#contenuCours').html(response.contenu);
         });
     });
