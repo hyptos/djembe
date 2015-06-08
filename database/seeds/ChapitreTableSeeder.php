@@ -206,7 +206,7 @@ Maintenant que tu sais nommer les notes se trouvant
 sur une partition, nous allons apprendre comment lire
 le rythme écrit sur une partition.<br/>
             ',
-            'cours_id' => 2,
+            'cours_id' => 3,
             'questionnaire_id' => null,
         ]);
 
@@ -217,14 +217,14 @@ le rythme écrit sur une partition.<br/>
 Pour savoir quand jouer une note se trouvant sur une
 partition nous utilisons ce que l\'on appelle un
 métronome.<br/>
-Les "ticks" de celui-ci nous permet de connaitre 
+Les "ticks" de celui-ci nous permet de connaitre
 la valeur de ce que l\'on appelle "un temps".<br/>
 
 <audio id="tick" src="/son/tick.wav" preload="auto"></audio>
 <div id="metronome"><div id="metronome_container"></div></div>
 <a href="#" class="btn btn-default" id="stop">stop</a>
             ',
-            'cours_id' => 2,
+            'cours_id' => 3,
             'questionnaire_id' => null,
         ]);
 
@@ -238,7 +238,7 @@ jouer une "noire" avant de jouer tout autres notes.<br/>
 
 <img src="/images/temps.png" alt="temps" />
             ',
-            'cours_id' => 2,
+            'cours_id' => 3,
             'questionnaire_id' => null,
         ]);
 
@@ -251,7 +251,7 @@ alors il nous faut un moyen pour savoir s\'il faut
 attendre plus ou moins qu\'un "temps" après une note.<br/>
 
 Pour cela il existe plusieurs types de notes :<br/>
-la blanche = 2 temps, la noire = 1 temps, 
+la blanche = 2 temps, la noire = 1 temps,
 la croche = un demi temps, la double croche =
 un quart de temps. <br/>
 
@@ -260,7 +260,7 @@ un quart de temps. <br/>
 <img src="/images/croche.png" alt="croche" />
 <img src="/images/double_croche.png" alt="double_croche" />
             ',
-            'cours_id' => 2,
+            'cours_id' => 3,
             'questionnaire_id' => null,
         ]);
 
