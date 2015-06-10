@@ -177,16 +177,17 @@ function animateArrowChapter(){
         e.preventDefault();
         $( ".container" ).animate({ "margin-left": "+=2000px" }, "slow", function(){
             $(this).remove();
-            window.location = e.target.href;
+            window.location = e.currentTarget.href;
         });
     });
     $('.nextExo').on('click', function(e){
         e.preventDefault();
         $( ".container" ).animate({ "margin-left": "-=2000px" }, "slow", function(){
             $(this).remove();
-            window.location = e.target.href;
+            window.location = e.currentTarget.href;
         });
     });
+
 }
 
 function changeColorButton(notes){
